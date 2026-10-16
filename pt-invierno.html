@@ -427,6 +427,76 @@ a{color:inherit}
 .gpsbanner b{display:block;font:800 22px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
 .gpsbanner .arr{margin-left:auto;font:800 28px/1 "Barlow Condensed",Arial,sans-serif}
 .gpspage .geo{margin-top:0}
+.offbtn{display:flex;align-items:center;gap:12px;width:100%;margin-top:14px;border:0;cursor:pointer;text-align:left;background:#1565C0;color:#fff;border-radius:14px;padding:16px;box-shadow:0 5px 0 #0D47A1}
+.offbtn:active{transform:translateY(3px);box-shadow:0 2px 0 #0D47A1}
+.offbtn .oi{flex:none;width:52px;height:52px;border-radius:50%;background:#fff;color:#1565C0;display:grid;place-items:center}
+.offbtn .oi svg{width:30px;height:30px}
+.offbtn .ot{flex:1;min-width:0}
+.offbtn b{display:block;font:800 26px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.offbtn small{display:block;margin-top:4px;font-size:14px;font-weight:600;opacity:.92;line-height:1.3}
+.offbtn .oa{font:800 34px/1 "Barlow Condensed",Arial,sans-serif}
+.offscr{display:none;background:#fff;padding:16px 0 28px;min-height:70vh}
+body.offmode .offscr{display:block}
+body.offmode .mainscr,body.offmode header.hero{display:none}
+.offback{border:0;background:#ECEFF1;color:#263238;font:800 17px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:10px 14px;border-radius:10px;cursor:pointer}
+.offh{display:flex;align-items:center;gap:10px;font-size:clamp(30px,8vw,40px);text-transform:uppercase;color:#1565C0;margin:14px 0 10px}
+.offh span{width:44px;height:44px;border-radius:50%;background:#1565C0;color:#fff;display:grid;place-items:center}
+.offh span svg{width:26px;height:26px}
+.backh{font-size:26px;text-transform:uppercase;color:#1B4D24;margin:16px 0 2px}
+.offscr .sub{margin:0 0 8px;color:#4F5B58;font-weight:600}
+.offwait{display:none;background:#E3F2FD;color:#0D47A1;border-radius:10px;padding:12px;font-weight:700;margin:8px 0}
+.dest .bt{grid-template-columns:1fr 1fr 1fr!important}
+.dest .bt.four{grid-template-columns:1fr 1fr!important}
+.dest .bt.three{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.dest .bt.three>*{flex-direction:column!important;gap:4px!important;min-height:62px!important;font-size:13px!important;min-width:0;overflow-wrap:normal;word-break:normal;letter-spacing:-.01em;padding:6px 3px!important}
+.dest .bt.three svg{width:22px!important;height:22px!important}
+.dest .bt .mmb,.dest .bt .amb{display:flex;align-items:center;justify-content:center;gap:6px;min-height:50px;border-radius:10px;text-decoration:none;background:#263238;color:#fff;font:800 15px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;text-align:center;padding:4px}
+.dest .bt .amb{background:#455A64}
+.dest .bt .offb,.dest .bt .mapb{min-height:50px;font-size:15px!important;line-height:1.05!important;text-align:center;padding:4px}
+.dest .bt svg{width:18px!important;height:18px!important;flex:none;background:none!important}
+.mapfs{position:fixed;inset:0;z-index:55;display:none;background:#CFE6F2}
+.mapfs.show{display:block}
+.mapfs #lmap{position:absolute;inset:0;height:auto!important;min-height:0!important;max-height:none!important}
+.fstop{position:absolute;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;gap:8px;padding:calc(8px + env(safe-area-inset-top,0px)) 8px 8px;background:rgba(38,50,56,.92);color:#fff}
+.fsx{flex:none;width:42px;height:42px;border-radius:50%;border:0;background:#fff;color:#263238;font-size:20px;font-weight:800;cursor:pointer}
+.fstt{flex:1;min-width:0}.fstt b{display:block;font:800 18px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.fstt span{display:block;font-size:12.5px;font-weight:700;opacity:.95;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fs911{flex:none;background:#C62828;color:#fff;text-decoration:none;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:11px 12px;border-radius:10px;border:2px solid #fff}
+.fsbtn{position:absolute;z-index:1000;border:0;cursor:pointer;background:#fff;color:#1565C0;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.fscenter{right:10px;bottom:calc(20px + env(safe-area-inset-bottom,0px));width:52px;height:52px;border-radius:50%;display:grid;place-items:center}
+.fscenter svg{width:28px;height:28px}
+.fsleg{left:10px;top:calc(72px + env(safe-area-inset-top,0px));padding:8px 10px;border-radius:8px;color:#263238;font:800 14px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.fslegend{display:none;position:absolute;z-index:1001;left:10px;right:10px;top:calc(110px + env(safe-area-inset-top,0px));max-height:55vh;overflow:auto;background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.fslegend.show{display:block}
+.fsinfo{position:absolute!important;z-index:1000;left:8px;right:70px;bottom:calc(12px + env(safe-area-inset-bottom,0px));border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,.35);max-height:45vh;overflow:auto}
+.mapfs .leaflet-top.leaflet-right{top:calc(64px + env(safe-area-inset-top,0px))}
+
+.dest .bt{grid-template-columns:1fr 1fr!important}
+.dest .bt .offb{display:flex;align-items:center;justify-content:center;gap:6px;min-height:46px;border-radius:10px;border:0;background:#1565C0;color:#fff;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;cursor:pointer}
+.dest .bt .offb svg,.dest .bt .mapb svg{width:20px!important;height:20px!important;background:none!important}
+.dirbox{display:flex;gap:12px;align-items:center}
+.arrowc{flex:none;width:64px;height:64px;border-radius:50%;background:#fff;display:grid;place-items:center;transition:transform .25s}
+.arrowc svg{width:44px!important;height:44px!important;background:none!important;display:block}
+.dtx{min-width:0}.dtx small{display:block;margin-top:4px;font-size:12.5px;opacity:.9;line-height:1.3}
+.cbtn{margin-left:4px;border:0;background:#fff;color:#1B4D24;font:800 13px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:6px 8px;border-radius:6px;cursor:pointer}
+.omap-info .emerg{margin:-10px -12px 8px;padding:7px 12px;background:#C62828;color:#fff;font:800 15px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.rbody b{display:block;font:800 22px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.rbody span{display:block;font-size:14.5px;font-weight:600}
+.rbody small{display:block;margin-top:3px;font-size:13px;color:#FFCC80}
+.rbody .offr{margin-top:6px;background:#FFB300;color:#263238;border-radius:8px;padding:6px 8px;font-weight:800;font-size:14px}
+.rbody .arr{margin-top:6px;background:#43A047;color:#fff;border-radius:8px;padding:6px 8px;font-weight:800}
+.rmodes{display:flex;gap:6px;margin-top:8px}
+.rmodes button{flex:1;border:2px solid #fff;background:transparent;color:#fff;font:800 15px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:8px 4px;border-radius:8px;cursor:pointer}
+.rmodes button.on{background:#fff;color:#263238}
+.rmodes #rStop{border-color:#EF9A9A;color:#FFCDD2}
+.emmodal{position:fixed;inset:0;z-index:70;display:none;background:rgba(0,0,0,.6);align-items:center;justify-content:center;padding:16px}
+.emmodal.show{display:flex}
+.embox{background:#fff;border-radius:16px;padding:18px;max-width:460px;border-top:8px solid #C62828}
+.embox h3{font-size:26px;text-transform:uppercase;color:#C62828;margin:0 0 8px}
+.embox p{margin:0 0 10px;font-size:15.5px;font-weight:600;color:#263238;line-height:1.4}
+.embox .act{display:block;width:100%;margin-top:8px;border:0;background:#C62828;color:#fff;font:800 18px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:14px;border-radius:12px;cursor:pointer}
+.embox .act.sec{background:#ECEFF1;color:#263238}
+
 .credit{margin:14px auto 0!important;padding-top:12px;border-top:1px solid rgba(255,255,255,.25);font-size:13px!important;font-weight:600!important;opacity:.85;max-width:40ch;line-height:1.45}
 #lmap{height:62vh;min-height:360px;max-height:640px;background:#CFE6F2;position:relative}
 .lload{position:absolute;inset:0;display:grid;place-items:center;font-weight:700;color:#455A64}
@@ -446,6 +516,33 @@ a{color:inherit}
 .pk{width:0!important;height:0!important;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:10px solid #795548;background:none}
 .mapsec h3{font-size:24px;text-transform:uppercase;color:#1B4D24;margin:16px 0 8px}
 
+
+.ibar{position:fixed;left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));z-index:50;display:none;align-items:center;gap:10px;background:#fff;border-radius:14px;padding:10px 10px 10px 12px;box-shadow:0 6px 24px rgba(0,0,0,.28);border:2px solid #2E7D32}
+.ibar.show{display:flex}
+.ibar img{width:44px;height:44px;border-radius:10px;flex:none}
+.ibar .tx{flex:1;min-width:0}
+.ibar b{display:block;font:800 18px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;color:#1B4D24}
+.ibar small{display:block;font-size:12.5px;font-weight:600;color:#4F5B58;line-height:1.25}
+.ibar .go{flex:none;border:0;background:#2E7D32;color:#fff;font:800 17px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:11px 14px;border-radius:10px;cursor:pointer}
+.ibar .x{flex:none;border:0;background:none;font-size:22px;line-height:1;color:#78909C;padding:4px 2px;cursor:pointer}
+.isheet{position:fixed;inset:0;z-index:60;display:none;background:rgba(0,0,0,.55)}
+.isheet.show{display:block}
+.isheet.arr .box{bottom:calc(78px + env(safe-area-inset-bottom,0px));left:8px;right:8px;border-radius:18px;max-height:75vh}
+.isheet .box{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:18px 18px 0 0;padding:18px 18px calc(22px + env(safe-area-inset-bottom,0px));max-height:85vh;overflow:auto}
+.isheet h3{display:flex;align-items:center;gap:10px;font-size:26px;text-transform:uppercase;color:#1B4D24;margin:0 0 10px}
+.isheet h3 img{width:40px;height:40px;border-radius:9px}
+.isheet ol{margin:0;padding:0;list-style:none;counter-reset:s}
+.isheet li{counter-increment:s;display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid #E0E6E3;font-size:16.5px;font-weight:600;color:#263238;line-height:1.35}
+.isheet li::before{content:counter(s);flex:none;width:30px;height:30px;border-radius:50%;background:#2E7D32;color:#fff;display:grid;place-items:center;font:800 18px/1 "Barlow Condensed",Arial,sans-serif}
+.isheet .ii{width:22px;height:22px;vertical-align:-5px;margin:0 2px}
+.isheet p{font-size:16px;font-weight:600;color:#263238;margin:6px 0 12px}
+.isheet .act{display:block;width:100%;margin-top:10px;border:0;background:#2E7D32;color:#fff;text-align:center;text-decoration:none;font:800 19px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:15px;border-radius:12px;cursor:pointer}
+.isheet .act.sec{background:#ECEFF1;color:#263238}
+.iarrow{position:fixed;left:50%;bottom:calc(6px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:61;display:none;flex-direction:column;align-items:center;color:#fff;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;text-shadow:0 1px 4px #000;animation:ib 1s ease-in-out infinite}
+.iarrow.show{display:flex}
+.iarrow svg{width:42px;height:42px;filter:drop-shadow(0 1px 3px #000)}
+@keyframes ib{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+[data-installed]{display:none}
 </style>
 </head>
 <body>
@@ -512,6 +609,46 @@ a{color:inherit}
     <p class="credit">Desenvolvido por Lic. F.E.A 473</p>
   </div>
 </footer>
+<div class="ibar" id="ibar" role="dialog" aria-label="Instale o app"><img src="pt-icon-192.png" alt=""><div class="tx"><b>Instale o app</b><small>Abre sem sinal: mapa, GPS e telefones de emergência.</small></div><button class="go" type="button" data-install>Instalar</button><button class="x" type="button" id="ibarX" aria-label="Fechar">×</button></div>
+<div class="isheet" id="isheet"><div class="box"><h3><img src="pt-icon-192.png" alt="">Instalar o app</h3><div id="isBody"></div><button class="act sec" type="button" id="isClose">Fechar</button></div></div>
+<div class="iarrow" id="iarrow"><span>Toque aqui</span><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15"></path><path d="M6 13l6 6 6-6"></path></svg></div>
+<script>
+(function(){
+  var I={"bt": "Instale o app", "bs": "Abre sem sinal: mapa, GPS e telefones de emergência.", "btn": "Instalar", "h": "Instalar o app", "close": "Fechar", "ios": ["Toque no botão <b>Compartilhar</b> <svg class=\"ii\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#0A84FF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 15V3\"></path><path d=\"M8 7l4-4 4 4\"></path><path d=\"M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1\"></path></svg> na barra do Safari (embaixo no iPhone, em cima no iPad).", "Role o menu e escolha <b>Adicionar à Tela de Início</b> <svg class=\"ii\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#263238\" stroke-width=\"2\" stroke-linecap=\"round\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"4\"></rect><path d=\"M12 8v8M8 12h8\"></path></svg>.", "Toque em <b>Adicionar</b>. Pronto: o ícone da Gendarmería Nacional aparecerá na sua tela."], "ios_ns": "Para instalar no iPhone, abra esta página no <b>Safari</b>: copie o link, abra o Safari e cole na barra de endereços.", "and_": ["Toque no menu <b>⋮</b> no canto superior direito do Chrome.", "Escolha <b>Instalar app</b> ou <b>Adicionar à tela inicial</b>.", "Confirme em <b>Instalar</b>. Pronto: o ícone aparecerá na sua tela."], "and_inapp": "Você está dentro de outro app (WhatsApp, Facebook, Instagram…). Para instalar, abra a página no Chrome.", "chrome": "Abrir no Chrome", "copy": "Copiar link", "copied": "Link copiado!", "ok": "✓ O app já está instalado neste celular.", "arrow": "Toque aqui"};
+  var ua=navigator.userAgent,IOS=/iphone|ipad|ipod/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1),AND=/android/i.test(ua);
+  var INAPP=/FBAN|FBAV|Instagram|Line\/|WhatsApp|Twitter|Snapchat|; wv\)/i.test(ua);
+  var IOS_OTHER=IOS&&(/CriOS|FxiOS|EdgiOS|OPiOS|GSA\//.test(ua)||INAPP);
+  var STAND=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+  var deferred=null,bar=document.getElementById('ibar'),sh=document.getElementById('isheet'),body=document.getElementById('isBody'),arr=document.getElementById('iarrow');
+  function q(s){return [].slice.call(document.querySelectorAll(s));}
+  function done(){bar.classList.remove('show');q('[data-install]').forEach(function(b){if(!bar.contains(b))b.style.display='none';});q('[data-installed]').forEach(function(e){e.style.display='block';});}
+  if(STAND){done();return;}
+  var mob=IOS||AND, snooze=0;try{snooze=+localStorage.getItem('ibarHide')||0;}catch(e){}
+  if(mob&&Date.now()>snooze)setTimeout(function(){bar.classList.add('show');},1500);
+  document.getElementById('ibarX').addEventListener('click',function(){bar.classList.remove('show');try{localStorage.setItem('ibarHide',Date.now()+3*864e5);}catch(e){}});
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferred=e;});
+  window.addEventListener('appinstalled',done);
+  function steps(a){return '<ol>'+a.map(function(x){return '<li><span>'+x+'</span></li>';}).join('')+'</ol>';}
+  function copyBtn(){return '<button class="act" type="button" id="isCopy">'+I.copy+'</button>';}
+  function close(){sh.classList.remove('show');sh.classList.remove('arr');arr.classList.remove('show');bar.style.visibility='';}
+  function open(){
+    if(deferred){deferred.prompt();deferred.userChoice.then(function(c){deferred=null;if(c&&c.outcome==='accepted')done();});return;}
+    var h='';
+    if(IOS&&!IOS_OTHER){h=steps(I.ios);}
+    else if(IOS){h='<p>'+I.ios_ns+'</p>'+copyBtn();}
+    else if(AND&&INAPP){var u=location.href.replace(/^https?:\/\//,'');h='<p>'+I.and_inapp+'</p><a class="act" href="intent://'+u+'#Intent;scheme=https;package=com.android.chrome;end">'+I.chrome+'</a>'+copyBtn();}
+    else{h=steps(I.and_);}
+    body.innerHTML=h;sh.classList.add('show');bar.style.visibility='hidden';
+    if(IOS&&!IOS_OTHER&&!/ipad/i.test(ua)&&navigator.maxTouchPoints<=5){arr.classList.add('show');sh.classList.add('arr');}
+    var c=document.getElementById('isCopy');if(c)c.addEventListener('click',function(){var b=this;function ok(){b.textContent=I.copied;}
+      try{navigator.clipboard.writeText(location.href).then(ok,function(){fb();});}catch(e){fb();}
+      function fb(){var t=document.createElement('textarea');t.value=location.href;document.body.appendChild(t);t.select();try{document.execCommand('copy');ok();}catch(e){}document.body.removeChild(t);}});
+  }
+  q('[data-install]').forEach(function(b){b.addEventListener('click',open);});
+  document.getElementById('isClose').addEventListener('click',close);
+  sh.addEventListener('click',function(e){if(e.target===sh)close();});
+})();
+</script>
 <script>
 (function(){
   function fit(){var el=document.querySelector('.titulo .l1');if(!el)return;el.style.fontSize='';var box=el.parentNode.clientWidth;var fs=parseFloat(getComputedStyle(el).fontSize),w=el.scrollWidth;if(w>box){el.style.fontSize=Math.floor(fs*box/w*0.98)+'px';}}

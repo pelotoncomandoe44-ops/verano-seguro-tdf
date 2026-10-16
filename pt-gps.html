@@ -427,6 +427,76 @@ a{color:inherit}
 .gpsbanner b{display:block;font:800 22px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
 .gpsbanner .arr{margin-left:auto;font:800 28px/1 "Barlow Condensed",Arial,sans-serif}
 .gpspage .geo{margin-top:0}
+.offbtn{display:flex;align-items:center;gap:12px;width:100%;margin-top:14px;border:0;cursor:pointer;text-align:left;background:#1565C0;color:#fff;border-radius:14px;padding:16px;box-shadow:0 5px 0 #0D47A1}
+.offbtn:active{transform:translateY(3px);box-shadow:0 2px 0 #0D47A1}
+.offbtn .oi{flex:none;width:52px;height:52px;border-radius:50%;background:#fff;color:#1565C0;display:grid;place-items:center}
+.offbtn .oi svg{width:30px;height:30px}
+.offbtn .ot{flex:1;min-width:0}
+.offbtn b{display:block;font:800 26px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.offbtn small{display:block;margin-top:4px;font-size:14px;font-weight:600;opacity:.92;line-height:1.3}
+.offbtn .oa{font:800 34px/1 "Barlow Condensed",Arial,sans-serif}
+.offscr{display:none;background:#fff;padding:16px 0 28px;min-height:70vh}
+body.offmode .offscr{display:block}
+body.offmode .mainscr,body.offmode header.hero{display:none}
+.offback{border:0;background:#ECEFF1;color:#263238;font:800 17px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:10px 14px;border-radius:10px;cursor:pointer}
+.offh{display:flex;align-items:center;gap:10px;font-size:clamp(30px,8vw,40px);text-transform:uppercase;color:#1565C0;margin:14px 0 10px}
+.offh span{width:44px;height:44px;border-radius:50%;background:#1565C0;color:#fff;display:grid;place-items:center}
+.offh span svg{width:26px;height:26px}
+.backh{font-size:26px;text-transform:uppercase;color:#1B4D24;margin:16px 0 2px}
+.offscr .sub{margin:0 0 8px;color:#4F5B58;font-weight:600}
+.offwait{display:none;background:#E3F2FD;color:#0D47A1;border-radius:10px;padding:12px;font-weight:700;margin:8px 0}
+.dest .bt{grid-template-columns:1fr 1fr 1fr!important}
+.dest .bt.four{grid-template-columns:1fr 1fr!important}
+.dest .bt.three{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.dest .bt.three>*{flex-direction:column!important;gap:4px!important;min-height:62px!important;font-size:13px!important;min-width:0;overflow-wrap:normal;word-break:normal;letter-spacing:-.01em;padding:6px 3px!important}
+.dest .bt.three svg{width:22px!important;height:22px!important}
+.dest .bt .mmb,.dest .bt .amb{display:flex;align-items:center;justify-content:center;gap:6px;min-height:50px;border-radius:10px;text-decoration:none;background:#263238;color:#fff;font:800 15px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;text-align:center;padding:4px}
+.dest .bt .amb{background:#455A64}
+.dest .bt .offb,.dest .bt .mapb{min-height:50px;font-size:15px!important;line-height:1.05!important;text-align:center;padding:4px}
+.dest .bt svg{width:18px!important;height:18px!important;flex:none;background:none!important}
+.mapfs{position:fixed;inset:0;z-index:55;display:none;background:#CFE6F2}
+.mapfs.show{display:block}
+.mapfs #lmap{position:absolute;inset:0;height:auto!important;min-height:0!important;max-height:none!important}
+.fstop{position:absolute;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;gap:8px;padding:calc(8px + env(safe-area-inset-top,0px)) 8px 8px;background:rgba(38,50,56,.92);color:#fff}
+.fsx{flex:none;width:42px;height:42px;border-radius:50%;border:0;background:#fff;color:#263238;font-size:20px;font-weight:800;cursor:pointer}
+.fstt{flex:1;min-width:0}.fstt b{display:block;font:800 18px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.fstt span{display:block;font-size:12.5px;font-weight:700;opacity:.95;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fs911{flex:none;background:#C62828;color:#fff;text-decoration:none;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:11px 12px;border-radius:10px;border:2px solid #fff}
+.fsbtn{position:absolute;z-index:1000;border:0;cursor:pointer;background:#fff;color:#1565C0;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.fscenter{right:10px;bottom:calc(20px + env(safe-area-inset-bottom,0px));width:52px;height:52px;border-radius:50%;display:grid;place-items:center}
+.fscenter svg{width:28px;height:28px}
+.fsleg{left:10px;top:calc(72px + env(safe-area-inset-top,0px));padding:8px 10px;border-radius:8px;color:#263238;font:800 14px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.fslegend{display:none;position:absolute;z-index:1001;left:10px;right:10px;top:calc(110px + env(safe-area-inset-top,0px));max-height:55vh;overflow:auto;background:#fff;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.fslegend.show{display:block}
+.fsinfo{position:absolute!important;z-index:1000;left:8px;right:70px;bottom:calc(12px + env(safe-area-inset-bottom,0px));border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,.35);max-height:45vh;overflow:auto}
+.mapfs .leaflet-top.leaflet-right{top:calc(64px + env(safe-area-inset-top,0px))}
+
+.dest .bt{grid-template-columns:1fr 1fr!important}
+.dest .bt .offb{display:flex;align-items:center;justify-content:center;gap:6px;min-height:46px;border-radius:10px;border:0;background:#1565C0;color:#fff;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;cursor:pointer}
+.dest .bt .offb svg,.dest .bt .mapb svg{width:20px!important;height:20px!important;background:none!important}
+.dirbox{display:flex;gap:12px;align-items:center}
+.arrowc{flex:none;width:64px;height:64px;border-radius:50%;background:#fff;display:grid;place-items:center;transition:transform .25s}
+.arrowc svg{width:44px!important;height:44px!important;background:none!important;display:block}
+.dtx{min-width:0}.dtx small{display:block;margin-top:4px;font-size:12.5px;opacity:.9;line-height:1.3}
+.cbtn{margin-left:4px;border:0;background:#fff;color:#1B4D24;font:800 13px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:6px 8px;border-radius:6px;cursor:pointer}
+.omap-info .emerg{margin:-10px -12px 8px;padding:7px 12px;background:#C62828;color:#fff;font:800 15px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;letter-spacing:.02em}
+.rbody b{display:block;font:800 22px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.rbody span{display:block;font-size:14.5px;font-weight:600}
+.rbody small{display:block;margin-top:3px;font-size:13px;color:#FFCC80}
+.rbody .offr{margin-top:6px;background:#FFB300;color:#263238;border-radius:8px;padding:6px 8px;font-weight:800;font-size:14px}
+.rbody .arr{margin-top:6px;background:#43A047;color:#fff;border-radius:8px;padding:6px 8px;font-weight:800}
+.rmodes{display:flex;gap:6px;margin-top:8px}
+.rmodes button{flex:1;border:2px solid #fff;background:transparent;color:#fff;font:800 15px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:8px 4px;border-radius:8px;cursor:pointer}
+.rmodes button.on{background:#fff;color:#263238}
+.rmodes #rStop{border-color:#EF9A9A;color:#FFCDD2}
+.emmodal{position:fixed;inset:0;z-index:70;display:none;background:rgba(0,0,0,.6);align-items:center;justify-content:center;padding:16px}
+.emmodal.show{display:flex}
+.embox{background:#fff;border-radius:16px;padding:18px;max-width:460px;border-top:8px solid #C62828}
+.embox h3{font-size:26px;text-transform:uppercase;color:#C62828;margin:0 0 8px}
+.embox p{margin:0 0 10px;font-size:15.5px;font-weight:600;color:#263238;line-height:1.4}
+.embox .act{display:block;width:100%;margin-top:8px;border:0;background:#C62828;color:#fff;font:800 18px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:14px;border-radius:12px;cursor:pointer}
+.embox .act.sec{background:#ECEFF1;color:#263238}
+
 .credit{margin:14px auto 0!important;padding-top:12px;border-top:1px solid rgba(255,255,255,.25);font-size:13px!important;font-weight:600!important;opacity:.85;max-width:40ch;line-height:1.45}
 #lmap{height:62vh;min-height:360px;max-height:640px;background:#CFE6F2;position:relative}
 .lload{position:absolute;inset:0;display:grid;place-items:center;font-weight:700;color:#455A64}
@@ -446,6 +516,33 @@ a{color:inherit}
 .pk{width:0!important;height:0!important;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:10px solid #795548;background:none}
 .mapsec h3{font-size:24px;text-transform:uppercase;color:#1B4D24;margin:16px 0 8px}
 
+
+.ibar{position:fixed;left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));z-index:50;display:none;align-items:center;gap:10px;background:#fff;border-radius:14px;padding:10px 10px 10px 12px;box-shadow:0 6px 24px rgba(0,0,0,.28);border:2px solid #2E7D32}
+.ibar.show{display:flex}
+.ibar img{width:44px;height:44px;border-radius:10px;flex:none}
+.ibar .tx{flex:1;min-width:0}
+.ibar b{display:block;font:800 18px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;color:#1B4D24}
+.ibar small{display:block;font-size:12.5px;font-weight:600;color:#4F5B58;line-height:1.25}
+.ibar .go{flex:none;border:0;background:#2E7D32;color:#fff;font:800 17px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:11px 14px;border-radius:10px;cursor:pointer}
+.ibar .x{flex:none;border:0;background:none;font-size:22px;line-height:1;color:#78909C;padding:4px 2px;cursor:pointer}
+.isheet{position:fixed;inset:0;z-index:60;display:none;background:rgba(0,0,0,.55)}
+.isheet.show{display:block}
+.isheet.arr .box{bottom:calc(78px + env(safe-area-inset-bottom,0px));left:8px;right:8px;border-radius:18px;max-height:75vh}
+.isheet .box{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:18px 18px 0 0;padding:18px 18px calc(22px + env(safe-area-inset-bottom,0px));max-height:85vh;overflow:auto}
+.isheet h3{display:flex;align-items:center;gap:10px;font-size:26px;text-transform:uppercase;color:#1B4D24;margin:0 0 10px}
+.isheet h3 img{width:40px;height:40px;border-radius:9px}
+.isheet ol{margin:0;padding:0;list-style:none;counter-reset:s}
+.isheet li{counter-increment:s;display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid #E0E6E3;font-size:16.5px;font-weight:600;color:#263238;line-height:1.35}
+.isheet li::before{content:counter(s);flex:none;width:30px;height:30px;border-radius:50%;background:#2E7D32;color:#fff;display:grid;place-items:center;font:800 18px/1 "Barlow Condensed",Arial,sans-serif}
+.isheet .ii{width:22px;height:22px;vertical-align:-5px;margin:0 2px}
+.isheet p{font-size:16px;font-weight:600;color:#263238;margin:6px 0 12px}
+.isheet .act{display:block;width:100%;margin-top:10px;border:0;background:#2E7D32;color:#fff;text-align:center;text-decoration:none;font:800 19px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:15px;border-radius:12px;cursor:pointer}
+.isheet .act.sec{background:#ECEFF1;color:#263238}
+.iarrow{position:fixed;left:50%;bottom:calc(6px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:61;display:none;flex-direction:column;align-items:center;color:#fff;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;text-shadow:0 1px 4px #000;animation:ib 1s ease-in-out infinite}
+.iarrow.show{display:flex}
+.iarrow svg{width:42px;height:42px;filter:drop-shadow(0 1px 3px #000)}
+@keyframes ib{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+[data-installed]{display:none}
 </style>
 </head>
 <body class="gpspage">
@@ -458,7 +555,8 @@ a{color:inherit}
     <p>Suas coordenadas, um mapa que funciona sem sinal e como voltar à cidade ou à estrada.</p>
   </div>
 </header>
-<section class="sos" style="padding-top:16px"><div class="wrap"><div class="geo" id="ubicacion">
+<section class="sos mainscr" style="padding-top:16px"><div class="wrap">
+    <div class="geo" id="ubicacion">
       <button class="geo-btn" id="geoBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.6"></circle></svg><span id="geoBtnTxt">Ver minhas coordenadas</span></button>
       <p class="geo-help">Usa o GPS do celular. Funciona mesmo sem dados móveis: você pode ditar as coordenadas por rádio ou telefone.</p>
       <div class="geo-out" id="geoOut" aria-live="polite">
@@ -467,39 +565,16 @@ a{color:inherit}
         <div class="geo-acc" id="geoAcc"></div>
         <div class="geo-acts">
           <button type="button" id="geoCopy">Copiar</button>
-          <a id="geoMap" href="#" target="_blank" rel="noopener">Ver no mapa</a>
+          <button type="button" id="geoMapBtn">Ver no mapa</button>
           <a class="wa" id="geoWa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
           <a id="geoSms" href="#" target="_top">Enviar por SMS</a>
         </div>
       </div>
       <div class="geo-err" id="geoErr"></div>
-      <div class="mapsec">
-        <div class="safe"><b>Se você estiver perdido:</b> se não conhece o terreno, o mais seguro é <b>ficar onde está</b>, se agasalhar e passar suas coordenadas por telefone ou rádio. A direção para uma estrada ou localidade é só uma referência: em linha reta pode haver rios, turfeiras, mata fechada ou barrancos.</div>
-        <h3>Mapa sem sinal</h3>
-        <div class="omap" id="omap">
-            <p class="maptitle">Isla Grande de Tierra del Fuego · Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur</p>
-            <div id="lmap"><div class="lload">Carregando mapa…</div></div>
-            <div class="omap-info" id="omapInfo" style="display:none"></div>
-            <div class="legend"><span><i style="background:#C62828;height:4px"></i>Estrada nacional / principal</span><span><i style="background:#EF6C00;height:3px"></i>Estrada provincial / secundária</span><span><i style="border-top:2px dashed #8D6E63;height:0"></i>Estrada de terra / caminho rural</span><span><i style="border-top:2px dotted #2E7D32;height:0"></i>Trilha</span><span><i style="background:#9CC9E0;height:8px;border:1px solid #6FA8C8"></i>Rio / lago</span><span><i class="dot" style="background:#6A1B9A"></i>Refúgio</span><span><i class="dot" style="background:#00838F"></i>Camping</span><span><i class="dot" style="background:#5D4037"></i>Mirante</span><span><i class="tri"></i>Cerro</span><span><i style="border-top:3px dashed #263238;height:0"></i>Limite internacional (IGN)</span><span><i class="hito"></i>Marco internacional</span><span><i style="border-top:2px dashed #43A047;height:0"></i>Limite de área protegida</span></div>
-            <p class="omap-note">Mapa salvo no celular: funciona sem sinal. Use os dedos para aproximar e mover. Dados: © colaboradores do OpenStreetMap (licença ODbL); costa e caminhos: OpenStreetMap; limite internacional, marcos e áreas protegidas: Instituto Geográfico Nacional (IGN). Mapa orientativo, não é cartografia oficial. Alguns caminhos e trilhas podem faltar ou ter mudado.</p>
-          </div>
-      </div>
-      <div class="geo-back" id="geoBack">
-        <h3>Voltar a uma localidade</h3>
-        <p class="sub">Ordenadas da mais próxima à mais distante. Escolha com qual app abrir a rota:</p>
-        <div class="navsel" id="navSel">
-          <label data-v="mm"><input type="radio" name="nav" value="mm"><b>MAPS.ME</b><span>Funciona sem sinal</span></label>
-          <label data-v="gm"><input type="radio" name="nav" value="gm"><b>Google Maps</b><span>Precisa de dados</span></label>
-          <label data-v="am" id="navApple" style="display:none"><input type="radio" name="nav" value="am"><b>Apple Maps</b><span>Sem sinal se você baixou o mapa</span></label>
-        </div>
-        <div class="navtip" id="navTip"></div>
-        <div id="geoList"></div>
-        <div class="prep"><b>Prepare o celular antes de sair:</b>
-          <ol><li><b>Instale o MAPS.ME</b> – App de navegação gratuito que funciona sem internet.</li><li><b>Baixe o mapa da Terra do Fogo</b> – Abra o MAPS.ME, procure "Tierra del Fuego" e toque em Baixar. Com esse mapa você navega de carro ou a pé sem sinal.</li></ol><div class="stores"><a class="store" href="https://play.google.com/store/apps/details?id=com.mapswithme.maps.pro" target="_blank" rel="noopener">Android · Google Play</a> <a class="store" href="https://apps.apple.com/app/id510623322" target="_blank" rel="noopener">iPhone · App Store</a></div></div>
-        <div class="geo-warn">O Google Maps precisa de dados móveis, a menos que você tenha baixado a área. O MAPS.ME navega sem sinal se você baixou o mapa antes. Em áreas isoladas, a opção a pé é só para distâncias curtas: em uma emergência, ligue ou use o rádio e aguarde ajuda.</div>
-      </div>
-    </div></div></section>
-<section class="sos" id="emergencias">
+      <button class="offbtn" id="offBtn" type="button"><span class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.6"></circle></svg></span><span class="ot"><b>GPS sem conexão</b><small>Voltar a uma localidade · Rota de emergência · Orientação</small></span><span class="oa">›</span></button>
+    </div>
+  </div></section>
+<section class="sos mainscr" id="emergencias">
   <div class="wrap">
     <h2>Emergências</h2>
     <p class="hint">Toque em um número para ligar.</p>
@@ -508,13 +583,26 @@ a{color:inherit}
     
   </div>
 </section>
-<section class="band radio" id="radio">
+<section class="band radio mainscr" id="radio">
   <div class="wrap">
     <div class="band-head"><div class="ico"><img src="img-radio.png" alt=""></div><h2>Sem sinal: rádio</h2></div>
     <p class="lead">Se os telefones não funcionarem, use estas frequências.</p>
     <div class="tbl"><div class="row"><img src="img-radio.png" alt=""><div><b>Río Grande</b><small>Defesa Civil</small></div><div class="f">150.095 TX<br>156.095 RX</div></div><div class="row"><img src="img-radio.png" alt=""><div><b>Río Grande</b><small>Defesa Civil – Cerro Michi</small></div><div class="f">142.430 TX<br>148.430 RX</div></div><div class="row"><img src="img-radio.png" alt=""><div><b>Río Grande</b><small>Cerro Castor (zona sul) e Cerro Cabeza de León (zona norte)</small></div><div class="f">152.775<br>RX-TX</div></div><div class="row"><img src="img-radio.png" alt=""><div><b>Ushuaia</b><small>Defesa Civil Provincial</small></div><div class="f">152.775 TX<br>158.775 RX</div></div><div class="row"><img src="img-radio.png" alt=""><div><b>Ushuaia</b><small>Defesa Civil Municipal</small></div><div class="f">148.615<br>RX-TX</div></div></div><span class="vhf">Analógico VHF</span>
   </div>
 </section>
+<section class="offscr" id="offscr"><div class="wrap">
+    <button class="offback" id="offBack" type="button">‹ Voltar</button>
+    <h2 class="offh"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.6"></circle></svg></span>GPS sem conexão</h2>
+    <div class="safe"><b>Se você estiver perdido:</b> se não conhece o terreno, o mais seguro é <b>ficar onde está</b>, se agasalhar e passar suas coordenadas por telefone ou rádio. A direção para uma estrada ou localidade é só uma referência: em linha reta pode haver rios, turfeiras, mata fechada ou barrancos.</div>
+    <h3 class="backh">Voltar a uma localidade</h3>
+    <p class="sub">Ordenadas da mais próxima à mais distante.</p>
+    <div class="offwait" id="offWait">Buscando sua localização…</div>
+    <div class="navtip" id="navTip"></div>
+    <div id="geoList"></div>
+    <div class="prep"><b>Prepare o celular antes de sair:</b>
+      <ol><li><b>Instale o MAPS.ME</b> – App de navegação gratuito que funciona sem internet.</li><li><b>Baixe o mapa da Terra do Fogo</b> – Abra o MAPS.ME, procure "Tierra del Fuego" e toque em Baixar. Com esse mapa você navega de carro ou a pé sem sinal.</li></ol><div class="stores"><a class="store" href="https://play.google.com/store/apps/details?id=com.mapswithme.maps.pro" target="_blank" rel="noopener">Android · Google Play</a> <a class="store" href="https://apps.apple.com/app/id510623322" target="_blank" rel="noopener">iPhone · App Store</a></div></div>
+    <div class="geo-warn">O Google Maps precisa de dados móveis, a menos que você tenha baixado a área. O MAPS.ME navega sem sinal se você baixou o mapa antes. Em áreas isoladas, a opção a pé é só para distâncias curtas: em uma emergência, ligue ou use o rádio e aguarde ajuda.</div>
+  </div></section>
 <footer class="end">
   <div class="wrap">
     <div class="k">Viaje informado,<br>viaje seguro.</div>
@@ -525,9 +613,18 @@ a{color:inherit}
     <p class="credit">Desenvolvido por Lic. F.E.A 473</p>
   </div>
 </footer>
+<div class="mapfs" id="mapfs">
+  <div class="fstop"><button type="button" class="fsx" id="fsClose" aria-label="Fechar">✕</button><div class="fstt"><b>Mapa sem sinal</b><span id="fsCoords"></span></div><a class="fs911" href="tel:911" target="_top">Ligar 911</a></div>
+  <div id="lmap"><div class="lload">Carregando mapa…</div></div>
+  <button type="button" class="fsbtn fscenter" id="fsCenter" aria-label="Centralizar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.6"></circle></svg></button>
+  <button type="button" class="fsbtn fsleg" id="fsLeg">Legenda</button>
+  <div class="fslegend" id="fsLegend"><p class="maptitle">Isla Grande de Tierra del Fuego · Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur</p><div class="legend"><span><i style="background:#C62828;height:4px"></i>Estrada nacional / principal</span><span><i style="background:#EF6C00;height:3px"></i>Estrada provincial / secundária</span><span><i style="border-top:2px dashed #8D6E63;height:0"></i>Estrada de terra / caminho rural</span><span><i style="border-top:2px dotted #2E7D32;height:0"></i>Trilha</span><span><i style="background:#9CC9E0;height:8px;border:1px solid #6FA8C8"></i>Rio / lago</span><span><i class="dot" style="background:#6A1B9A"></i>Refúgio</span><span><i class="dot" style="background:#00838F"></i>Camping</span><span><i class="dot" style="background:#5D4037"></i>Mirante</span><span><i class="tri"></i>Cerro</span><span><i style="border-top:3px dashed #263238;height:0"></i>Limite internacional (IGN)</span><span><i class="hito"></i>Marco internacional</span><span><i style="border-top:2px dashed #43A047;height:0"></i>Limite de área protegida</span></div><p class="omap-note">Mapa salvo no celular: funciona sem sinal. Use os dedos para aproximar e mover. Dados: © colaboradores do OpenStreetMap (licença ODbL); costa e caminhos: OpenStreetMap; limite internacional, marcos e áreas protegidas: Instituto Geográfico Nacional (IGN). Mapa orientativo, não é cartografia oficial. Alguns caminhos e trilhas podem faltar ou ter mudado.</p></div>
+  <div class="omap-info fsinfo" id="omapInfo" style="display:none"></div>
+</div>
+<div class="emmodal" id="emModal"><div class="embox"><h3>⚠ Somente para emergências</h3><p>Esta rota é calculada no celular, sem internet, com dados do OpenStreetMap. É <b>estimativa</b>: pode incluir caminhos em mau estado, privados, fechados ou que não existem mais, travessias de rios, turfeiras ou trechos sem caminho. Não substitui a sinalização nem as orientações do pessoal de segurança. <b>Se você estiver perdido e não conhecer o terreno, o mais seguro é ficar onde está e pedir ajuda.</b></p><button type="button" class="act" id="emOk">Entendi, mostrar rota</button><button type="button" class="act sec" id="emNo">Cancelar</button></div></div>
 <script>
 (function(){
-  var L0={"btn": "Ver minhas coordenadas", "searching": "Buscando sinal de GPS…", "update": "Atualizar localização", "retry": "Tentar de novo", "acc": "Precisão aproximada", "time": "Hora", "mine": "Minha localização", "precision": "Precisão", "copied": "Copiado!", "copy": "Copiar", "e1": "Esta página não conseguiu acessar a localização do celular. Ative a localização (GPS) e a permissão do navegador, ou use o Google Maps:", "e2": "Não foi possível obter a localização. Verifique se o GPS / Localização está ligado e, se puder, vá para céu aberto.", "e3": "O GPS demorou demais. Aguarde alguns segundos a céu aberto e toque em Tentar de novo.", "e0": "Não foi possível obter a localização neste dispositivo.", "nosup": "Este navegador não permite obter a localização.", "gmaps": "Abrir Google Maps", "gmaps_help": "No Google Maps toque no botão de localização e depois no ponto azul: ali aparecem suas coordenadas.", "you": "Você", "you_out": "Você (fora do mapa)", "road": "Estrada", "near": "Mais próxima", "ref": "Referência", "road_n": "Estrada mais próxima", "road_d": "Estrada principal · ponto aproximado", "km_line": "km em linha reta · na direção", "veh": "Veículo", "walk": "A pé", "map": "Mapa", "and_tip": "Se o celular perguntar com qual app abrir, escolha <b>MAPS.ME</b> (pode marcar \"Sempre\"). No MAPS.ME abre o destino: toque em <b>Rota</b> e escolha carro ou a pé. Se não tiver o MAPS.ME:", "ios_tip": "Se o MAPS.ME não abriu, verifique se está instalado e atualizado. Se não tiver:", "lg": ["Estrada nacional / principal", "Estrada provincial / secundária", "Estrada de terra / caminho rural", "Trilha", "Rio / lago", "Refúgio", "Camping", "Mirante", "Cerro", "Limite internacional (IGN)", "Marco internacional", "Limite de área protegida"], "trail_n": "Caminho ou trilha mais próximo", "trail_d": "Estrada de terra, caminho rural ou trilha", "map_h": "Mapa sem sinal", "loading": "Carregando mapa…", "ele": "Altitude", "attrib": "<a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener\">© colaboradores do OpenStreetMap</a> (ODbL) · Limites: IGN Argentina", "map_t": "Isla Grande de Tierra del Fuego · Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur", "hito": "Marco", "mm_tip": "O MAPS.ME abre com o destino marcado: toque em <b>Rota</b> e escolha carro ou a pé.", "am_d": "Sem sinal se você baixou o mapa", "N": "N", "E": "L", "S": "S", "W": "O", "chile_city": "Cidade chilena", "pw": "Puerto Williams (Chile)", "places": ["Cidade", "Cidade", "Localidade", "Defensa Civil · Rota Nacional 3", "Povoado · Canal de Beagle", "Gendarmería Nacional · Sección San Sebastián", "Passagem Río Bellavista · Rota Provincial 8"]}, STORES="<div class=\"stores\"><a class=\"store\" href=\"https://play.google.com/store/apps/details?id=com.mapswithme.maps.pro\" target=\"_blank\" rel=\"noopener\">Android · Google Play</a> <a class=\"store\" href=\"https://apps.apple.com/app/id510623322\" target=\"_blank\" rel=\"noopener\">iPhone · App Store</a></div>", PLACES=[["Ushuaia", "Cidade", -54.8019, -68.303, 1, 0], ["Río Grande", "Cidade", -53.7877, -67.7097, 1, 0], ["Tolhuin", "Localidade", -54.5108, -67.1955, 1, 0], ["Lago Escondido", "Defensa Civil · Rota Nacional 3", -54.640775, -67.762458, 0, 0], ["Puerto Almanza", "Povoado · Canal de Beagle", -54.86947, -67.56244, 0, 0], ["San Sebastián", "Gendarmería Nacional · Sección San Sebastián", -53.29977, -68.457453, 0, 0], ["Paso Radman", "Passagem Río Bellavista · Rota Provincial 8", -54.00019, -68.60756, 0, 0]], LANG=document.documentElement.lang;
+  var L0={"btn": "Ver minhas coordenadas", "searching": "Buscando sinal de GPS…", "update": "Atualizar localização", "retry": "Tentar de novo", "acc": "Precisão aproximada", "time": "Hora", "mine": "Minha localização", "precision": "Precisão", "copied": "Copiado!", "copy": "Copiar", "e1": "Esta página não conseguiu acessar a localização do celular. Ative a localização (GPS) e a permissão do navegador, ou use o Google Maps:", "e2": "Não foi possível obter a localização. Verifique se o GPS / Localização está ligado e, se puder, vá para céu aberto.", "e3": "O GPS demorou demais. Aguarde alguns segundos a céu aberto e toque em Tentar de novo.", "e0": "Não foi possível obter a localização neste dispositivo.", "nosup": "Este navegador não permite obter a localização.", "gmaps": "Abrir Google Maps", "gmaps_help": "No Google Maps toque no botão de localização e depois no ponto azul: ali aparecem suas coordenadas.", "you": "Você", "you_out": "Você (fora do mapa)", "road": "Estrada", "near": "Mais próxima", "ref": "Referência", "road_n": "Estrada mais próxima", "road_d": "Estrada principal · ponto aproximado", "km_line": "km em linha reta · na direção", "veh": "Veículo", "walk": "A pé", "map": "Mapa", "and_tip": "Se o celular perguntar com qual app abrir, escolha <b>MAPS.ME</b> (pode marcar \"Sempre\"). No MAPS.ME abre o destino: toque em <b>Rota</b> e escolha carro ou a pé. Se não tiver o MAPS.ME:", "ios_tip": "Se o MAPS.ME não abriu, verifique se está instalado e atualizado. Se não tiver:", "lg": ["Estrada nacional / principal", "Estrada provincial / secundária", "Estrada de terra / caminho rural", "Trilha", "Rio / lago", "Refúgio", "Camping", "Mirante", "Cerro", "Limite internacional (IGN)", "Marco internacional", "Limite de área protegida"], "trail_n": "Caminho ou trilha mais próximo", "trail_d": "Estrada de terra, caminho rural ou trilha", "map_h": "Mapa sem sinal", "loading": "Carregando mapa…", "ele": "Altitude", "attrib": "<a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener\">© colaboradores do OpenStreetMap</a> (ODbL) · Limites: IGN Argentina", "map_t": "Isla Grande de Tierra del Fuego · Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur", "hito": "Marco", "nav_off": "Rota de emergência", "emerg_h": "Somente para emergências", "emerg_txt": "Esta rota é calculada no celular, sem internet, com dados do OpenStreetMap. É <b>estimativa</b>: pode incluir caminhos em mau estado, privados, fechados ou que não existem mais, travessias de rios, turfeiras ou trechos sem caminho. Não substitui a sinalização nem as orientações do pessoal de segurança. <b>Se você estiver perdido e não conhecer o terreno, o mais seguro é ficar onde está e pedir ajuda.</b>", "agree": "Entendi, mostrar rota", "cancel": "Cancelar", "by_car": "De carro", "on_foot": "A pé", "left": "Faltam", "by_road": "pelo caminho", "eta": "Tempo estimado", "offroute": "Você saiu da rota: volte para a linha azul.", "noroute": "Não foi encontrado um caminho conectado até este destino. Use a direção como referência e, se puder, fique em um lugar seguro e peça ajuda.", "cross": "Trecho sem caminho até o mais próximo", "stop": "Sair da rota", "calc": "Calculando rota…", "estim": "Rota estimativa", "walk_to": "Siga na direção", "compass_btn": "Ativar bússola", "compass_on": "Bússola ativa: gire até a seta apontar para cima e avance nessa direção.", "compass_off": "Sem bússola: a seta indica a direção em relação ao Norte (topo do mapa).", "arrived": "Você chegou ao destino.", "off_btn": "GPS sem conexão", "off_sub": "Voltar a uma localidade · Rota de emergência · Orientação", "back_gps": "‹ Voltar", "mm_btn": "MAPS.ME", "am_btn": "Apple Maps", "orient": "Orientação", "close": "Fechar", "center": "Centralizar", "call911": "Ligar 911", "legend": "Legenda", "locating": "Buscando sua localização…", "mm_tip": "O MAPS.ME abre com o destino marcado: toque em <b>Rota</b> e escolha carro ou a pé.", "am_d": "Sem sinal se você baixou o mapa", "N": "N", "E": "L", "S": "S", "W": "O", "chile_city": "Cidade chilena", "pw": "Puerto Williams (Chile)", "places": ["Cidade", "Cidade", "Localidade", "Defensa Civil · Rota Nacional 3", "Povoado · Canal de Beagle", "Gendarmería Nacional · Sección San Sebastián", "Passagem Río Bellavista · Rota Provincial 8"]}, STORES="<div class=\"stores\"><a class=\"store\" href=\"https://play.google.com/store/apps/details?id=com.mapswithme.maps.pro\" target=\"_blank\" rel=\"noopener\">Android · Google Play</a> <a class=\"store\" href=\"https://apps.apple.com/app/id510623322\" target=\"_blank\" rel=\"noopener\">iPhone · App Store</a></div>", PLACES=[["Ushuaia", "Cidade", -54.8019, -68.303, 1, 0], ["Río Grande", "Cidade", -53.7877, -67.7097, 1, 0], ["Tolhuin", "Localidade", -54.5108, -67.1955, 1, 0], ["Lago Escondido", "Defensa Civil · Rota Nacional 3", -54.640775, -67.762458, 0, 0], ["Puerto Almanza", "Povoado · Canal de Beagle", -54.86947, -67.56244, 0, 0], ["San Sebastián", "Gendarmería Nacional · Sección San Sebastián", -53.29977, -68.457453, 0, 0], ["Paso Radman", "Passagem Río Bellavista · Rota Provincial 8", -54.00019, -68.60756, 0, 0]], LANG=document.documentElement.lang;
   var btn=document.getElementById('geoBtn'),txt=document.getElementById('geoBtnTxt'),out=document.getElementById('geoOut'),err=document.getElementById('geoErr');
   var msg='',ME=null,SEL=null,D=null,map=null,meM=null,accC=null,line=null,dstM=null,watch=null,ARR=[];
   var CAR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-5l-2-5H7l-2 5z"></path><path d="M3 12h18"></path><circle cx="7.5" cy="17.5" r="1.5"></circle><circle cx="16.5" cy="17.5" r="1.5"></circle></svg>';
@@ -540,14 +637,16 @@ a{color:inherit}
 
   // ---------- mapa sin señal (Leaflet + OpenStreetMap guardado)
   function ll(a){return a.map(function(p){return [p[1],p[0]];});}
-  var READY=new Promise(function(res){
-    if(!window.L||!L.map){res();return;}
-    var Lf=window.L;
-    map=Lf.map('lmap',{preferCanvas:true,minZoom:7,maxZoom:17,zoomSnap:0.5,maxBounds:[[-56,-70.5],[-51.8,-62.8]],maxBoundsViscosity:0.8});
+  var READY=fetch('tdf.json').then(function(r){return r.json();}).then(function(d){D=d;}).catch(function(){});
+  function ensureMap(cb){
+    if(!window.L||!L.map)return;var Lf=window.L;
+    if(map){map.invalidateSize();if(cb)cb();return;}
+    map=Lf.map('lmap',{preferCanvas:true,minZoom:7,maxZoom:17,zoomSnap:0.5,maxBounds:[[-56,-70.5],[-51.8,-62.8]],maxBoundsViscosity:0.8,zoomControl:false});
+    Lf.control.zoom({position:'topright'}).addTo(map);
     map.fitBounds([[-55.1,-68.7],[-52.6,-65.3]]);
     map.attributionControl.setPrefix(false);map.attributionControl.addAttribution(L.attrib);
-    fetch('tdf.json').then(function(r){return r.json();}).then(function(d){D=d;draw(Lf);res();}).catch(function(){res();});
-  });
+    READY.then(function(){if(D)draw(Lf);if(ME)paintMe();if(RT)drawRoute(false);else if(SEL)paintSel(false);if(cb)cb();});
+  }
   function draw(Lf){
     var ld=document.querySelector('.lload');if(ld)ld.remove();
     var R=Lf.canvas({padding:0.4}),ni={renderer:R,interactive:false};
@@ -590,39 +689,135 @@ a{color:inherit}
     if(!meM){accC=Lf.circle([ME.la,ME.lo],{radius:ME.acc||30,color:'#1E88E5',weight:1,fillColor:'#1E88E5',fillOpacity:0.12,interactive:false}).addTo(map);
       meM=Lf.circleMarker([ME.la,ME.lo],{radius:8,color:'#fff',weight:3,fillColor:'#1E88E5',fillOpacity:1}).bindTooltip(L.you,{permanent:true,direction:'top',offset:[0,-8]}).addTo(map);}
     else{meM.setLatLng([ME.la,ME.lo]);accC.setLatLng([ME.la,ME.lo]).setRadius(ME.acc||30);}
-    paintSel(false);
+    if(RT){if(!RT.fail)paintRouteInfo();}else paintSel(false);
   }
+  var COMP='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M15.5 8.5l-2 5-5 2 2-5z"></path></svg>';
+  var ROUTE='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"></circle><circle cx="18" cy="5" r="2"></circle><path d="M8 19h8a3 3 0 0 0 0-6H8a3 3 0 0 1 0-6h8"></path></svg>';
+  var ARW='<svg viewBox="0 0 48 48"><path d="M24 3 L38 40 L24 32 L10 40 Z" fill="#1B5E20" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"></path></svg>';
+  var NAVI='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-8-8 18-2-8z"></path></svg>';
+  var HEAD=null,RT=null;
+  function fmtKm(km){return km<1?(Math.max(10,Math.round(km*100)*10))+' m':(km<10?km.toFixed(1):Math.round(km))+' km';}
   function paintSel(fit){
     var info=document.getElementById('omapInfo');
-    if(!SEL||!ME){return;}
+    if(!SEL||!ME||false){return;}
     var km=hav(ME.la,ME.lo,SEL.la,SEL.lo),b=brg(ME.la,ME.lo,SEL.la,SEL.lo),r=DIRS[Math.round(b/22.5)%16];
-    info.style.display='';info.innerHTML='<b>'+esc(SEL.n)+'</b><span>≈ '+(km<1?(Math.max(10,Math.round(km*100)*10))+' m':(km<10?km.toFixed(1):Math.round(km))+' km')+' '+L.km_line.replace(/^km /,'')+' '+r+' ('+Math.round(b)+'°)</span>';
+    if(!RT){
+      info.style.display='';
+      info.innerHTML='<div class="dirbox"><div class="arrowc" id="dirArrow" style="transform:rotate('+(HEAD===null?b:b-HEAD)+'deg)">'+ARW+'</div><div class="dtx"><b>'+esc(SEL.n)+'</b><span>≈ '+fmtKm(km)+' · '+L.walk_to+' '+r+' ('+Math.round(b)+'°)</span>'+
+        '<small>'+(HEAD===null?L.compass_off+' <button type="button" class="cbtn" id="cBtn">'+L.compass_btn+'</button>':L.compass_on)+'</small></div></div>';
+      var cb=document.getElementById('cBtn');if(cb)cb.addEventListener('click',startCompass);
+    }
     if(!map)return;var Lf=window.L;
     if(line)map.removeLayer(line);if(dstM)map.removeLayer(dstM);
-    line=Lf.polyline([[ME.la,ME.lo],[SEL.la,SEL.lo]],{color:'#1B5E20',weight:3,dashArray:'8 6',interactive:false}).addTo(map);
+    if(!RT)line=Lf.polyline([[ME.la,ME.lo],[SEL.la,SEL.lo]],{color:'#1B5E20',weight:3,dashArray:'8 6',interactive:false}).addTo(map);else line=null;
     dstM=Lf.circleMarker([SEL.la,SEL.lo],{radius:9,color:'#fff',weight:3,fillColor:SEL.ref?'#E65100':'#1B5E20',fillOpacity:1}).bindTooltip(esc(SEL.n),{permanent:true,direction:'right',offset:[10,0]}).addTo(map);
     if(fit)map.fitBounds(Lf.latLngBounds([[ME.la,ME.lo],[SEL.la,SEL.lo]]).pad(0.25),{maxZoom:14});
   }
-  function selectPlace(p,fit){SEL=p;paintSel(fit!==false);[].forEach.call(document.querySelectorAll('.dest'),function(d){d.classList.toggle('sel',d.getAttribute('data-n')===p.n);});}
+  function updArrow(){var a=document.getElementById('dirArrow');if(!a||!SEL||!ME)return;var b=brg(ME.la,ME.lo,SEL.la,SEL.lo);a.style.transform='rotate('+(HEAD===null?b:b-HEAD)+'deg)';}
+  var compassOn=false;
+  function onOri(e){var h=null;if(e.webkitCompassHeading!=null)h=e.webkitCompassHeading;else if(e.absolute&&e.alpha!=null)h=360-e.alpha;
+    if(h!=null){var first=HEAD===null;HEAD=(h+(screen.orientation&&screen.orientation.angle||0))%360;if(first&&!RT)paintSel(false);else updArrow();}}
+  function startCompass(){if(compassOn)return;
+    function go(){compassOn=true;window.addEventListener('deviceorientationabsolute',onOri,true);window.addEventListener('deviceorientation',onOri,true);}
+    try{if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){DeviceOrientationEvent.requestPermission().then(function(st){if(st==='granted')go();}).catch(function(){});}else go();}catch(e){}}
 
-  // ---------- elección de app de navegación
+  // ---------- navegación sin señal (red de caminos OpenStreetMap en el celular)
+  var GP=null,G=null;
+  function loadGraph(){if(GP)return GP;GP=fetch('graph.json').then(function(r){return r.json();}).then(function(g){
+    var N=g.n.map(function(p){return [p[1]/1e5,p[0]/1e5];}),adj=N.map(function(){return [];}),E=[];
+    g.e.forEach(function(e,i){var a=e[0],b=e[1],pts=[N[a]],x=g.n[a][0],y=g.n[a][1],q=e[4];
+      for(var k=0;k<q.length;k+=2){x+=q[k];y+=q[k+1];pts.push([y/1e5,x/1e5]);}pts.push(N[b]);
+      var cum=[0];for(var k=1;k<pts.length;k++)cum.push(cum[k-1]+hav(pts[k-1][0],pts[k-1][1],pts[k][0],pts[k][1])*1000);
+      var sc=e[2]/(cum[cum.length-1]||1);cum=cum.map(function(v){return v*sc;});
+      E.push({a:a,b:b,L:e[2],c:e[3],p:pts,cum:cum});adj[a].push(i);adj[b].push(i);});
+    var par=new Int32Array(N.length);for(var i=0;i<N.length;i++)par[i]=i;
+    function f(x){while(par[x]!==x){par[x]=par[par[x]];x=par[x];}return x;}
+    E.forEach(function(e){par[f(e.a)]=f(e.b);});
+    var cc=new Int32Array(N.length),cs={};for(var i=0;i<N.length;i++){cc[i]=f(i);}
+    var ccar=new Int32Array(N.length);for(var i=0;i<N.length;i++)ccar[i]=i;
+    function g2(x){while(ccar[x]!==x){ccar[x]=ccar[ccar[x]];x=ccar[x];}return x;}
+    E.forEach(function(e){if(e.c<=3)ccar[g2(e.a)]=g2(e.b);});
+    var cc2=new Int32Array(N.length);for(var i=0;i<N.length;i++)cc2[i]=g2(i);
+    E.forEach(function(e){e.k=cc[e.a];e.k2=cc2[e.a];});
+    G={N:N,E:E,adj:adj};return G;});return GP;}
+  var SPD={car:[0,75,50,25,0],foot:[0,4.5,4.5,4,3.2]};
+  function okEdge(e,mode){return mode==='foot'||e.c<=3;}
+  function snap(la,lo,mode,comp){var c=Math.cos(la*Math.PI/180),best=null;
+    G.E.forEach(function(e,ei){if(!okEdge(e,mode))return;if(comp!=null&&(mode==='car'?e.k2:e.k)!==comp)return;var P=e.p;for(var k=0;k<P.length-1;k++){
+      var ax=P[k][1]*c,ay=P[k][0],bx=P[k+1][1]*c,by=P[k+1][0],px=lo*c,py=la,dx=bx-ax,dy=by-ay,t=((px-ax)*dx+(py-ay)*dy)/((dx*dx+dy*dy)||1e-12);t=Math.max(0,Math.min(1,t));
+      var qx=ax+t*dx,qy=ay+t*dy,d=(qx-px)*(qx-px)+(qy-py)*(qy-py);if(!best||d<best.d)best={d:d,e:ei,k:k,t:t,la:qy,lo:qx/c};}});
+    if(!best)return null;var e=G.E[best.e];best.pos=e.cum[best.k]+(e.cum[best.k+1]-e.cum[best.k])*best.t;best.dA=best.pos;best.dB=e.L-best.pos;return best;}
+  function cost(e,m,mode){return m/(SPD[mode][e.c]/3.6);}
+  function heapPush(h,x){h.push(x);var i=h.length-1;while(i>0){var p=(i-1)>>1;if(h[p][0]<=h[i][0])break;var t=h[p];h[p]=h[i];h[i]=t;i=p;}}
+  function heapPop(h){var top=h[0],last=h.pop();if(h.length){h[0]=last;var i=0;for(;;){var l=2*i+1,r=l+1,m=i;if(l<h.length&&h[l][0]<h[m][0])m=l;if(r<h.length&&h[r][0]<h[m][0])m=r;if(m===i)break;var t=h[m];h[m]=h[i];h[i]=t;i=m;}}return top;}
+  function route(o,dst,mode){
+    var t=snap(dst.la,dst.lo,'car');if(!t)return null;var te=G.E[t.e],comp=mode==='car'?te.k2:te.k;
+    if(mode==='foot')t=snap(dst.la,dst.lo,'foot',comp)||t;
+    var s=snap(o.la,o.lo,mode,comp);if(!s)return null;
+    var es=G.E[s.e],et=G.E[t.e],n=G.N.length,D=new Float64Array(n).fill(Infinity),PV=new Int32Array(n).fill(-1),PN=new Int32Array(n).fill(-1),h=[];
+    D[es.a]=cost(es,s.dA,mode);D[es.b]=cost(es,s.dB,mode);PN[es.a]=-2;PN[es.b]=-3;heapPush(h,[D[es.a],es.a]);heapPush(h,[D[es.b],es.b]);
+    var tgtA=et.a,tgtB=et.b,doneA=false,doneB=false;
+    while(h.length){var cur=heapPop(h),u=cur[1];if(cur[0]>D[u])continue;if(u===tgtA)doneA=true;if(u===tgtB)doneB=true;if(doneA&&doneB)break;
+      G.adj[u].forEach(function(ei){var e=G.E[ei];if(!okEdge(e,mode))return;var v=e.a===u?e.b:e.a,nd=D[u]+cost(e,e.L,mode);if(nd<D[v]){D[v]=nd;PV[v]=ei;PN[v]=u;heapPush(h,[nd,v]);}});}
+    var cA=D[tgtA]+cost(et,t.dA,mode),cB=D[tgtB]+cost(et,t.dB,mode),same=(s.e===t.e)?cost(es,Math.abs(s.pos-t.pos),mode):Infinity;
+    var best=Math.min(cA,cB,same);if(!isFinite(best))return {fail:true,s:s,t:t};
+    function partial(e,from,to){var out=[],P=e.p,C=e.cum,lo=Math.min(from,to),hi=Math.max(from,to);
+      function at(pos){for(var k=0;k<P.length-1;k++){if(pos<=C[k+1]){var f=(pos-C[k])/((C[k+1]-C[k])||1);return [P[k][0]+(P[k+1][0]-P[k][0])*f,P[k][1]+(P[k+1][1]-P[k][1])*f];}}return P[P.length-1];}
+      out.push(at(lo));for(var k=0;k<P.length;k++){if(C[k]>lo&&C[k]<hi)out.push(P[k]);}out.push(at(hi));if(from>to)out.reverse();return out;}
+    var path=[];
+    if(best===same){path=partial(es,s.pos,t.pos);}
+    else{var endN=best===cA?tgtA:tgtB,seq=[],u=endN;while(PN[u]>=0){seq.push([PV[u],PN[u],u]);u=PN[u];}
+      var startN=u;path=path.concat(partial(es,s.pos,startN===es.a?0:es.L));
+      seq.reverse().forEach(function(x){var e=G.E[x[0]],pts=e.p.slice();if(x[1]!==e.a)pts.reverse();path=path.concat(pts.slice(1));});
+      path=path.concat(partial(et,endN===et.a?0:et.L,t.pos).slice(1));}
+    var cum=[0];for(var k=1;k<path.length;k++)cum.push(cum[k-1]+hav(path[k-1][0],path[k-1][1],path[k][0],path[k][1]));
+    return {path:path,cum:cum,km:cum[cum.length-1],sec:best,s:s,t:t,mode:mode};}
+  var rtL=[],offWarn=false;
+  function clearRtLayers(){rtL.forEach(function(x){map.removeLayer(x);});rtL=[];}
+  function stopRoute(){RT=null;if(map)clearRtLayers();}
+  function fmtT(sec){var m=Math.round(sec/60);return m<60?m+' min':Math.floor(m/60)+' h '+(m%60)+' min';}
+  function drawRoute(fit){
+    if(!map||!RT)return;var Lf=window.L;clearRtLayers();
+    if(RT.fail){paintRouteInfo();return;}
+    rtL.push(Lf.polyline(RT.path,{color:'#fff',weight:9,interactive:false}).addTo(map));
+    rtL.push(Lf.polyline(RT.path,{color:'#1565C0',weight:5,interactive:false}).addTo(map));
+    var s0=RT.path[0],e0=RT.path[RT.path.length-1];
+    if(hav(RT.o.la,RT.o.lo,s0[0],s0[1])>0.03)rtL.push(Lf.polyline([[RT.o.la,RT.o.lo],s0],{color:'#E65100',weight:4,dashArray:'4 6',interactive:false}).addTo(map));
+    if(hav(RT.d.la,RT.d.lo,e0[0],e0[1])>0.03)rtL.push(Lf.polyline([e0,[RT.d.la,RT.d.lo]],{color:'#E65100',weight:4,dashArray:'4 6',interactive:false}).addTo(map));
+    if(fit)map.fitBounds(Lf.latLngBounds(RT.path).extend([RT.o.la,RT.o.lo]).pad(0.15),{maxZoom:15});
+    paintRouteInfo();}
+  function progress(){if(!RT||RT.fail||!ME)return null;var c=Math.cos(ME.la*Math.PI/180),best=null,P=RT.full;
+    for(var k=0;k<P.length-1;k++){var ax=P[k][1]*c,ay=P[k][0],bx=P[k+1][1]*c,by=P[k+1][0],px=ME.lo*c,py=ME.la,dx=bx-ax,dy=by-ay,t=((px-ax)*dx+(py-ay)*dy)/((dx*dx+dy*dy)||1e-12);t=Math.max(0,Math.min(1,t));
+      var qx=ax+t*dx,qy=ay+t*dy,d=(qx-px)*(qx-px)+(qy-py)*(qy-py);if(!best||d<best.d)best={d:d,k:k,t:t,la:qy,lo:qx/c};}
+    var off=hav(ME.la,ME.lo,best.la,best.lo),done=RT.fcum[best.k]+(RT.fcum[best.k+1]-RT.fcum[best.k])*best.t;return {off:off,left:RT.fkm-done};}
+  function paintRouteInfo(){
+    var info=document.getElementById('omapInfo');info.style.display='';
+    var head='<div class="emerg">⚠ '+L.emerg_h+' · '+L.estim+'</div>';
+    var modes='<div class="rmodes"><button type="button" data-m="foot" class="'+(RT.mode==='foot'?'on':'')+'">'+L.on_foot+'</button><button type="button" data-m="car" class="'+(RT.mode==='car'?'on':'')+'">'+L.by_car+'</button><button type="button" id="rStop">'+L.stop+'</button></div>';
+    if(RT.fail){info.innerHTML=head+'<div class="rbody"><b>'+esc(RT.d.n)+'</b><span>'+L.noroute+'</span></div>'+modes;}
+    else{var pr=progress(),left=pr?pr.left:RT.fkm,sec=(RT.sec+((RT.fkm-RT.km)/(RT.mode==='car'?4:3))*3600)*(left/(RT.fkm||1)),cross=hav(RT.o.la,RT.o.lo,RT.path[0][0],RT.path[0][1]);
+      var msg='';if(pr&&pr.off>(RT.mode==='car'?0.2:0.12))msg='<div class="offr">'+L.offroute+'</div>';if(pr&&left<0.05)msg='<div class="arr">'+L.arrived+'</div>';
+      info.innerHTML=head+'<div class="rbody"><b>'+esc(RT.d.n)+'</b><span>'+L.left+': '+fmtKm(left)+' '+L.by_road+' · '+L.eta+': '+fmtT(sec)+'</span>'+
+        (cross>0.03?'<small>'+L.cross+': '+fmtKm(cross)+'</small>':'')+msg+'</div>'+modes;}
+    [].forEach.call(info.querySelectorAll('.rmodes [data-m]'),function(b){b.addEventListener('click',function(){calcRoute(RT.d,b.getAttribute('data-m'));});});
+    document.getElementById('rStop').addEventListener('click',function(){stopRoute();paintSel(false);});}
+  function calcRoute(dest,mode){var info=document.getElementById('omapInfo');info.style.display='';info.innerHTML='<div class="emerg">⚠ '+L.emerg_h+'</div><div class="rbody"><span>'+L.calc+'</span></div>';
+    loadGraph().then(function(){setTimeout(function(){var r=route(ME,dest,mode)||{fail:true};r.o={la:ME.la,lo:ME.lo};r.d=dest;r.mode=mode;if(!r.fail){r.full=[[r.o.la,r.o.lo]].concat(r.path,[[dest.la,dest.lo]]);r.fcum=[0];for(var k=1;k<r.full.length;k++)r.fcum.push(r.fcum[k-1]+hav(r.full[k-1][0],r.full[k-1][1],r.full[k][0],r.full[k][1]));r.fkm=r.fcum[r.fcum.length-1];}RT=r;if(line){map.removeLayer(line);line=null;}drawRoute(true);},30);}).catch(function(){info.innerHTML='<div class="rbody"><span>'+L.noroute+'</span></div>';});}
+  function askRoute(p){if(!ME)return;var m=document.getElementById('emModal');
+    document.getElementById('emOk').onclick=function(){m.classList.remove('show');SEL=p;openMap(function(){calcRoute(p,p.ref?'foot':(p.km>25?'car':'foot'));});};
+    document.getElementById('emNo').onclick=function(){m.classList.remove('show');};m.classList.add('show');}
+  function selectPlace(p,fit){SEL=p;if(!RT)paintSel(fit!==false);[].forEach.call(document.querySelectorAll('.dest'),function(d){d.classList.toggle('sel',d.getAttribute('data-n')===p.n);});}
+
+  // ---------- apps de navegación
   var IOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
-  if(IOS){document.getElementById('navApple').style.display='';document.getElementById('navSel').style.gridTemplateColumns='repeat(3,minmax(0,1fr))';}
-  var NAV='mm';try{NAV=localStorage.getItem('navApp3')||'mm';}catch(e){}if(NAV==='am'&&!IOS)NAV='mm';if(NAV!=='gm'&&NAV!=='am')NAV='mm';
-  function setNav(v){NAV=v;try{localStorage.setItem('navApp3',v);}catch(e){}
-    [].forEach.call(document.querySelectorAll('#navSel label'),function(l){var on=l.getAttribute('data-v')===v;l.classList.toggle('on',on);l.querySelector('input').checked=on;});
-    document.getElementById('navTip').className='navtip';}
-  [].forEach.call(document.querySelectorAll('#navSel label'),function(l){l.addEventListener('click',function(e){e.preventDefault();setNav(l.getAttribute('data-v'));});});
-  setNav(NAV);
   var ANDROID=/android/i.test(navigator.userAgent);
-  function openNav(e){e.preventDefault();var a=e.currentTarget,tp=document.getElementById('navTip');
-    if(NAV==='gm'){window.open(a.getAttribute('data-gm'),'_blank','noopener');return;}
-    if(NAV==='am'){window.location.href=a.getAttribute('data-am');return;}
+  function openMM(e){e.preventDefault();var a=e.currentTarget,tp=document.getElementById('navTip');
     if(ANDROID){window.location.href=a.getAttribute('data-geo');tp.innerHTML=L.and_tip+STORES;tp.className='navtip show';return;}
     tp.innerHTML=L.mm_tip;tp.className='navtip show';
     var left=false,h=function(){if(document.hidden)left=true;};document.addEventListener('visibilitychange',h);
     window.location.href=a.getAttribute('data-mm');
     setTimeout(function(){document.removeEventListener('visibilitychange',h);if(!left&&!document.hidden){tp.innerHTML=L.ios_tip+STORES;tp.className='navtip show';}},2500);}
+  function openAM(e){e.preventDefault();window.location.href=e.currentTarget.getAttribute('data-am');}
 
   // ---------- puntos de referencia más cercanos (datos OpenStreetMap)
   function nearestIn(groups,la,lo){var c=Math.cos(la*Math.PI/180),best=null,px=lo*c,py=la;
@@ -639,20 +834,21 @@ a{color:inherit}
     arr=refs.concat(arr);ARR=arr;var firstPlace=refs.length;
     arr.forEach(function(p,i){
       var o=la.toFixed(6)+','+lo.toFixed(6),dst=p.la+','+p.lo;
-      var gm='https://www.google.com/maps/dir/?api=1&origin='+o+'&destination='+dst+'&travelmode=';
       var geo='geo:'+dst+'?q='+dst+'('+encodeURIComponent(p.n)+')';
       var mm='mapsme://map?v=1&ll='+dst+'&n='+encodeURIComponent(p.n);
-      var am='https://maps.apple.com/?saddr='+o+'&daddr='+dst+'&dirflg=';
+      var am='https://maps.apple.com/?saddr='+o+'&daddr='+dst+'&dirflg='+((p.ref||p.km<12)?'w':'d');
       var km=p.km<1?(Math.max(10,Math.round(p.km*100)*10))+' m':(p.km<10?p.km.toFixed(1):Math.round(p.km))+' km';
       var row=document.createElement('div');row.className='dest';row.setAttribute('data-n',p.n);
       var badge=p.ref?'<span class="near" style="background:#E65100">'+L.ref+'</span>':(i===firstPlace?'<span class="near">'+L.near+'</span>':'');
       row.innerHTML='<div class="n">'+esc(p.n)+badge+'<small>'+esc(p.d)+'</small></div><div class="km">≈ '+km+'</div>'+
-        '<div class="bt"><a class="car" href="#" data-gm="'+gm+'driving" data-mm="'+mm+'" data-am="'+am+'d" data-geo="'+geo+'">'+CAR+L.veh+'</a><a class="walk" href="#" data-gm="'+gm+'walking" data-mm="'+mm+'" data-am="'+am+'w" data-geo="'+geo+'">'+WALK+L.walk+'</a><button type="button" class="mapb">'+L.map+'</button></div>';
-      [].forEach.call(row.querySelectorAll('a[data-gm]'),function(a){a.addEventListener('click',openNav);});
-      row.querySelector('.mapb').addEventListener('click',function(){selectPlace(p,true);document.getElementById('omap').scrollIntoView({behavior:'smooth',block:'start'});});
+        '<div class="bt'+(IOS?' four':' three')+'"><a class="mmb" href="#" data-mm="'+mm+'" data-geo="'+geo+'">'+NAVI+L.mm_btn+'</a>'+(IOS?'<a class="amb" href="#" data-am="'+am+'">'+NAVI+L.am_btn+'</a>':'')+
+        '<button type="button" class="offb">'+ROUTE+L.nav_off+'</button><button type="button" class="mapb">'+COMP+L.orient+'</button></div>';
+      row.querySelector('.mmb').addEventListener('click',openMM);
+      if(IOS)row.querySelector('.amb').addEventListener('click',openAM);
+      row.querySelector('.mapb').addEventListener('click',function(){stopRoute();SEL=p;startCompass();openMap(function(){selectPlace(p,true);});});
+      row.querySelector('.offb').addEventListener('click',function(){askRoute(p);});
       list.appendChild(row);});
-    selectPlace(arr[firstPlace]||arr[0],true);
-    document.getElementById('geoBack').className='geo-back show';
+    SEL=arr[firstPlace]||arr[0];
   }
 
   // ---------- GPS
@@ -666,14 +862,15 @@ a{color:inherit}
     document.getElementById('geoAcc').textContent=L.acc+': ± '+acc+' m · '+L.time+': '+hora;
     var mapu='https://www.google.com/maps?q='+la.toFixed(6)+','+lo.toFixed(6);
     msg=L.mine+': '+dec+' ('+d+'). '+L.precision+' ± '+acc+' m. '+mapu;
-    document.getElementById('geoMap').href=mapu;
+    var fc=document.getElementById('fsCoords');if(fc)fc.textContent=dec+'  ·  ± '+acc+' m';
     document.getElementById('geoWa').href='https://wa.me/?text='+encodeURIComponent(msg);
     document.getElementById('geoSms').href='sms:?&body='+encodeURIComponent(msg);
     ME={la:la,lo:lo,acc:acc};return [la,lo];}
   function ok(p){
     var c=showCoords(p);
     out.className='geo-out show';err.className='geo-err';txt.textContent=L.update;btn.disabled=false;
-    READY.then(function(){renderBack(c[0],c[1]);paintMe();});
+    READY.then(function(){renderBack(c[0],c[1]);paintMe();loadGraph();});
+    var lw=document.getElementById('offWait');if(lw)lw.style.display='none';
     if(watch===null&&navigator.geolocation.watchPosition){
       watch=navigator.geolocation.watchPosition(function(q){showCoords(q);paintMe();},function(){},{enableHighAccuracy:true,maximumAge:5000,timeout:30000});}
   }
@@ -683,9 +880,72 @@ a{color:inherit}
     btn.disabled=true;txt.textContent=L.searching;err.className='geo-err';
     try{navigator.geolocation.getCurrentPosition(ok,fail,{enableHighAccuracy:true,timeout:25000,maximumAge:0});}catch(e){fail();}});
   document.addEventListener('visibilitychange',function(){if(document.hidden&&watch!==null){navigator.geolocation.clearWatch(watch);watch=null;}});
+  // ---------- pantallas: principal / GPS sin conexión / mapa completo
+  var mapCb=null;
+  function route_(){var h=location.hash;
+    document.body.classList.toggle('offmode',h==='#sin-conexion'||h==='#mapa'&&document.body.getAttribute('data-from')==='off');
+    var fs=document.getElementById('mapfs');
+    if(h==='#mapa'){fs.classList.add('show');document.documentElement.style.overflow='hidden';ensureMap(function(){var c=mapCb;mapCb=null;setTimeout(function(){map.invalidateSize();if(c)c();},60);});}
+    else{fs.classList.remove('show');document.documentElement.style.overflow='';}
+    if(h==='#sin-conexion'||h==='')window.scrollTo(0,0);}
+  window.addEventListener('hashchange',route_);
+  function openMap(cb){mapCb=cb||null;document.body.setAttribute('data-from',location.hash==='#sin-conexion'?'off':'main');
+    if(location.hash==='#mapa'){route_();}else location.hash='#mapa';}
+  function closeMap(){if(location.hash==='#mapa')history.back();}
+  document.getElementById('fsClose').addEventListener('click',closeMap);
+  document.getElementById('fsCenter').addEventListener('click',function(){if(map&&ME)map.setView([ME.la,ME.lo],Math.max(map.getZoom(),14));});
+  document.getElementById('fsLeg').addEventListener('click',function(){document.getElementById('fsLegend').classList.toggle('show');});
+  document.getElementById('geoMapBtn').addEventListener('click',function(){stopRoute();var inf=document.getElementById('omapInfo');inf.style.display='none';SEL=null;
+    if(line&&map){map.removeLayer(line);line=null;}if(dstM&&map){map.removeLayer(dstM);dstM=null;}
+    openMap(function(){if(ME)map.setView([ME.la,ME.lo],14);});});
+  document.getElementById('offBtn').addEventListener('click',function(){location.hash='#sin-conexion';
+    if(!ME){document.getElementById('offWait').style.display='block';btn.click();}});
+  document.getElementById('offBack').addEventListener('click',function(){if(location.hash==='#sin-conexion')history.back();else location.hash='';});
+  if(location.hash==='#mapa'){history.replaceState(null,'',location.pathname);}
+  route_();
   document.getElementById('geoCopy').addEventListener('click',function(){var b=this;function done(){b.textContent=L.copied;setTimeout(function(){b.textContent=L.copy},1800);}
     function fb(){var t=document.createElement('textarea');t.value=msg;document.body.appendChild(t);t.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(t);}
     try{navigator.clipboard.writeText(msg).then(done,fb);}catch(e){fb();}});
+})();
+</script>
+<div class="ibar" id="ibar" role="dialog" aria-label="Instale o app"><img src="pt-icon-192.png" alt=""><div class="tx"><b>Instale o app</b><small>Abre sem sinal: mapa, GPS e telefones de emergência.</small></div><button class="go" type="button" data-install>Instalar</button><button class="x" type="button" id="ibarX" aria-label="Fechar">×</button></div>
+<div class="isheet" id="isheet"><div class="box"><h3><img src="pt-icon-192.png" alt="">Instalar o app</h3><div id="isBody"></div><button class="act sec" type="button" id="isClose">Fechar</button></div></div>
+<div class="iarrow" id="iarrow"><span>Toque aqui</span><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15"></path><path d="M6 13l6 6 6-6"></path></svg></div>
+<script>
+(function(){
+  var I={"bt": "Instale o app", "bs": "Abre sem sinal: mapa, GPS e telefones de emergência.", "btn": "Instalar", "h": "Instalar o app", "close": "Fechar", "ios": ["Toque no botão <b>Compartilhar</b> <svg class=\"ii\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#0A84FF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 15V3\"></path><path d=\"M8 7l4-4 4 4\"></path><path d=\"M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1\"></path></svg> na barra do Safari (embaixo no iPhone, em cima no iPad).", "Role o menu e escolha <b>Adicionar à Tela de Início</b> <svg class=\"ii\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#263238\" stroke-width=\"2\" stroke-linecap=\"round\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"4\"></rect><path d=\"M12 8v8M8 12h8\"></path></svg>.", "Toque em <b>Adicionar</b>. Pronto: o ícone da Gendarmería Nacional aparecerá na sua tela."], "ios_ns": "Para instalar no iPhone, abra esta página no <b>Safari</b>: copie o link, abra o Safari e cole na barra de endereços.", "and_": ["Toque no menu <b>⋮</b> no canto superior direito do Chrome.", "Escolha <b>Instalar app</b> ou <b>Adicionar à tela inicial</b>.", "Confirme em <b>Instalar</b>. Pronto: o ícone aparecerá na sua tela."], "and_inapp": "Você está dentro de outro app (WhatsApp, Facebook, Instagram…). Para instalar, abra a página no Chrome.", "chrome": "Abrir no Chrome", "copy": "Copiar link", "copied": "Link copiado!", "ok": "✓ O app já está instalado neste celular.", "arrow": "Toque aqui"};
+  var ua=navigator.userAgent,IOS=/iphone|ipad|ipod/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1),AND=/android/i.test(ua);
+  var INAPP=/FBAN|FBAV|Instagram|Line\/|WhatsApp|Twitter|Snapchat|; wv\)/i.test(ua);
+  var IOS_OTHER=IOS&&(/CriOS|FxiOS|EdgiOS|OPiOS|GSA\//.test(ua)||INAPP);
+  var STAND=window.matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+  var deferred=null,bar=document.getElementById('ibar'),sh=document.getElementById('isheet'),body=document.getElementById('isBody'),arr=document.getElementById('iarrow');
+  function q(s){return [].slice.call(document.querySelectorAll(s));}
+  function done(){bar.classList.remove('show');q('[data-install]').forEach(function(b){if(!bar.contains(b))b.style.display='none';});q('[data-installed]').forEach(function(e){e.style.display='block';});}
+  if(STAND){done();return;}
+  var mob=IOS||AND, snooze=0;try{snooze=+localStorage.getItem('ibarHide')||0;}catch(e){}
+  if(mob&&Date.now()>snooze)setTimeout(function(){bar.classList.add('show');},1500);
+  document.getElementById('ibarX').addEventListener('click',function(){bar.classList.remove('show');try{localStorage.setItem('ibarHide',Date.now()+3*864e5);}catch(e){}});
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferred=e;});
+  window.addEventListener('appinstalled',done);
+  function steps(a){return '<ol>'+a.map(function(x){return '<li><span>'+x+'</span></li>';}).join('')+'</ol>';}
+  function copyBtn(){return '<button class="act" type="button" id="isCopy">'+I.copy+'</button>';}
+  function close(){sh.classList.remove('show');sh.classList.remove('arr');arr.classList.remove('show');bar.style.visibility='';}
+  function open(){
+    if(deferred){deferred.prompt();deferred.userChoice.then(function(c){deferred=null;if(c&&c.outcome==='accepted')done();});return;}
+    var h='';
+    if(IOS&&!IOS_OTHER){h=steps(I.ios);}
+    else if(IOS){h='<p>'+I.ios_ns+'</p>'+copyBtn();}
+    else if(AND&&INAPP){var u=location.href.replace(/^https?:\/\//,'');h='<p>'+I.and_inapp+'</p><a class="act" href="intent://'+u+'#Intent;scheme=https;package=com.android.chrome;end">'+I.chrome+'</a>'+copyBtn();}
+    else{h=steps(I.and_);}
+    body.innerHTML=h;sh.classList.add('show');bar.style.visibility='hidden';
+    if(IOS&&!IOS_OTHER&&!/ipad/i.test(ua)&&navigator.maxTouchPoints<=5){arr.classList.add('show');sh.classList.add('arr');}
+    var c=document.getElementById('isCopy');if(c)c.addEventListener('click',function(){var b=this;function ok(){b.textContent=I.copied;}
+      try{navigator.clipboard.writeText(location.href).then(ok,function(){fb();});}catch(e){fb();}
+      function fb(){var t=document.createElement('textarea');t.value=location.href;document.body.appendChild(t);t.select();try{document.execCommand('copy');ok();}catch(e){}document.body.removeChild(t);}});
+  }
+  q('[data-install]').forEach(function(b){b.addEventListener('click',open);});
+  document.getElementById('isClose').addEventListener('click',close);
+  sh.addEventListener('click',function(e){if(e.target===sh)close();});
 })();
 </script>
 <script>
