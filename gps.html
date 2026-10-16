@@ -427,6 +427,7 @@ a{color:inherit}
 .gpsbanner b{display:block;font:800 22px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
 .gpsbanner .arr{margin-left:auto;font:800 28px/1 "Barlow Condensed",Arial,sans-serif}
 .gpspage .geo{margin-top:0}
+.credit{margin:14px auto 0!important;padding-top:12px;border-top:1px solid rgba(255,255,255,.25);font-size:13px!important;font-weight:600!important;opacity:.85;max-width:40ch;line-height:1.45}
 #lmap{height:62vh;min-height:360px;max-height:640px;background:#CFE6F2;position:relative}
 .lload{position:absolute;inset:0;display:grid;place-items:center;font-weight:700;color:#455A64}
 .leaflet-container{background:#CFE6F2;font-family:"Barlow",Arial,sans-serif}
@@ -439,6 +440,9 @@ a{color:inherit}
 .lbl span{display:inline-block;white-space:nowrap;font:800 13px/1 "Barlow",Arial,sans-serif;color:#263238;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff,0 0 3px #fff;transform:translate(8px,-7px)}
 .lbl.city span{font-size:15px;text-transform:uppercase}
 .lbl.small span{font-size:11px;font-weight:700;color:#455A64}
+.legend i.hito{width:9px;height:9px;background:#263238;border:1.5px solid #fff;box-shadow:0 0 0 1px #263238}
+.hit{background:#263238;border:2px solid #fff;box-shadow:0 0 0 1px #263238}
+.maptitle{margin:0;padding:8px 12px;background:#263238;color:#fff;font-size:13px;font-weight:700}
 .pk{width:0!important;height:0!important;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:10px solid #795548;background:none}
 .mapsec h3{font-size:24px;text-transform:uppercase;color:#1B4D24;margin:16px 0 8px}
 
@@ -473,10 +477,11 @@ a{color:inherit}
         <div class="safe"><b>Si estás perdido:</b> si no conocés el terreno, lo más seguro es <b>quedarte en el lugar</b>, abrigarte y pasar tus coordenadas por teléfono o radio. La dirección hacia una ruta o localidad es solo una referencia: en línea recta puede haber ríos, turbales, bosque cerrado o barrancos.</div>
         <h3>Mapa sin señal</h3>
         <div class="omap" id="omap">
+            <p class="maptitle">Isla Grande de Tierra del Fuego · Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur</p>
             <div id="lmap"><div class="lload">Cargando mapa…</div></div>
             <div class="omap-info" id="omapInfo" style="display:none"></div>
-            <div class="legend"><span><i style="background:#C62828;height:4px"></i>Ruta nacional / principal</span><span><i style="background:#EF6C00;height:3px"></i>Ruta provincial / secundaria</span><span><i style="border-top:2px dashed #8D6E63;height:0"></i>Camino rural / huella</span><span><i style="border-top:2px dotted #2E7D32;height:0"></i>Sendero</span><span><i style="background:#9CC9E0;height:8px;border:1px solid #6FA8C8"></i>Río / lago</span><span><i class="dot" style="background:#6A1B9A"></i>Refugio</span><span><i class="dot" style="background:#00838F"></i>Camping</span><span><i class="dot" style="background:#5D4037"></i>Mirador</span><span><i class="tri"></i>Cerro</span></div>
-            <p class="omap-note">Mapa guardado en el celular: funciona sin señal. Acercá y mové con los dedos. Datos: OpenStreetMap. Algunos caminos y senderos pueden no estar o haber cambiado.</p>
+            <div class="legend"><span><i style="background:#C62828;height:4px"></i>Ruta nacional / principal</span><span><i style="background:#EF6C00;height:3px"></i>Ruta provincial / secundaria</span><span><i style="border-top:2px dashed #8D6E63;height:0"></i>Camino rural / huella</span><span><i style="border-top:2px dotted #2E7D32;height:0"></i>Sendero</span><span><i style="background:#9CC9E0;height:8px;border:1px solid #6FA8C8"></i>Río / lago</span><span><i class="dot" style="background:#6A1B9A"></i>Refugio</span><span><i class="dot" style="background:#00838F"></i>Camping</span><span><i class="dot" style="background:#5D4037"></i>Mirador</span><span><i class="tri"></i>Cerro</span><span><i style="border-top:3px dashed #263238;height:0"></i>Límite internacional (IGN)</span><span><i class="hito"></i>Hito internacional</span><span><i style="border-top:2px dashed #43A047;height:0"></i>Límite de área protegida</span></div>
+            <p class="omap-note">Mapa guardado en el celular: funciona sin señal. Acercá y mové con los dedos. Datos: © colaboradores de OpenStreetMap (licencia ODbL); costa y caminos: OpenStreetMap; límite internacional, hitos y áreas protegidas: Instituto Geográfico Nacional (IGN). Mapa orientativo, no es cartografía oficial. Algunos caminos y senderos pueden no estar o haber cambiado.</p>
           </div>
       </div>
       <div class="geo-back" id="geoBack">
@@ -517,11 +522,12 @@ a{color:inherit}
     
     <img src="img-logo.webp" alt="Gendarmería Nacional">
     <p class="src">Gendarmería Nacional Argentina · Escuadrón 44 "Ushuaia".</p>
+    <p class="credit">Desarrollado por Lic. F.E.A 473</p>
   </div>
 </footer>
 <script>
 (function(){
-  var L0={"btn": "Ver mis coordenadas", "searching": "Buscando señal GPS…", "update": "Actualizar ubicación", "retry": "Reintentar", "acc": "Precisión aproximada", "time": "Hora", "mine": "Mi ubicación", "precision": "Precisión", "copied": "¡Copiado!", "copy": "Copiar", "e1": "Esta página no pudo acceder a la ubicación del teléfono. Activá la ubicación (GPS) y el permiso del navegador, o usá Google Maps:", "e2": "No se pudo obtener la ubicación. Verificá que el GPS / Ubicación del teléfono esté encendido y, si podés, salí a cielo abierto.", "e3": "El GPS tardó demasiado. Esperá unos segundos a cielo abierto y tocá Reintentar.", "e0": "No se pudo obtener la ubicación en este dispositivo.", "nosup": "Este navegador no permite obtener la ubicación.", "gmaps": "Abrir Google Maps", "gmaps_help": "En Google Maps tocá el botón de ubicación y después el punto azul: ahí aparecen tus coordenadas.", "you": "Vos", "you_out": "Vos (fuera del mapa)", "road": "Ruta", "near": "Más cercana", "ref": "Referencia", "road_n": "Ruta más cercana", "road_d": "Ruta principal · punto aproximado", "km_line": "km en línea recta · hacia el", "veh": "Vehículo", "walk": "A pie", "map": "Mapa", "and_tip": "Si el celular pregunta con qué app abrir, elegí <b>MAPS.ME</b> (podés marcar \"Siempre\"). En MAPS.ME se abre el destino: tocá <b>Ruta</b> o <b>Cómo llegar</b> y elegí auto o a pie. Si no tenés MAPS.ME:", "ios_tip": "Si MAPS.ME no se abrió, verificá que esté instalada y actualizada. Si no la tenés:", "lg": ["Ruta nacional / principal", "Ruta provincial / secundaria", "Camino rural / huella", "Sendero", "Río / lago", "Refugio", "Camping", "Mirador", "Cerro"], "trail_n": "Camino o sendero más cercano", "trail_d": "Huella, camino rural o sendero", "map_h": "Mapa sin señal", "loading": "Cargando mapa…", "ele": "Altura", "mm_tip": "MAPS.ME se abre con el destino marcado: tocá <b>Ruta</b> o <b>Cómo llegar</b> y elegí auto o a pie.", "am_d": "Sin señal si descargaste el mapa", "N": "N", "E": "E", "S": "S", "W": "O", "chile_city": "Ciudad chilena", "pw": "Puerto Williams (Chile)", "places": ["Ciudad", "Ciudad", "Localidad", "Defensa Civil · Ruta Nacional 3", "Paraje · Canal Beagle", "Gendarmería Nacional · Sección San Sebastián", "Paso Río Bellavista · Ruta Provincial 8"]}, STORES="<div class=\"stores\"><a class=\"store\" href=\"https://play.google.com/store/apps/details?id=com.mapswithme.maps.pro\" target=\"_blank\" rel=\"noopener\">Android · Google Play</a> <a class=\"store\" href=\"https://apps.apple.com/app/id510623322\" target=\"_blank\" rel=\"noopener\">iPhone · App Store</a></div>", PLACES=[["Ushuaia", "Ciudad", -54.8019, -68.303, 1, 0], ["Río Grande", "Ciudad", -53.7877, -67.7097, 1, 0], ["Tolhuin", "Localidad", -54.5108, -67.1955, 1, 0], ["Lago Escondido", "Defensa Civil · Ruta Nacional 3", -54.640775, -67.762458, 0, 0], ["Puerto Almanza", "Paraje · Canal Beagle", -54.86947, -67.56244, 0, 0], ["San Sebastián", "Gendarmería Nacional · Sección San Sebastián", -53.29977, -68.457453, 0, 0], ["Paso Radman", "Paso Río Bellavista · Ruta Provincial 8", -54.1547, -68.6394, 0, 0]], LANG=document.documentElement.lang;
+  var L0={"btn": "Ver mis coordenadas", "searching": "Buscando señal GPS…", "update": "Actualizar ubicación", "retry": "Reintentar", "acc": "Precisión aproximada", "time": "Hora", "mine": "Mi ubicación", "precision": "Precisión", "copied": "¡Copiado!", "copy": "Copiar", "e1": "Esta página no pudo acceder a la ubicación del teléfono. Activá la ubicación (GPS) y el permiso del navegador, o usá Google Maps:", "e2": "No se pudo obtener la ubicación. Verificá que el GPS / Ubicación del teléfono esté encendido y, si podés, salí a cielo abierto.", "e3": "El GPS tardó demasiado. Esperá unos segundos a cielo abierto y tocá Reintentar.", "e0": "No se pudo obtener la ubicación en este dispositivo.", "nosup": "Este navegador no permite obtener la ubicación.", "gmaps": "Abrir Google Maps", "gmaps_help": "En Google Maps tocá el botón de ubicación y después el punto azul: ahí aparecen tus coordenadas.", "you": "Vos", "you_out": "Vos (fuera del mapa)", "road": "Ruta", "near": "Más cercana", "ref": "Referencia", "road_n": "Ruta más cercana", "road_d": "Ruta principal · punto aproximado", "km_line": "km en línea recta · hacia el", "veh": "Vehículo", "walk": "A pie", "map": "Mapa", "and_tip": "Si el celular pregunta con qué app abrir, elegí <b>MAPS.ME</b> (podés marcar \"Siempre\"). En MAPS.ME se abre el destino: tocá <b>Ruta</b> o <b>Cómo llegar</b> y elegí auto o a pie. Si no tenés MAPS.ME:", "ios_tip": "Si MAPS.ME no se abrió, verificá que esté instalada y actualizada. Si no la tenés:", "lg": ["Ruta nacional / principal", "Ruta provincial / secundaria", "Camino rural / huella", "Sendero", "Río / lago", "Refugio", "Camping", "Mirador", "Cerro", "Límite internacional (IGN)", "Hito internacional", "Límite de área protegida"], "trail_n": "Camino o sendero más cercano", "trail_d": "Huella, camino rural o sendero", "map_h": "Mapa sin señal", "loading": "Cargando mapa…", "ele": "Altura", "attrib": "<a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener\">© colaboradores de OpenStreetMap</a> (ODbL) · Límites: IGN", "map_t": "Isla Grande de Tierra del Fuego · Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur", "hito": "Hito", "mm_tip": "MAPS.ME se abre con el destino marcado: tocá <b>Ruta</b> o <b>Cómo llegar</b> y elegí auto o a pie.", "am_d": "Sin señal si descargaste el mapa", "N": "N", "E": "E", "S": "S", "W": "O", "chile_city": "Ciudad chilena", "pw": "Puerto Williams (Chile)", "places": ["Ciudad", "Ciudad", "Localidad", "Defensa Civil · Ruta Nacional 3", "Paraje · Canal Beagle", "Gendarmería Nacional · Sección San Sebastián", "Paso Río Bellavista · Ruta Provincial 8"]}, STORES="<div class=\"stores\"><a class=\"store\" href=\"https://play.google.com/store/apps/details?id=com.mapswithme.maps.pro\" target=\"_blank\" rel=\"noopener\">Android · Google Play</a> <a class=\"store\" href=\"https://apps.apple.com/app/id510623322\" target=\"_blank\" rel=\"noopener\">iPhone · App Store</a></div>", PLACES=[["Ushuaia", "Ciudad", -54.8019, -68.303, 1, 0], ["Río Grande", "Ciudad", -53.7877, -67.7097, 1, 0], ["Tolhuin", "Localidad", -54.5108, -67.1955, 1, 0], ["Lago Escondido", "Defensa Civil · Ruta Nacional 3", -54.640775, -67.762458, 0, 0], ["Puerto Almanza", "Paraje · Canal Beagle", -54.86947, -67.56244, 0, 0], ["San Sebastián", "Gendarmería Nacional · Sección San Sebastián", -53.29977, -68.457453, 0, 0], ["Paso Radman", "Paso Río Bellavista · Ruta Provincial 8", -54.00019, -68.60756, 0, 0]], LANG=document.documentElement.lang;
   var btn=document.getElementById('geoBtn'),txt=document.getElementById('geoBtnTxt'),out=document.getElementById('geoOut'),err=document.getElementById('geoErr');
   var msg='',ME=null,SEL=null,D=null,map=null,meM=null,accC=null,line=null,dstM=null,watch=null,ARR=[];
   var CAR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-5l-2-5H7l-2 5z"></path><path d="M3 12h18"></path><circle cx="7.5" cy="17.5" r="1.5"></circle><circle cx="16.5" cy="17.5" r="1.5"></circle></svg>';
@@ -537,9 +543,9 @@ a{color:inherit}
   var READY=new Promise(function(res){
     if(!window.L||!L.map){res();return;}
     var Lf=window.L;
-    map=Lf.map('lmap',{preferCanvas:true,minZoom:7,maxZoom:17,zoomSnap:0.5,maxBounds:[[-56,-70.5],[-51.8,-63.8]],maxBoundsViscosity:0.8});
+    map=Lf.map('lmap',{preferCanvas:true,minZoom:7,maxZoom:17,zoomSnap:0.5,maxBounds:[[-56,-70.5],[-51.8,-62.8]],maxBoundsViscosity:0.8});
     map.fitBounds([[-55.1,-68.7],[-52.6,-65.3]]);
-    map.attributionControl.setPrefix(false);map.attributionControl.addAttribution('© OpenStreetMap (ODbL) · Natural Earth');
+    map.attributionControl.setPrefix(false);map.attributionControl.addAttribution(L.attrib);
     fetch('tdf.json').then(function(r){return r.json();}).then(function(d){D=d;draw(Lf);res();}).catch(function(){res();});
   });
   function draw(Lf){
@@ -550,7 +556,9 @@ a{color:inherit}
     poly(D.land.ar,{color:'#7D8A84',weight:0.7,fillColor:'#EEF3EA',fillOpacity:1});
     D.lk.forEach(function(l){Lf.polygon(l.r.map(ll),Object.assign({},ni,{color:'#6FA8C8',weight:0.6,fillColor:'#9CC9E0',fillOpacity:1})).addTo(map);});
     var gRv=Lf.layerGroup(D.rv.map(function(l){return Lf.polyline(ll(l),Object.assign({},ni,{color:'#6FA8C8',weight:1}));})).addTo(map);
-    D.bd.forEach(function(l){Lf.polyline(ll(l),Object.assign({},ni,{color:'#37474F',weight:1.6,dashArray:'6 4'})).addTo(map);});
+    var gPa=Lf.layerGroup((D.pa||[]).map(function(l){return Lf.polyline(ll(l),Object.assign({},ni,{color:'#43A047',weight:1.4,dashArray:'6 4'}));})).addTo(map);
+    D.bd.forEach(function(l){Lf.polyline(ll(l),Object.assign({},ni,{color:'#fff',weight:4.5})).addTo(map);Lf.polyline(ll(l),Object.assign({},ni,{color:'#263238',weight:2.2,dashArray:'10 5'})).addTo(map);});
+    var gHi=Lf.layerGroup((D.hi||[]).map(function(h){return Lf.marker([h[0],h[1]],{icon:Lf.divIcon({className:'hit',iconSize:[9,9]})}).bindPopup('<b>'+L.hito+(h[2]?' '+esc(h[2]):'')+'</b>'+(h[3]?'<br>'+esc(h[3]):'')+'<br><small>IGN</small>');}));
     var g3=Lf.layerGroup(D.r3.map(function(l){return Lf.polyline(ll(l),Object.assign({},ni,{color:'#8D6E63',weight:1.4,dashArray:'5 3'}));}));
     var gp=Lf.layerGroup(D.p.map(function(l){return Lf.polyline(ll(l),Object.assign({},ni,{color:'#2E7D32',weight:1.6,dashArray:'2 3'}));}));
     D.r2.forEach(function(l){Lf.polyline(ll(l),Object.assign({},ni,{color:'#fff',weight:4})).addTo(map);});
@@ -573,7 +581,7 @@ a{color:inherit}
       else{Lf.circleMarker([la,lo],{renderer:R,radius:5,color:'#fff',weight:1.5,fillColor:COL[t],fillOpacity:1}).bindPopup(pop).addTo(gPoi);}});
     gBig.addTo(map);
     function zoomCheck(){var z=map.getZoom();
-      [[g3,9.5],[gp,9.5],[gSmall,10],[gPoi,9.5]].forEach(function(x){if(z>=x[1]){if(!map.hasLayer(x[0]))x[0].addTo(map);}else if(map.hasLayer(x[0]))map.removeLayer(x[0]);});}
+      [[g3,9.5],[gp,9.5],[gSmall,10],[gPoi,9.5],[gHi,9]].forEach(function(x){if(z>=x[1]){if(!map.hasLayer(x[0]))x[0].addTo(map);}else if(map.hasLayer(x[0]))map.removeLayer(x[0]);});}
     map.on('zoomend',zoomCheck);zoomCheck();
     if(ME)paintMe();
   }

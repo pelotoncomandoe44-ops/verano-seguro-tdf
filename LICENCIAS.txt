@@ -3,7 +3,7 @@ Gendarmería Nacional – Escuadrón 44 "Ushuaia"
 Desarrollado por Lic. F.E.A 473
 ==========================================================
 
-1) Datos del mapa (caminos, senderos, ríos, lagos, refugios, campings, miradores, cerros y localidades)
+1) Datos del mapa (línea de costa, caminos, senderos, ríos, lagos, refugios, campings, miradores, cerros y localidades)
    Fuente: OpenStreetMap – © colaboradores de OpenStreetMap
    Licencia: Open Database License (ODbL) 1.0 – https://www.openstreetmap.org/copyright
    El archivo tdf.json es una base de datos derivada de OpenStreetMap (extracción y simplificación
@@ -13,13 +13,13 @@ Desarrollado por Lic. F.E.A 473
 2) Límite internacional Argentina–Chile, hitos internacionales y límites de áreas protegidas
    Fuente: Instituto Geográfico Nacional de la República Argentina (IGN) – Capas SIG
    (https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/CapasSIG).
-   Capas: "Provincia" (contorno de la Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur),
-   "Línea de límite – Límite internacional" (FA004), "Línea de límite – Límite de área protegida" (070114)
-   e "Hitos internacionales". Licencia: Creative Commons Atribución 4.0 (CC BY 4.0).
+   Capas: "Línea de límite – Límite internacional" (FA004), "Línea de límite – Límite de área protegida"
+   (070114) e "Hitos internacionales". Licencia: Creative Commons Atribución 4.0 (CC BY 4.0).
    Geometrías recortadas a la zona de Tierra del Fuego y simplificadas para su visualización.
 
-3) Relleno de referencia del territorio chileno
-   Fuente: Natural Earth (naturalearthdata.com) – Dominio público. Uso solo como referencia visual.
+3) Superficie terrestre
+   Construida a partir de la línea de costa de OpenStreetMap (natural=coastline), dividida por el límite
+   internacional del IGN para distinguir el territorio argentino del chileno.
 
 4) Biblioteca de visualización del mapa
    Leaflet 1.9.4 – © Volodymyr Agafonkin, © CloudMade – Licencia BSD-2-Clause (https://leafletjs.com)
