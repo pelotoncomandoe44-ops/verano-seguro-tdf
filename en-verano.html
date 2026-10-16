@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="manifest" href="en-manifest.webmanifest">
+<meta name="theme-color" content="#1B4D24">
+<link rel="icon" type="image/png" sizes="192x192" href="en-icon-192.png">
+<link rel="apple-touch-icon" href="en-apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Gendarmería Nacional">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Summer safety in Tierra del Fuego · Gendarmería Nacional</title>
+<link rel="alternate" hreflang="es" href="verano.html"><link rel="alternate" hreflang="en" href="en-verano.html"><link rel="alternate" hreflang="pt-BR" href="pt-verano.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#263238; --blue:#37474F; --sky:#00796B; --sun:#A5D6A7; --orange:#EF6C00;
+  --green:#2E7D32; --green-d:#1B4D24; --fire:#D84315; --fire-d:#9A2A0C; --red:#C62828;
+  --ink:#1C2422; --muted:#4F5B58; --card:#FFFFFF; --page:#EEF2EF; --teal:#00695C; --slate:#37474F;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;overflow-x:hidden;background:var(--page);color:var(--ink);font:500 17px/1.45 "Barlow",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-text-size-adjust:100%}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",Arial,sans-serif;line-height:1.05;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid #81C784;outline-offset:2px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+
+/* ===== HERO ===== */
+.hero{position:relative;background:var(--navy) var(--hero) center 62%/cover no-repeat;color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,22,.9) 0%,rgba(15,40,22,.55) 55%,rgba(15,40,22,.75) 100%)}
+.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:18px;justify-items:center;text-align:center;padding:26px 16px 40px}
+.logo{width:min(92%,460px);filter:drop-shadow(0 4px 10px rgba(0,0,0,.45))}
+.esc{display:inline-block;background:rgba(255,255,255,.12);color:#fff;font:800 clamp(18px,4.5vw,24px)/1 "Barlow Condensed",Arial,sans-serif;padding:8px 18px;border-radius:999px;border:2px solid #fff;letter-spacing:.02em}
+.titulo{width:100%;max-width:900px;margin:6px 0 0;text-transform:uppercase;font-weight:800;text-shadow:0 4px 14px rgba(0,0,0,.6)}
+.titulo .l1{display:block;white-space:nowrap;font-size:clamp(34px,11vw,110px);line-height:.92;letter-spacing:-.01em}
+.titulo .l2{display:block;font-size:clamp(22px,6vw,40px);line-height:1;margin:6px 0 4px;color:#C8E6C9;letter-spacing:.08em}
+.titulo .l3{display:block;font-size:clamp(30px,9.5vw,96px);line-height:.92;letter-spacing:-.01em}
+.titulo .l4{display:inline-block;margin-top:14px;font-size:clamp(20px,6vw,46px);line-height:1;background:var(--green);border:3px solid #fff;padding:8px 22px 6px;border-radius:8px;text-shadow:none}
+.hero p{margin:0;max-width:36ch;font-size:19px;font-weight:600;text-shadow:0 2px 6px rgba(0,0,0,.6)}
+
+.back{position:absolute;top:12px;left:12px;z-index:3;display:inline-flex;align-items:center;gap:6px;color:#fff;text-decoration:none;font:700 15px/1 "Barlow",Arial,sans-serif;background:rgba(0,0,0,.35);border:1.5px solid rgba(255,255,255,.7);padding:9px 12px;border-radius:999px}
+.hero-in{padding-top:62px!important}
+.back:hover{background:rgba(0,0,0,.5)}
+.switch{display:inline-block;margin-top:18px;color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+/* ===== EMERGENCIAS ===== */
+.sos{background:var(--red);color:#fff;padding:22px 0 26px;border-top:6px solid #fff}
+.sos h2{font-size:clamp(28px,7vw,40px);text-transform:uppercase;margin-bottom:4px}
+.sos .hint{margin:0 0 14px;font-weight:600;opacity:.95}
+.dial{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:700px){.dial{grid-template-columns:repeat(4,1fr)}}
+.call{display:flex;align-items:center;gap:10px;text-decoration:none;background:#fff;color:var(--ink);border-radius:14px;padding:12px;min-height:76px;box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.call:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.call img{width:44px;height:44px;object-fit:contain;flex:none}
+.call strong{display:block;font:800 34px/1 "Barlow Condensed",Arial,sans-serif;color:var(--red)}
+.call span{font-size:14px;font-weight:700;color:var(--muted)}
+.call.gna{grid-column:1/-1;background:var(--green);color:#fff}
+.call.gna strong{color:#fff;font-size:clamp(28px,7vw,38px)}
+.call.gna span{color:#E2F5E8}
+.call.gna img{width:110px;height:auto}
+.sos .calm{margin:14px 0 0;background:rgba(0,0,0,.18);border-radius:10px;padding:10px 14px;font-weight:600}
+
+.geo{margin-top:14px;background:#fff;color:var(--ink);border-radius:14px;padding:16px}
+.geo-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;background:var(--green);color:#fff;font:800 clamp(22px,6vw,28px)/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:16px;border-radius:12px;box-shadow:0 5px 0 #1B4D24}
+.geo-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #1B4D24}
+.geo-btn svg{width:28px;height:28px;flex:none}
+.geo-help{margin:10px 0 0;font-size:14.5px;color:var(--muted);font-weight:600;text-align:center}
+.geo-out{display:none;margin-top:14px;text-align:center}
+.geo-out.show{display:block}
+.geo-coords{font:800 clamp(26px,7.5vw,36px)/1.1 "Barlow Condensed",Arial,sans-serif;font-variant-numeric:tabular-nums;color:var(--green-d);word-break:break-word}
+.geo-dms{margin-top:6px;font-weight:700;font-size:17px}
+.geo-acc{margin-top:4px;font-size:14px;color:var(--muted);font-weight:600}
+.geo-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.geo-acts a,.geo-acts button{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:10px;border:2px solid var(--green);background:#fff;color:var(--green-d);font:800 17px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;text-decoration:none;cursor:pointer;padding:6px}
+.geo-acts .wa{background:#1FA855;border-color:#1FA855;color:#fff}
+.geo-back{display:none;margin-top:16px;text-align:left;border-top:2px dashed #CFD8DC;padding-top:14px}
+.geo-back.show{display:block}
+.geo-back h3{font-size:24px;text-transform:uppercase;color:var(--green-d);margin-bottom:2px}
+.geo-back .sub{margin:0 0 10px;font-size:14.5px;color:var(--muted);font-weight:600}
+.dest{display:grid;grid-template-columns:1fr auto;gap:8px 10px;align-items:center;padding:10px 0;border-top:1px solid #E3E8EC}
+.dest:first-of-type{border-top:0}
+.dest .n{font:800 20px/1.1 "Barlow Condensed",Arial,sans-serif;color:#263238}
+.dest .n small{display:block;font:600 13.5px/1.3 "Barlow",Arial,sans-serif;color:var(--muted)}
+.dest .near{display:inline-block;margin-left:6px;background:var(--green);color:#fff;font:800 12px/1 "Barlow Condensed",Arial,sans-serif;padding:4px 7px;border-radius:999px;vertical-align:middle;letter-spacing:.03em}
+.dest .km{font:800 20px/1 "Barlow Condensed",Arial,sans-serif;color:var(--green-d);text-align:right;white-space:nowrap}
+.dest .bt{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dest .bt a{display:flex;align-items:center;justify-content:center;gap:6px;min-height:46px;border-radius:10px;text-decoration:none;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.dest .bt a.car{background:#263238;color:#fff}
+.dest .bt a.walk{background:#fff;color:#263238;border:2px solid #263238}
+.dest .bt svg{width:20px;height:20px}
+.geo-warn{margin-top:10px;background:#FFF3E0;color:#7A3A00;border-radius:10px;padding:10px 12px;font-size:14px;font-weight:600}
+.safe{margin:6px 0 10px;background:#FDECEA;color:#7F1D1D;border-left:6px solid #C62828;border-radius:10px;padding:10px 12px;font-size:14.5px;font-weight:600;line-height:1.4}
+.safe b{color:#B71C1C}
+.omap{margin:4px 0 12px;background:#fff;border:2px solid #263238;border-radius:12px;overflow:hidden}
+.omap svg{display:block;width:100%;height:auto;background:#CFE6F2}
+.omap-info{padding:10px 12px;background:#263238;color:#fff}
+.omap-info b{display:block;font:800 22px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.omap-info span{font-size:14.5px;font-weight:600;opacity:.92}
+.omap-note{margin:0;padding:8px 12px;font-size:13px;color:var(--muted);font-weight:600;background:#F4F7F5}
+.dest .bt{grid-template-columns:1fr 1fr 1fr!important}
+.dest .bt button.mapb{display:flex;align-items:center;justify-content:center;gap:6px;min-height:46px;border-radius:10px;border:2px solid var(--green);background:#E8F5E9;color:var(--green-d);font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;cursor:pointer}
+.dest.sel{background:#F1F8F2;border-radius:10px;padding-left:8px;padding-right:8px}
+.navsel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:8px 0 10px}
+.navsel label{display:flex;flex-direction:column;gap:2px;border:2px solid #CFD8DC;border-radius:12px;padding:9px 8px;cursor:pointer;background:#fff}
+.navsel input{position:absolute;opacity:0;pointer-events:none}
+.navsel b{font:800 17px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;color:#263238}
+.navsel span{font-size:13px;font-weight:600;color:var(--muted)}
+.navsel label.on{border-color:var(--green);background:#E8F5E9}
+.navsel label.on b{color:var(--green-d)}
+.navtip .stores .store{display:inline-block;background:var(--green);color:#fff;text-decoration:none;font:800 15px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:9px 12px;border-radius:9px}
+.navtip{display:none;margin:8px 0 0;background:#FFF3E0;color:#7A3A00;border-radius:10px;padding:10px 12px;font-size:14px;font-weight:600}
+.navtip.show{display:block}
+.navtip a{color:#7A3A00}
+.stores{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.stores .store{margin-top:0!important}
+.prep{margin-top:12px;background:#E8F5E9;border:2px solid #A5D6A7;border-radius:12px;padding:12px 14px;font-size:14.5px;font-weight:600;color:#263238}
+.prep b{color:var(--green-d)}
+.prep ol{margin:6px 0 0;padding-left:20px}.prep li{margin:3px 0}
+.prep a.store{display:inline-block;margin-top:8px;background:var(--green);color:#fff;text-decoration:none;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:10px 14px;border-radius:10px}
+.geo-err{display:none;margin-top:12px;background:#FDECEA;color:#8E1B2B;border-radius:10px;padding:10px 12px;font-weight:600;font-size:15px;text-align:left}
+.geo-err.show{display:block}
+
+/* ===== BANDAS ===== */
+.band{padding:34px 0 38px;color:#fff}
+.band-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.band-head .ico{flex:none;width:62px;height:62px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 4px rgba(255,255,255,.35)}
+.band-head .ico img{width:42px;height:42px;object-fit:contain}
+.band h2{font-size:clamp(32px,8vw,48px);text-transform:uppercase}
+.band .lead{margin:0 0 18px;font-size:18px;font-weight:600;opacity:.95}
+.ruta{background:linear-gradient(160deg,#455A64,#263238)}
+.trek{background:linear-gradient(160deg,var(--green),var(--green-d))}
+.fuego{background:linear-gradient(160deg,var(--orange),var(--fire) 55%,var(--fire-d))}
+.info{background:linear-gradient(160deg,#00897B,#004D40)}
+.radio{background:#37474F}
+
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+@media(min-width:720px){.cards{grid-template-columns:1fr 1fr}}
+.cards li{display:flex;gap:14px;align-items:flex-start;background:var(--card);color:var(--ink);border-radius:14px;padding:14px;border-left:8px solid var(--green)}
+.cards img{flex:none;width:58px;height:58px;object-fit:contain}
+.cards h3{font-size:22px;margin:2px 0 4px;color:#263238}
+.cards p{margin:0;font-size:16px;color:var(--muted)}
+.trek .cards li{border-left-color:#8BD17C}
+.trek .cards h3{color:var(--green-d)}
+.fuego .cards li{border-left-color:#FFAB91}
+.fuego .cards h3{color:var(--fire-d)}
+
+.stove{margin-top:12px;background:#FFF1EA;color:var(--ink);border-radius:14px;padding:18px;border:3px dashed var(--fire-d)}
+.stove-top{display:flex;gap:14px;align-items:center;margin-bottom:6px}
+.stove-top img{width:68px;flex:none}
+.stove h3{font-size:clamp(26px,6vw,32px);text-transform:uppercase;color:var(--fire-d)}
+.stove .sub{margin:0;font-size:16px}
+.stove-grid{display:grid;gap:10px;margin-top:12px}
+@media(min-width:720px){.stove-grid{grid-template-columns:repeat(3,1fr)}}
+.stove-grid div{background:#fff;border-radius:10px;padding:12px 14px;border-top:5px solid var(--orange)}
+.stove h4{margin:0 0 6px;font:800 19px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;color:var(--fire-d)}
+.stove ul{margin:0;padding-left:18px;font-size:15.5px}
+.stove li{margin:3px 0}
+.note{margin-top:14px;background:#fff;color:var(--ink);border-left:8px solid var(--fire-d);border-radius:14px;padding:16px 18px;text-align:center}
+.note p{margin:0;font-weight:700}
+.note .big{font:800 clamp(22px,5.5vw,30px)/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;margin-top:6px;color:var(--fire-d)}
+
+/* ===== BOTONES ===== */
+.btns{display:grid;gap:12px}
+@media(min-width:640px){.btns{grid-template-columns:1fr 1fr}}
+.btn{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;border-radius:14px;padding:14px 16px;min-height:78px;box-shadow:0 5px 0 rgba(0,0,0,.22)}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.22)}
+.btn .t{flex:1}
+.btn b{display:block;font:800 23px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.btn small{font-size:14.5px;font-weight:600;opacity:.92}
+.btn .go{flex:none;background:#fff;color:#1C2422;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:9px 12px;border-radius:8px}
+.b-smn{background:#00695C}.b-pasos{background:#455A64}.b-tabsa{background:#8E1B2B}
+.b-tur{background:#2E7D32}.b-fuego{background:#BF360C}.b-parque{background:#1B5E20}
+
+/* ===== RADIO ===== */
+.tbl{background:#fff;color:var(--ink);border-radius:14px;overflow:hidden}
+.row{display:grid;grid-template-columns:42px 1fr auto;gap:10px;align-items:center;padding:12px 14px;border-top:1px solid #DDE4EE}
+.row:first-child{border-top:0}
+.row img{width:22px;margin:auto}
+.row b{display:block;color:var(--green-d);font:800 19px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.row small{color:var(--muted);font-size:14px;font-weight:600}
+.row .f{text-align:right;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;font-size:16px}
+.vhf{display:inline-block;margin-top:12px;background:#fff;color:#263238;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;padding:7px 12px;border-radius:999px;text-transform:uppercase}
+
+/* ===== CIERRE ===== */
+.end{background:linear-gradient(160deg,#2E7D32,#1B4D24);color:#fff;padding:30px 0 34px;text-align:center}
+.end .k{font:800 clamp(34px,9vw,58px)/.95 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.end p{margin:12px auto 0;max-width:46ch;font-weight:700}
+.end img{width:240px;margin:20px auto 0}
+.end .src{font-size:13px;font-weight:600;opacity:.8;margin-top:10px}
+
+/* ---- index ---- */
+
+:root{
+  --navy:#263238; --blue:#37474F; --sky:#00796B; --sun:#A5D6A7; --orange:#EF6C00;
+  --green:#2E7D32; --green-d:#1B4D24; --fire:#D84315; --fire-d:#9A2A0C; --red:#C62828;
+  --ink:#1C2422; --muted:#4F5B58; --card:#FFFFFF; --page:#EEF2EF; --teal:#00695C; --slate:#37474F;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;overflow-x:hidden;background:var(--page);color:var(--ink);font:500 17px/1.45 "Barlow",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-text-size-adjust:100%}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",Arial,sans-serif;line-height:1.05;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid #81C784;outline-offset:2px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+
+/* ===== HERO ===== */
+.hero{position:relative;background:var(--navy) var(--hero) center 62%/cover no-repeat;color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,22,.9) 0%,rgba(15,40,22,.55) 55%,rgba(15,40,22,.75) 100%)}
+.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:18px;justify-items:center;text-align:center;padding:26px 16px 40px}
+.logo{width:min(92%,460px);filter:drop-shadow(0 4px 10px rgba(0,0,0,.45))}
+.esc{display:inline-block;background:rgba(255,255,255,.12);color:#fff;font:800 clamp(18px,4.5vw,24px)/1 "Barlow Condensed",Arial,sans-serif;padding:8px 18px;border-radius:999px;border:2px solid #fff;letter-spacing:.02em}
+.titulo{width:100%;max-width:900px;margin:6px 0 0;text-transform:uppercase;font-weight:800;text-shadow:0 4px 14px rgba(0,0,0,.6)}
+.titulo .l1{display:block;white-space:nowrap;font-size:clamp(34px,11vw,110px);line-height:.92;letter-spacing:-.01em}
+.titulo .l2{display:block;font-size:clamp(22px,6vw,40px);line-height:1;margin:6px 0 4px;color:#C8E6C9;letter-spacing:.08em}
+.titulo .l3{display:block;font-size:clamp(30px,9.5vw,96px);line-height:.92;letter-spacing:-.01em}
+.titulo .l4{display:inline-block;margin-top:14px;font-size:clamp(20px,6vw,46px);line-height:1;background:var(--green);border:3px solid #fff;padding:8px 22px 6px;border-radius:8px;text-shadow:none}
+.hero p{margin:0;max-width:36ch;font-size:19px;font-weight:600;text-shadow:0 2px 6px rgba(0,0,0,.6)}
+
+/* ===== EMERGENCIAS ===== */
+.sos{background:var(--red);color:#fff;padding:22px 0 26px;border-top:6px solid #fff}
+.sos h2{font-size:clamp(28px,7vw,40px);text-transform:uppercase;margin-bottom:4px}
+.sos .hint{margin:0 0 14px;font-weight:600;opacity:.95}
+.dial{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:700px){.dial{grid-template-columns:repeat(4,1fr)}}
+.call{display:flex;align-items:center;gap:10px;text-decoration:none;background:#fff;color:var(--ink);border-radius:14px;padding:12px;min-height:76px;box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.call:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.call img{width:44px;height:44px;object-fit:contain;flex:none}
+.call strong{display:block;font:800 34px/1 "Barlow Condensed",Arial,sans-serif;color:var(--red)}
+.call span{font-size:14px;font-weight:700;color:var(--muted)}
+.call.gna{grid-column:1/-1;background:var(--green);color:#fff}
+.call.gna strong{color:#fff;font-size:clamp(28px,7vw,38px)}
+.call.gna span{color:#E2F5E8}
+.call.gna img{width:110px;height:auto}
+.sos .calm{margin:14px 0 0;background:rgba(0,0,0,.18);border-radius:10px;padding:10px 14px;font-weight:600}
+
+.geo{margin-top:14px;background:#fff;color:var(--ink);border-radius:14px;padding:16px}
+.geo-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;background:var(--green);color:#fff;font:800 clamp(22px,6vw,28px)/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:16px;border-radius:12px;box-shadow:0 5px 0 #1B4D24}
+.geo-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #1B4D24}
+.geo-btn svg{width:28px;height:28px;flex:none}
+.geo-help{margin:10px 0 0;font-size:14.5px;color:var(--muted);font-weight:600;text-align:center}
+.geo-out{display:none;margin-top:14px;text-align:center}
+.geo-out.show{display:block}
+.geo-coords{font:800 clamp(26px,7.5vw,36px)/1.1 "Barlow Condensed",Arial,sans-serif;font-variant-numeric:tabular-nums;color:var(--green-d);word-break:break-word}
+.geo-dms{margin-top:6px;font-weight:700;font-size:17px}
+.geo-acc{margin-top:4px;font-size:14px;color:var(--muted);font-weight:600}
+.geo-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.geo-acts a,.geo-acts button{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:10px;border:2px solid var(--green);background:#fff;color:var(--green-d);font:800 17px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;text-decoration:none;cursor:pointer;padding:6px}
+.geo-acts .wa{background:#1FA855;border-color:#1FA855;color:#fff}
+.geo-err{display:none;margin-top:12px;background:#FDECEA;color:#8E1B2B;border-radius:10px;padding:10px 12px;font-weight:600;font-size:15px;text-align:left}
+.geo-err.show{display:block}
+
+/* ===== BANDAS ===== */
+.band{padding:34px 0 38px;color:#fff}
+.band-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.band-head .ico{flex:none;width:62px;height:62px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 4px rgba(255,255,255,.35)}
+.band-head .ico img{width:42px;height:42px;object-fit:contain}
+.band h2{font-size:clamp(32px,8vw,48px);text-transform:uppercase}
+.band .lead{margin:0 0 18px;font-size:18px;font-weight:600;opacity:.95}
+.ruta{background:linear-gradient(160deg,#455A64,#263238)}
+.trek{background:linear-gradient(160deg,var(--green),var(--green-d))}
+.fuego{background:linear-gradient(160deg,var(--orange),var(--fire) 55%,var(--fire-d))}
+.info{background:linear-gradient(160deg,#00897B,#004D40)}
+.radio{background:#37474F}
+
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+@media(min-width:720px){.cards{grid-template-columns:1fr 1fr}}
+.cards li{display:flex;gap:14px;align-items:flex-start;background:var(--card);color:var(--ink);border-radius:14px;padding:14px;border-left:8px solid var(--green)}
+.cards img{flex:none;width:58px;height:58px;object-fit:contain}
+.cards h3{font-size:22px;margin:2px 0 4px;color:#263238}
+.cards p{margin:0;font-size:16px;color:var(--muted)}
+.trek .cards li{border-left-color:#8BD17C}
+.trek .cards h3{color:var(--green-d)}
+.fuego .cards li{border-left-color:#FFAB91}
+.fuego .cards h3{color:var(--fire-d)}
+
+.stove{margin-top:12px;background:#FFF1EA;color:var(--ink);border-radius:14px;padding:18px;border:3px dashed var(--fire-d)}
+.stove-top{display:flex;gap:14px;align-items:center;margin-bottom:6px}
+.stove-top img{width:68px;flex:none}
+.stove h3{font-size:clamp(26px,6vw,32px);text-transform:uppercase;color:var(--fire-d)}
+.stove .sub{margin:0;font-size:16px}
+.stove-grid{display:grid;gap:10px;margin-top:12px}
+@media(min-width:720px){.stove-grid{grid-template-columns:repeat(3,1fr)}}
+.stove-grid div{background:#fff;border-radius:10px;padding:12px 14px;border-top:5px solid var(--orange)}
+.stove h4{margin:0 0 6px;font:800 19px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;color:var(--fire-d)}
+.stove ul{margin:0;padding-left:18px;font-size:15.5px}
+.stove li{margin:3px 0}
+.note{margin-top:14px;background:#fff;color:var(--ink);border-left:8px solid var(--fire-d);border-radius:14px;padding:16px 18px;text-align:center}
+.note p{margin:0;font-weight:700}
+.note .big{font:800 clamp(22px,5.5vw,30px)/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;margin-top:6px;color:var(--fire-d)}
+
+/* ===== BOTONES ===== */
+.btns{display:grid;gap:12px}
+@media(min-width:640px){.btns{grid-template-columns:1fr 1fr}}
+.btn{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;border-radius:14px;padding:14px 16px;min-height:78px;box-shadow:0 5px 0 rgba(0,0,0,.22)}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.22)}
+.btn .t{flex:1}
+.btn b{display:block;font:800 23px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.btn small{font-size:14.5px;font-weight:600;opacity:.92}
+.btn .go{flex:none;background:#fff;color:#1C2422;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:9px 12px;border-radius:8px}
+.b-smn{background:#00695C}.b-pasos{background:#455A64}.b-tabsa{background:#8E1B2B}
+.b-tur{background:#2E7D32}.b-fuego{background:#BF360C}.b-parque{background:#1B5E20}
+
+/* ===== RADIO ===== */
+.tbl{background:#fff;color:var(--ink);border-radius:14px;overflow:hidden}
+.row{display:grid;grid-template-columns:42px 1fr auto;gap:10px;align-items:center;padding:12px 14px;border-top:1px solid #DDE4EE}
+.row:first-child{border-top:0}
+.row img{width:22px;margin:auto}
+.row b{display:block;color:var(--green-d);font:800 19px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.row small{color:var(--muted);font-size:14px;font-weight:600}
+.row .f{text-align:right;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;font-size:16px}
+.vhf{display:inline-block;margin-top:12px;background:#fff;color:#263238;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;padding:7px 12px;border-radius:999px;text-transform:uppercase}
+
+.app{background:#fff;padding:0 0 26px}
+.app-card{display:flex;gap:14px;align-items:center;background:#E8F5E9;border:2px solid #A5D6A7;border-radius:16px;padding:16px}
+.app-card img{width:64px;height:64px;border-radius:14px;flex:none}
+.app-card h2{font-size:clamp(24px,6vw,30px);text-transform:uppercase;color:var(--green-d);margin-bottom:4px}
+.app-card p{margin:0;font-size:15px;color:var(--muted);font-weight:600}
+.app-btn{margin-top:12px;width:100%;border:0;cursor:pointer;background:var(--green);color:#fff;font:800 20px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:15px;border-radius:12px;box-shadow:0 4px 0 #1B4D24}
+.app-btn:active{transform:translateY(2px);box-shadow:0 2px 0 #1B4D24}
+.app-help{display:none;margin-top:12px;background:#fff;border-radius:12px;padding:12px 14px;font-size:15.5px;font-weight:600;color:#263238}
+.app-help.show{display:block}
+.app-help ol{margin:6px 0 0;padding-left:20px}.app-help li{margin:4px 0}
+.app-ok{display:none;margin-top:10px;font-weight:700;color:var(--green-d)}
+.stores{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.stores .store{margin-top:0!important}
+.prep{margin-top:14px;background:#E8F5E9;border:2px solid #A5D6A7;border-radius:12px;padding:12px 14px;font-size:15px;font-weight:600;color:#263238}
+.prep b{color:var(--green-d)}
+.prep ol{margin:6px 0 0;padding-left:20px}.prep li{margin:3px 0}
+.prep a.store{display:inline-block;margin-top:8px;background:var(--green);color:#fff;text-decoration:none;font:800 17px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:11px 14px;border-radius:10px}
+.gps{display:inline-flex;align-items:center;gap:6px;margin-top:8px;align-self:flex-start;background:#fff;color:#1B4D24;font:800 15px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:7px 10px;border-radius:999px;letter-spacing:.02em}
+.gps svg{width:18px!important;height:18px!important;margin:0!important}
+.gpsnote{margin:14px 0 0;display:flex;gap:10px;align-items:center;background:#fff;border:2px solid #A5D6A7;border-radius:12px;padding:12px 14px;font-size:15px;font-weight:600;color:#263238}
+.gpsnote svg{flex:none;width:34px;height:34px}
+/* ===== CIERRE ===== */
+.end{background:linear-gradient(160deg,#2E7D32,#1B4D24);color:#fff;padding:30px 0 34px;text-align:center}
+.end .k{font:800 clamp(34px,9vw,58px)/.95 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.end p{margin:12px auto 0;max-width:46ch;font-weight:700}
+.end img{width:240px;margin:20px auto 0}
+.end .src{font-size:13px;font-weight:600;opacity:.8;margin-top:10px}
+/* ===== EMERGENCIAS ===== */
+.sos{background:var(--red);color:#fff;padding:22px 0 26px;border-top:6px solid #fff}
+.sos h2{font-size:clamp(28px,7vw,40px);text-transform:uppercase;margin-bottom:4px}
+.sos .hint{margin:0 0 14px;font-weight:600;opacity:.95}
+.dial{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:700px){.dial{grid-template-columns:repeat(4,1fr)}}
+.call{display:flex;align-items:center;gap:10px;text-decoration:none;background:#fff;color:var(--ink);border-radius:14px;padding:12px;min-height:76px;box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.call:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.call img{width:44px;height:44px;object-fit:contain;flex:none}
+.call strong{display:block;font:800 34px/1 "Barlow Condensed",Arial,sans-serif;color:var(--red)}
+.call span{font-size:14px;font-weight:700;color:var(--muted)}
+.call.gna{grid-column:1/-1;background:var(--green);color:#fff}
+.call.gna strong{color:#fff;font-size:clamp(28px,7vw,38px)}
+.call.gna span{color:#E2F5E8}
+.call.gna img{width:110px;height:auto}
+.sos .calm{margin:14px 0 0;background:rgba(0,0,0,.18);border-radius:10px;padding:10px 14px;font-weight:600}
+
+.geo{margin-top:14px;background:#fff;color:var(--ink);border-radius:14px;padding:16px}
+.geo-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;background:var(--green);color:#fff;font:800 clamp(22px,6vw,28px)/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:16px;border-radius:12px;box-shadow:0 5px 0 #1B4D24}
+.geo-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #1B4D24}
+.geo-btn svg{width:28px;height:28px;flex:none}
+.geo-help{margin:10px 0 0;font-size:14.5px;color:var(--muted);font-weight:600;text-align:center}
+.geo-out{display:none;margin-top:14px;text-align:center}
+.geo-out.show{display:block}
+.geo-coords{font:800 clamp(26px,7.5vw,36px)/1.1 "Barlow Condensed",Arial,sans-serif;font-variant-numeric:tabular-nums;color:var(--green-d);word-break:break-word}
+.geo-dms{margin-top:6px;font-weight:700;font-size:17px}
+.geo-acc{margin-top:4px;font-size:14px;color:var(--muted);font-weight:600}
+.geo-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.geo-acts a,.geo-acts button{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:10px;border:2px solid var(--green);background:#fff;color:var(--green-d);font:800 17px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;text-decoration:none;cursor:pointer;padding:6px}
+.geo-acts .wa{background:#1FA855;border-color:#1FA855;color:#fff}
+.geo-err{display:none;margin-top:12px;background:#FDECEA;color:#8E1B2B;border-radius:10px;padding:10px 12px;font-weight:600;font-size:15px;text-align:left}
+.geo-err.show{display:block}
+
+/* ===== CIERRE ===== */
+.end{background:linear-gradient(160deg,#2E7D32,#1B4D24);color:#fff;padding:30px 0 34px;text-align:center}
+.end .k{font:800 clamp(34px,9vw,58px)/.95 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.end p{margin:12px auto 0;max-width:46ch;font-weight:700}
+.end img{width:240px;margin:20px auto 0}
+.end .src{font-size:13px;font-weight:600;opacity:.8;margin-top:10px}
+
+.pick{background:var(--page);padding:22px 0 30px}
+.hero .logo{width:min(80%,360px)}
+.hero-in{padding-bottom:28px!important}
+.pick h2{font-size:clamp(30px,8vw,44px);text-transform:uppercase;text-align:center;color:#263238;margin-bottom:16px}
+.seasons{display:grid;gap:16px}
+@media(min-width:700px){.seasons{grid-template-columns:1fr 1fr}}
+.season{position:relative;display:block;text-decoration:none;color:#fff;border-radius:18px;overflow:hidden;min-height:250px;box-shadow:0 8px 0 rgba(0,0,0,.18)}
+.season:active{transform:translateY(3px);box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.season img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.season::after{content:"";position:absolute;inset:0}
+.season.ver::after{background:linear-gradient(180deg,rgba(27,77,36,.15),rgba(27,77,36,.88))}
+.season.inv::after{background:linear-gradient(180deg,rgba(38,50,56,.1),rgba(38,50,56,.88))}
+.season .in{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:flex-end;min-height:250px;padding:18px 20px}
+.season svg{width:46px;height:46px;margin-bottom:6px}
+.season b{font:800 clamp(40px,11vw,58px)/.95 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.season span.d{font-weight:600;font-size:16px;opacity:.95}
+.season .go{position:absolute;z-index:2;right:14px;top:14px;background:#fff;color:#1C2422;font:800 17px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:10px 14px;border-radius:10px}
+.badge{position:absolute;top:14px;left:14px;z-index:2;display:none;background:#fff;color:var(--green-d);font:800 15px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:7px 10px;border-radius:999px;letter-spacing:.03em}
+.season.now .badge{display:inline-block}
+.season.now{outline:4px solid #81C784;outline-offset:3px}
+
+.langbar{position:absolute;top:12px;right:12px;z-index:3;display:flex;gap:4px;background:rgba(0,0,0,.35);border:1.5px solid rgba(255,255,255,.7);border-radius:999px;padding:3px}
+.langbar a{color:#fff;text-decoration:none;font:800 14px/1 "Barlow",Arial,sans-serif;padding:7px 9px;border-radius:999px;letter-spacing:.03em}
+.langbar a.on{background:#fff;color:#1B4D24}
+.hero-in{padding-top:62px!important}
+.season.gpsc{background:linear-gradient(150deg,#2E7D32,#1B4D24 60%,#123620)}
+.season.gpsc::after{background:none}
+.season.gpsc .bigpin{position:absolute;right:-10px;bottom:-14px;width:170px;height:170px;opacity:.16}
+.prepbox{background:#fff;border:3px solid #2E7D32;border-radius:16px;padding:16px;margin-top:16px}
+.prepbox h2{font-size:clamp(26px,7vw,34px);text-transform:uppercase;color:#1B4D24;margin-bottom:4px;text-align:left}
+.prepbox>p{margin:0 0 10px;font-weight:600;color:#4F5B58}
+.step{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid #E0E6E3}
+.step .num{flex:none;width:38px;height:38px;border-radius:50%;background:#2E7D32;color:#fff;display:grid;place-items:center;font:800 22px/1 "Barlow Condensed",Arial,sans-serif}
+.step b{display:block;font:800 21px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;color:#263238}
+.step p{margin:3px 0 0;font-size:15px;font-weight:600;color:#4F5B58}
+.step .stores{margin-top:8px}
+.step .store,.stores .store{display:inline-block;background:#2E7D32;color:#fff;text-decoration:none;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:10px 13px;border-radius:10px}
+.step .app-btn{margin-top:8px;width:auto;padding:12px 18px;font-size:18px}
+.gpsbanner{display:flex;align-items:center;gap:12px;margin-top:14px;text-decoration:none;background:#fff;color:#1B4D24;border-radius:14px;padding:14px 16px;box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.gpsbanner svg{flex:none;width:40px;height:40px}
+.gpsbanner small{display:block;font-weight:700;color:#4F5B58;font-size:14px}
+.gpsbanner b{display:block;font:800 22px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.gpsbanner .arr{margin-left:auto;font:800 28px/1 "Barlow Condensed",Arial,sans-serif}
+.gpspage .geo{margin-top:0}
+</style>
+</head>
+<body>
+<header class="hero" style="--hero:url('img-hero.webp');background-position:center 62%">
+  <a class="back" href="en-index.html">‹ Home</a><nav class="langbar" aria-label="Idioma / Language"><a href="verano.html" data-lang="es" lang="es">ES</a><a href="en-verano.html" data-lang="en" class="on" aria-current="true" lang="en">EN</a><a href="pt-verano.html" data-lang="pt" lang="pt-BR">PT</a></nav>
+  <div class="hero-in">
+    <img class="logo" src="img-logo.webp" alt="Gendarmería Nacional">
+    <span class="esc">Escuadrón 44 "Ushuaia"</span>
+    <h1 class="titulo"><span class="l1">Travel safely</span><span class="l2">tips for</span><span class="l3">Summer</span><span class="l4">in Tierra del Fuego</span></h1>
+    <p>Enjoy your trip safely: on the road, in the mountains and in nature.</p>
+  </div>
+</header>
+<section class="sos" id="emergencias">
+  <div class="wrap">
+    <h2>Emergencies</h2>
+    <p class="hint">Tap a number to call.</p>
+    <div class="dial"><a class="call" href="tel:911" target="_top"><img src="img-tel.png" alt=""><div><strong>911</strong><span>Emergencies</span></div></a><a class="call" href="tel:103" target="_top"><img src="img-dc.png" alt=""><div><strong>103</strong><span>Civil Defense</span></div></a><a class="call" href="tel:107" target="_top"><img src="img-med.png" alt=""><div><strong>107</strong><span>Medical emergencies</span></div></a><a class="call" href="tel:100" target="_top"><img src="img-bomberos.png" alt=""><div><strong>100</strong><span>Fire Department</span></div></a><a class="call gna" href="tel:+542901431800" target="_top"><img src="img-logo.webp" alt=""><div><strong>(02901) 431-800</strong><span>Gendarmería Nacional · Escuadrón 44 Ushuaia</span></div></a></div>
+    <p class="calm">Stay calm, give your exact location and the number of people.</p>
+    <a class="gpsbanner" href="en-gps.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.6"></circle></svg><div><small>Lost or need help?</small><b>See my coordinates and the way back</b></div><span class="arr">›</span></a>
+  </div>
+</section>
+<section class="band ruta" id="ruta">
+  <div class="wrap">
+    <div class="band-head"><div class="ico"><img src="img-curvas.png" alt=""></div><h2>On the road</h2></div>
+    <p class="lead">Safe driving: prevention saves lives.</p>
+    <ul class="cards"><li><img src="img-velocidad.png" alt=""><div><h3>Respect speed limits</h3><p>Adapt your driving to road, traffic and weather conditions.</p></div></li><li><img src="img-distancia.png" alt=""><div><h3>Keep a safe distance</h3><p>From the vehicle in front of you.</p></div></li><li><img src="img-curvas.png" alt=""><div><h3>Slow down on curves</h3><p>To prevent running off the road or rolling over.</p></div></li><li><img src="img-luces.png" alt=""><div><h3>Always use your headlights</h3><p>Even during the day — it is mandatory.</p></div></li><li><img src="img-noche.png" alt=""><div><h3>At night and in shaded areas, slow down</h3><p>There may be black ice, even in summer.</p></div></li><li><img src="img-maniobras.png" alt=""><div><h3>Avoid sudden maneuvers and risky overtaking</h3><p>Drive smoothly and progressively, braking gradually.</p></div></li><li><img src="img-parabrisas.png" alt=""><div><h3>Keep windshield, rear window and lights clean</h3><p>Ensure good visibility at all times.</p></div></li><li><img src="img-neumatico.png" alt=""><div><h3>Check your vehicle</h3><p>Tires (condition and pressure), brakes, lights, wipers, oil and coolant levels.</p></div></li><li><img src="img-calzada.png" alt=""><div><h3>Watch the road surface</h3><p>There may be loose gravel, mud or roadworks. Slow down when passing other vehicles.</p></div></li><li><img src="img-ciclista.svg" alt=""><div><h3>Caution: cyclists on the road</h3><p>There may be cyclists on the road. Slow down and leave at least 1.5 meters of side distance when overtaking.</p></div></li><li><img src="img-fauna.svg" alt=""><div><h3>Caution: loose animals</h3><p>Wild animals may be on the road or the shoulder. Pay special attention and drive at a prudent speed.</p></div></li><li><img src="img-clima.png" alt=""><div><h3>Check the weather and road conditions</h3><p>Before leaving and during the trip: conditions change quickly in Tierra del Fuego.</p></div></li></ul>
+  </div>
+</section>
+<section class="band trek" id="trekking">
+  <div class="wrap">
+    <div class="band-head"><div class="ico" style="background:var(--green-d)"><img src="img-hiker.png" alt=""></div><h2>Trekking</h2></div>
+    <p class="lead">Tips for visitors heading into the mountains.</p>
+    <ul class="cards"><li><img src="img-informa.png" alt=""><div><h3>Report your outing</h3><p>Tell your accommodation where you are going, when you leave, when you plan to return and a contact number.</p></div></li><li><img src="img-planifica.png" alt=""><div><h3>Plan your route</h3><p>Choose authorized trails, check the difficulty and estimated time, and do not exceed your abilities.</p></div></li><li><img src="img-ropa.png" alt=""><div><h3>Wear proper clothing</h3><p>Several layers, waterproof jacket, warm clothes, hat, gloves and good boots. Weather changes, even in summer.</p></div></li><li><img src="img-equipo.png" alt=""><div><h3>Carry essential gear</h3><p>Water, food, map or GPS, flashlight, charged phone, multitool and a basic first-aid kit.</p></div></li><li><img src="img-horarios.png" alt=""><div><h3>Respect the time</h3><p>Start back with enough time. Avoid being in the mountains at nightfall.</p></div></li><li><img src="img-grupo.png" alt=""><div><h3>Do not go alone</h3><p>Whenever possible, go in a group. If you go alone, let someone know.</p></div></li><li><img src="img-senal.png" alt=""><div><h3>Respect signs and restrictions</h3><p>Do not enter closed areas: wildlife, terrain and conditions can be dangerous.</p></div></li><li><img src="img-conect.png" alt=""><div><h3>Keep connectivity in mind</h3><p>Many areas have no signal. Download MAPS.ME and the area map before you go, and consider a radio or satellite messenger.</p></div></li></ul>
+  </div>
+</section>
+<section class="band fuego" id="fuego">
+  <div class="wrap">
+    <div class="band-head"><div class="ico"><img src="img-f_arboles.png" alt=""></div><h2>Nature without fire</h2></div>
+    <p class="lead">Wildfire prevention.</p>
+    <ul class="cards"><li><img src="img-f_estufa.png" alt=""><div><h3>Heading outdoors</h3><p>Bring your certified gas stove and use it responsibly.</p></div></li><li><img src="img-f_celu.png" alt=""><div><h3>Before you go</h3><p>Check the weather and the fire danger index.</p></div></li><li><img src="img-f_basura.png" alt=""><div><h3>Take care of the environment</h3><p>Do not throw cigarette butts. Do not leave trash: take your waste back with you.</p></div></li></ul><div class="stove"><div class="stove-top"><img src="img-g_estufa.png" alt=""><div><h3>Choose a gas stove</h3><p class="sub">This season you can use certified quick-shutoff gas stoves at campsites, on hikes, treks and at authorized sites.</p></div></div>
+      <div class="stove-grid"><div><h4>Safe spot</h4><ul><li>Use it on stable surfaces, away from flammable materials.</li><li>Do not light it in enclosed spaces.</li></ul></div><div><h4>Check your gear</h4><ul><li>Make sure there are no leaks.</li><li>Check the valve is closed before connecting the cylinder.</li></ul></div><div><h4>Leave no trace</h4><ul><li>Take your waste back: cans, bottles, paper and empty cylinders.</li></ul></div></div></div>
+    <div class="note"><p>Gas stove use is not subject to the fire risk index.</p><p class="big">Prevention is everyone's job. Let's avoid wildfires.</p></div>
+  </div>
+</section>
+<section class="band info" id="info">
+  <div class="wrap">
+    <div class="band-head"><div class="ico"><img src="img-clima.png" alt=""></div><h2>Before you go, check</h2></div>
+    <p class="lead">Official, up-to-date information.</p>
+    <div class="btns"><a class="btn b-smn" href="https://www.smn.gob.ar/alertas" target="_blank" rel="noopener"><div class="t"><b>Weather alerts</b><small>National Weather Service (SMN)</small></div><span class="go">Open</span></a><a class="btn b-pasos" href="https://www.argentina.gob.ar/seguridad/pasosinternacionales" target="_blank" rel="noopener"><div class="t"><b>Border crossings</b><small>Status of international crossings</small></div><span class="go">Open</span></a><a class="btn b-tabsa" href="https://www.tabsa.cl/estado-cruces" target="_blank" rel="noopener"><div class="t"><b>Ferry crossing</b><small>TABSA ferry status</small></div><span class="go">Open</span></a><a class="btn b-tur" href="https://findelmundo.tur.ar/" target="_blank" rel="noopener"><div class="t"><b>Tourist information</b><small>End of the World · Tierra del Fuego</small></div><span class="go">Open</span></a><a class="btn b-fuego" href="https://prodyambiente.tierradelfuego.gob.ar/temporada-de-incendios/" target="_blank" rel="noopener"><div class="t"><b>Authorized fire areas</b><small>Wildfire season (Spanish)</small></div><span class="go">Open</span></a><a class="btn b-parque" href="https://linktr.ee/parquetierradelfuego" target="_blank" rel="noopener"><div class="t"><b>National Park</b><small>Tierra del Fuego · trails and information</small></div><span class="go">Open</span></a></div>
+  </div>
+</section>
+<section class="band radio" id="radio">
+  <div class="wrap">
+    <div class="band-head"><div class="ico"><img src="img-radio.png" alt=""></div><h2>No signal: radio</h2></div>
+    <p class="lead">If phones do not work, use these frequencies.</p>
+    <div class="tbl"><div class="row"><img src="img-radio.png" alt=""><div><b>Río Grande</b><small>Civil Defense</small></div><div class="f">150.095 TX<br>156.095 RX</div></div><div class="row"><img src="img-radio.png" alt=""><div><b>Río Grande</b><small>Civil Defense – Cerro Michi</small></div><div class="f">142.430 TX<br>148.430 RX</div></div><div class="row"><img src="img-radio.png" alt=""><div><b>Río Grande</b><small>Cerro Castor (south) and Cerro Cabeza de León (north)</small></div><div class="f">152.775<br>RX-TX</div></div><div class="row"><img src="img-radio.png" alt=""><div><b>Ushuaia</b><small>Provincial Civil Defense</small></div><div class="f">152.775 TX<br>158.775 RX</div></div><div class="row"><img src="img-radio.png" alt=""><div><b>Ushuaia</b><small>Municipal Civil Defense</small></div><div class="f">148.615<br>RX-TX</div></div></div><span class="vhf">Analog VHF</span>
+  </div>
+</section>
+<footer class="end">
+  <div class="wrap">
+    <div class="k">Be informed,<br>travel safely.</div>
+    <p>Your responsibility makes the difference. Follow the instructions of security personnel and traffic rules.</p>
+    <a class="switch" href="en-invierno.html">See winter tips ›</a>
+    <img src="img-logo.webp" alt="Gendarmería Nacional">
+    <p class="src">Gendarmería Nacional Argentina · Escuadrón 44 "Ushuaia".</p>
+  </div>
+</footer>
+<script>
+(function(){
+  function fit(){var el=document.querySelector('.titulo .l1');if(!el)return;el.style.fontSize='';var box=el.parentNode.clientWidth;var fs=parseFloat(getComputedStyle(el).fontSize),w=el.scrollWidth;if(w>box){el.style.fontSize=Math.floor(fs*box/w*0.98)+'px';}}
+  try{(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fit);}catch(e){fit();}
+  window.addEventListener('resize',fit);fit();
+  [].forEach.call(document.querySelectorAll('.langbar a'),function(a){a.addEventListener('click',function(){try{localStorage.setItem('lang',a.getAttribute('data-lang'));}catch(e){}});});
+  if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
+})();
+</script>
+</body>
+</html>

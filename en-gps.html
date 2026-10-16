@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="manifest" href="en-manifest.webmanifest">
+<meta name="theme-color" content="#1B4D24">
+<link rel="icon" type="image/png" sizes="192x192" href="en-icon-192.png">
+<link rel="apple-touch-icon" href="en-apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Gendarmería Nacional">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GPS: my location and way back · Tierra del Fuego</title>
+<link rel="alternate" hreflang="es" href="gps.html"><link rel="alternate" hreflang="en" href="en-gps.html"><link rel="alternate" hreflang="pt-BR" href="pt-gps.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#263238; --blue:#37474F; --sky:#00796B; --sun:#A5D6A7; --orange:#EF6C00;
+  --green:#2E7D32; --green-d:#1B4D24; --fire:#D84315; --fire-d:#9A2A0C; --red:#C62828;
+  --ink:#1C2422; --muted:#4F5B58; --card:#FFFFFF; --page:#EEF2EF; --teal:#00695C; --slate:#37474F;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;overflow-x:hidden;background:var(--page);color:var(--ink);font:500 17px/1.45 "Barlow",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-text-size-adjust:100%}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",Arial,sans-serif;line-height:1.05;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid #81C784;outline-offset:2px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+
+/* ===== HERO ===== */
+.hero{position:relative;background:var(--navy) var(--hero) center 62%/cover no-repeat;color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,22,.9) 0%,rgba(15,40,22,.55) 55%,rgba(15,40,22,.75) 100%)}
+.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:18px;justify-items:center;text-align:center;padding:26px 16px 40px}
+.logo{width:min(92%,460px);filter:drop-shadow(0 4px 10px rgba(0,0,0,.45))}
+.esc{display:inline-block;background:rgba(255,255,255,.12);color:#fff;font:800 clamp(18px,4.5vw,24px)/1 "Barlow Condensed",Arial,sans-serif;padding:8px 18px;border-radius:999px;border:2px solid #fff;letter-spacing:.02em}
+.titulo{width:100%;max-width:900px;margin:6px 0 0;text-transform:uppercase;font-weight:800;text-shadow:0 4px 14px rgba(0,0,0,.6)}
+.titulo .l1{display:block;white-space:nowrap;font-size:clamp(34px,11vw,110px);line-height:.92;letter-spacing:-.01em}
+.titulo .l2{display:block;font-size:clamp(22px,6vw,40px);line-height:1;margin:6px 0 4px;color:#C8E6C9;letter-spacing:.08em}
+.titulo .l3{display:block;font-size:clamp(30px,9.5vw,96px);line-height:.92;letter-spacing:-.01em}
+.titulo .l4{display:inline-block;margin-top:14px;font-size:clamp(20px,6vw,46px);line-height:1;background:var(--green);border:3px solid #fff;padding:8px 22px 6px;border-radius:8px;text-shadow:none}
+.hero p{margin:0;max-width:36ch;font-size:19px;font-weight:600;text-shadow:0 2px 6px rgba(0,0,0,.6)}
+
+.back{position:absolute;top:12px;left:12px;z-index:3;display:inline-flex;align-items:center;gap:6px;color:#fff;text-decoration:none;font:700 15px/1 "Barlow",Arial,sans-serif;background:rgba(0,0,0,.35);border:1.5px solid rgba(255,255,255,.7);padding:9px 12px;border-radius:999px}
+.hero-in{padding-top:62px!important}
+.back:hover{background:rgba(0,0,0,.5)}
+.switch{display:inline-block;margin-top:18px;color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+/* ===== EMERGENCIAS ===== */
+.sos{background:var(--red);color:#fff;padding:22px 0 26px;border-top:6px solid #fff}
+.sos h2{font-size:clamp(28px,7vw,40px);text-transform:uppercase;margin-bottom:4px}
+.sos .hint{margin:0 0 14px;font-weight:600;opacity:.95}
+.dial{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:700px){.dial{grid-template-columns:repeat(4,1fr)}}
+.call{display:flex;align-items:center;gap:10px;text-decoration:none;background:#fff;color:var(--ink);border-radius:14px;padding:12px;min-height:76px;box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.call:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.call img{width:44px;height:44px;object-fit:contain;flex:none}
+.call strong{display:block;font:800 34px/1 "Barlow Condensed",Arial,sans-serif;color:var(--red)}
+.call span{font-size:14px;font-weight:700;color:var(--muted)}
+.call.gna{grid-column:1/-1;background:var(--green);color:#fff}
+.call.gna strong{color:#fff;font-size:clamp(28px,7vw,38px)}
+.call.gna span{color:#E2F5E8}
+.call.gna img{width:110px;height:auto}
+.sos .calm{margin:14px 0 0;background:rgba(0,0,0,.18);border-radius:10px;padding:10px 14px;font-weight:600}
+
+.geo{margin-top:14px;background:#fff;color:var(--ink);border-radius:14px;padding:16px}
+.geo-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;background:var(--green);color:#fff;font:800 clamp(22px,6vw,28px)/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:16px;border-radius:12px;box-shadow:0 5px 0 #1B4D24}
+.geo-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #1B4D24}
+.geo-btn svg{width:28px;height:28px;flex:none}
+.geo-help{margin:10px 0 0;font-size:14.5px;color:var(--muted);font-weight:600;text-align:center}
+.geo-out{display:none;margin-top:14px;text-align:center}
+.geo-out.show{display:block}
+.geo-coords{font:800 clamp(26px,7.5vw,36px)/1.1 "Barlow Condensed",Arial,sans-serif;font-variant-numeric:tabular-nums;color:var(--green-d);word-break:break-word}
+.geo-dms{margin-top:6px;font-weight:700;font-size:17px}
+.geo-acc{margin-top:4px;font-size:14px;color:var(--muted);font-weight:600}
+.geo-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.geo-acts a,.geo-acts button{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:10px;border:2px solid var(--green);background:#fff;color:var(--green-d);font:800 17px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;text-decoration:none;cursor:pointer;padding:6px}
+.geo-acts .wa{background:#1FA855;border-color:#1FA855;color:#fff}
+.geo-back{display:none;margin-top:16px;text-align:left;border-top:2px dashed #CFD8DC;padding-top:14px}
+.geo-back.show{display:block}
+.geo-back h3{font-size:24px;text-transform:uppercase;color:var(--green-d);margin-bottom:2px}
+.geo-back .sub{margin:0 0 10px;font-size:14.5px;color:var(--muted);font-weight:600}
+.dest{display:grid;grid-template-columns:1fr auto;gap:8px 10px;align-items:center;padding:10px 0;border-top:1px solid #E3E8EC}
+.dest:first-of-type{border-top:0}
+.dest .n{font:800 20px/1.1 "Barlow Condensed",Arial,sans-serif;color:#263238}
+.dest .n small{display:block;font:600 13.5px/1.3 "Barlow",Arial,sans-serif;color:var(--muted)}
+.dest .near{display:inline-block;margin-left:6px;background:var(--green);color:#fff;font:800 12px/1 "Barlow Condensed",Arial,sans-serif;padding:4px 7px;border-radius:999px;vertical-align:middle;letter-spacing:.03em}
+.dest .km{font:800 20px/1 "Barlow Condensed",Arial,sans-serif;color:var(--green-d);text-align:right;white-space:nowrap}
+.dest .bt{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dest .bt a{display:flex;align-items:center;justify-content:center;gap:6px;min-height:46px;border-radius:10px;text-decoration:none;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.dest .bt a.car{background:#263238;color:#fff}
+.dest .bt a.walk{background:#fff;color:#263238;border:2px solid #263238}
+.dest .bt svg{width:20px;height:20px}
+.geo-warn{margin-top:10px;background:#FFF3E0;color:#7A3A00;border-radius:10px;padding:10px 12px;font-size:14px;font-weight:600}
+.safe{margin:6px 0 10px;background:#FDECEA;color:#7F1D1D;border-left:6px solid #C62828;border-radius:10px;padding:10px 12px;font-size:14.5px;font-weight:600;line-height:1.4}
+.safe b{color:#B71C1C}
+.omap{margin:4px 0 12px;background:#fff;border:2px solid #263238;border-radius:12px;overflow:hidden}
+.omap svg{display:block;width:100%;height:auto;background:#CFE6F2}
+.omap-info{padding:10px 12px;background:#263238;color:#fff}
+.omap-info b{display:block;font:800 22px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.omap-info span{font-size:14.5px;font-weight:600;opacity:.92}
+.omap-note{margin:0;padding:8px 12px;font-size:13px;color:var(--muted);font-weight:600;background:#F4F7F5}
+.dest .bt{grid-template-columns:1fr 1fr 1fr!important}
+.dest .bt button.mapb{display:flex;align-items:center;justify-content:center;gap:6px;min-height:46px;border-radius:10px;border:2px solid var(--green);background:#E8F5E9;color:var(--green-d);font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;cursor:pointer}
+.dest.sel{background:#F1F8F2;border-radius:10px;padding-left:8px;padding-right:8px}
+.navsel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:8px 0 10px}
+.navsel label{display:flex;flex-direction:column;gap:2px;border:2px solid #CFD8DC;border-radius:12px;padding:9px 8px;cursor:pointer;background:#fff}
+.navsel input{position:absolute;opacity:0;pointer-events:none}
+.navsel b{font:800 17px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;color:#263238}
+.navsel span{font-size:13px;font-weight:600;color:var(--muted)}
+.navsel label.on{border-color:var(--green);background:#E8F5E9}
+.navsel label.on b{color:var(--green-d)}
+.navtip .stores .store{display:inline-block;background:var(--green);color:#fff;text-decoration:none;font:800 15px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:9px 12px;border-radius:9px}
+.navtip{display:none;margin:8px 0 0;background:#FFF3E0;color:#7A3A00;border-radius:10px;padding:10px 12px;font-size:14px;font-weight:600}
+.navtip.show{display:block}
+.navtip a{color:#7A3A00}
+.stores{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.stores .store{margin-top:0!important}
+.prep{margin-top:12px;background:#E8F5E9;border:2px solid #A5D6A7;border-radius:12px;padding:12px 14px;font-size:14.5px;font-weight:600;color:#263238}
+.prep b{color:var(--green-d)}
+.prep ol{margin:6px 0 0;padding-left:20px}.prep li{margin:3px 0}
+.prep a.store{display:inline-block;margin-top:8px;background:var(--green);color:#fff;text-decoration:none;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:10px 14px;border-radius:10px}
+.geo-err{display:none;margin-top:12px;background:#FDECEA;color:#8E1B2B;border-radius:10px;padding:10px 12px;font-weight:600;font-size:15px;text-align:left}
+.geo-err.show{display:block}
+
+/* ===== BANDAS ===== */
+.band{padding:34px 0 38px;color:#fff}
+.band-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.band-head .ico{flex:none;width:62px;height:62px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 4px rgba(255,255,255,.35)}
+.band-head .ico img{width:42px;height:42px;object-fit:contain}
+.band h2{font-size:clamp(32px,8vw,48px);text-transform:uppercase}
+.band .lead{margin:0 0 18px;font-size:18px;font-weight:600;opacity:.95}
+.ruta{background:linear-gradient(160deg,#455A64,#263238)}
+.trek{background:linear-gradient(160deg,var(--green),var(--green-d))}
+.fuego{background:linear-gradient(160deg,var(--orange),var(--fire) 55%,var(--fire-d))}
+.info{background:linear-gradient(160deg,#00897B,#004D40)}
+.radio{background:#37474F}
+
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+@media(min-width:720px){.cards{grid-template-columns:1fr 1fr}}
+.cards li{display:flex;gap:14px;align-items:flex-start;background:var(--card);color:var(--ink);border-radius:14px;padding:14px;border-left:8px solid var(--green)}
+.cards img{flex:none;width:58px;height:58px;object-fit:contain}
+.cards h3{font-size:22px;margin:2px 0 4px;color:#263238}
+.cards p{margin:0;font-size:16px;color:var(--muted)}
+.trek .cards li{border-left-color:#8BD17C}
+.trek .cards h3{color:var(--green-d)}
+.fuego .cards li{border-left-color:#FFAB91}
+.fuego .cards h3{color:var(--fire-d)}
+
+.stove{margin-top:12px;background:#FFF1EA;color:var(--ink);border-radius:14px;padding:18px;border:3px dashed var(--fire-d)}
+.stove-top{display:flex;gap:14px;align-items:center;margin-bottom:6px}
+.stove-top img{width:68px;flex:none}
+.stove h3{font-size:clamp(26px,6vw,32px);text-transform:uppercase;color:var(--fire-d)}
+.stove .sub{margin:0;font-size:16px}
+.stove-grid{display:grid;gap:10px;margin-top:12px}
+@media(min-width:720px){.stove-grid{grid-template-columns:repeat(3,1fr)}}
+.stove-grid div{background:#fff;border-radius:10px;padding:12px 14px;border-top:5px solid var(--orange)}
+.stove h4{margin:0 0 6px;font:800 19px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;color:var(--fire-d)}
+.stove ul{margin:0;padding-left:18px;font-size:15.5px}
+.stove li{margin:3px 0}
+.note{margin-top:14px;background:#fff;color:var(--ink);border-left:8px solid var(--fire-d);border-radius:14px;padding:16px 18px;text-align:center}
+.note p{margin:0;font-weight:700}
+.note .big{font:800 clamp(22px,5.5vw,30px)/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;margin-top:6px;color:var(--fire-d)}
+
+/* ===== BOTONES ===== */
+.btns{display:grid;gap:12px}
+@media(min-width:640px){.btns{grid-template-columns:1fr 1fr}}
+.btn{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;border-radius:14px;padding:14px 16px;min-height:78px;box-shadow:0 5px 0 rgba(0,0,0,.22)}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.22)}
+.btn .t{flex:1}
+.btn b{display:block;font:800 23px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.btn small{font-size:14.5px;font-weight:600;opacity:.92}
+.btn .go{flex:none;background:#fff;color:#1C2422;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:9px 12px;border-radius:8px}
+.b-smn{background:#00695C}.b-pasos{background:#455A64}.b-tabsa{background:#8E1B2B}
+.b-tur{background:#2E7D32}.b-fuego{background:#BF360C}.b-parque{background:#1B5E20}
+
+/* ===== RADIO ===== */
+.tbl{background:#fff;color:var(--ink);border-radius:14px;overflow:hidden}
+.row{display:grid;grid-template-columns:42px 1fr auto;gap:10px;align-items:center;padding:12px 14px;border-top:1px solid #DDE4EE}
+.row:first-child{border-top:0}
+.row img{width:22px;margin:auto}
+.row b{display:block;color:var(--green-d);font:800 19px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.row small{color:var(--muted);font-size:14px;font-weight:600}
+.row .f{text-align:right;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;font-size:16px}
+.vhf{display:inline-block;margin-top:12px;background:#fff;color:#263238;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;padding:7px 12px;border-radius:999px;text-transform:uppercase}
+
+/* ===== CIERRE ===== */
+.end{background:linear-gradient(160deg,#2E7D32,#1B4D24);color:#fff;padding:30px 0 34px;text-align:center}
+.end .k{font:800 clamp(34px,9vw,58px)/.95 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.end p{margin:12px auto 0;max-width:46ch;font-weight:700}
+.end img{width:240px;margin:20px auto 0}
+.end .src{font-size:13px;font-weight:600;opacity:.8;margin-top:10px}
+
+/* ---- index ---- */
+
+:root{
+  --navy:#263238; --blue:#37474F; --sky:#00796B; --sun:#A5D6A7; --orange:#EF6C00;
+  --green:#2E7D32; --green-d:#1B4D24; --fire:#D84315; --fire-d:#9A2A0C; --red:#C62828;
+  --ink:#1C2422; --muted:#4F5B58; --card:#FFFFFF; --page:#EEF2EF; --teal:#00695C; --slate:#37474F;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;overflow-x:hidden;background:var(--page);color:var(--ink);font:500 17px/1.45 "Barlow",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-text-size-adjust:100%}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",Arial,sans-serif;line-height:1.05;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid #81C784;outline-offset:2px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px}
+
+/* ===== HERO ===== */
+.hero{position:relative;background:var(--navy) var(--hero) center 62%/cover no-repeat;color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,40,22,.9) 0%,rgba(15,40,22,.55) 55%,rgba(15,40,22,.75) 100%)}
+.hero-in{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:18px;justify-items:center;text-align:center;padding:26px 16px 40px}
+.logo{width:min(92%,460px);filter:drop-shadow(0 4px 10px rgba(0,0,0,.45))}
+.esc{display:inline-block;background:rgba(255,255,255,.12);color:#fff;font:800 clamp(18px,4.5vw,24px)/1 "Barlow Condensed",Arial,sans-serif;padding:8px 18px;border-radius:999px;border:2px solid #fff;letter-spacing:.02em}
+.titulo{width:100%;max-width:900px;margin:6px 0 0;text-transform:uppercase;font-weight:800;text-shadow:0 4px 14px rgba(0,0,0,.6)}
+.titulo .l1{display:block;white-space:nowrap;font-size:clamp(34px,11vw,110px);line-height:.92;letter-spacing:-.01em}
+.titulo .l2{display:block;font-size:clamp(22px,6vw,40px);line-height:1;margin:6px 0 4px;color:#C8E6C9;letter-spacing:.08em}
+.titulo .l3{display:block;font-size:clamp(30px,9.5vw,96px);line-height:.92;letter-spacing:-.01em}
+.titulo .l4{display:inline-block;margin-top:14px;font-size:clamp(20px,6vw,46px);line-height:1;background:var(--green);border:3px solid #fff;padding:8px 22px 6px;border-radius:8px;text-shadow:none}
+.hero p{margin:0;max-width:36ch;font-size:19px;font-weight:600;text-shadow:0 2px 6px rgba(0,0,0,.6)}
+
+/* ===== EMERGENCIAS ===== */
+.sos{background:var(--red);color:#fff;padding:22px 0 26px;border-top:6px solid #fff}
+.sos h2{font-size:clamp(28px,7vw,40px);text-transform:uppercase;margin-bottom:4px}
+.sos .hint{margin:0 0 14px;font-weight:600;opacity:.95}
+.dial{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:700px){.dial{grid-template-columns:repeat(4,1fr)}}
+.call{display:flex;align-items:center;gap:10px;text-decoration:none;background:#fff;color:var(--ink);border-radius:14px;padding:12px;min-height:76px;box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.call:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.call img{width:44px;height:44px;object-fit:contain;flex:none}
+.call strong{display:block;font:800 34px/1 "Barlow Condensed",Arial,sans-serif;color:var(--red)}
+.call span{font-size:14px;font-weight:700;color:var(--muted)}
+.call.gna{grid-column:1/-1;background:var(--green);color:#fff}
+.call.gna strong{color:#fff;font-size:clamp(28px,7vw,38px)}
+.call.gna span{color:#E2F5E8}
+.call.gna img{width:110px;height:auto}
+.sos .calm{margin:14px 0 0;background:rgba(0,0,0,.18);border-radius:10px;padding:10px 14px;font-weight:600}
+
+.geo{margin-top:14px;background:#fff;color:var(--ink);border-radius:14px;padding:16px}
+.geo-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;background:var(--green);color:#fff;font:800 clamp(22px,6vw,28px)/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:16px;border-radius:12px;box-shadow:0 5px 0 #1B4D24}
+.geo-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #1B4D24}
+.geo-btn svg{width:28px;height:28px;flex:none}
+.geo-help{margin:10px 0 0;font-size:14.5px;color:var(--muted);font-weight:600;text-align:center}
+.geo-out{display:none;margin-top:14px;text-align:center}
+.geo-out.show{display:block}
+.geo-coords{font:800 clamp(26px,7.5vw,36px)/1.1 "Barlow Condensed",Arial,sans-serif;font-variant-numeric:tabular-nums;color:var(--green-d);word-break:break-word}
+.geo-dms{margin-top:6px;font-weight:700;font-size:17px}
+.geo-acc{margin-top:4px;font-size:14px;color:var(--muted);font-weight:600}
+.geo-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.geo-acts a,.geo-acts button{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:10px;border:2px solid var(--green);background:#fff;color:var(--green-d);font:800 17px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;text-decoration:none;cursor:pointer;padding:6px}
+.geo-acts .wa{background:#1FA855;border-color:#1FA855;color:#fff}
+.geo-err{display:none;margin-top:12px;background:#FDECEA;color:#8E1B2B;border-radius:10px;padding:10px 12px;font-weight:600;font-size:15px;text-align:left}
+.geo-err.show{display:block}
+
+/* ===== BANDAS ===== */
+.band{padding:34px 0 38px;color:#fff}
+.band-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.band-head .ico{flex:none;width:62px;height:62px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 4px rgba(255,255,255,.35)}
+.band-head .ico img{width:42px;height:42px;object-fit:contain}
+.band h2{font-size:clamp(32px,8vw,48px);text-transform:uppercase}
+.band .lead{margin:0 0 18px;font-size:18px;font-weight:600;opacity:.95}
+.ruta{background:linear-gradient(160deg,#455A64,#263238)}
+.trek{background:linear-gradient(160deg,var(--green),var(--green-d))}
+.fuego{background:linear-gradient(160deg,var(--orange),var(--fire) 55%,var(--fire-d))}
+.info{background:linear-gradient(160deg,#00897B,#004D40)}
+.radio{background:#37474F}
+
+.cards{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+@media(min-width:720px){.cards{grid-template-columns:1fr 1fr}}
+.cards li{display:flex;gap:14px;align-items:flex-start;background:var(--card);color:var(--ink);border-radius:14px;padding:14px;border-left:8px solid var(--green)}
+.cards img{flex:none;width:58px;height:58px;object-fit:contain}
+.cards h3{font-size:22px;margin:2px 0 4px;color:#263238}
+.cards p{margin:0;font-size:16px;color:var(--muted)}
+.trek .cards li{border-left-color:#8BD17C}
+.trek .cards h3{color:var(--green-d)}
+.fuego .cards li{border-left-color:#FFAB91}
+.fuego .cards h3{color:var(--fire-d)}
+
+.stove{margin-top:12px;background:#FFF1EA;color:var(--ink);border-radius:14px;padding:18px;border:3px dashed var(--fire-d)}
+.stove-top{display:flex;gap:14px;align-items:center;margin-bottom:6px}
+.stove-top img{width:68px;flex:none}
+.stove h3{font-size:clamp(26px,6vw,32px);text-transform:uppercase;color:var(--fire-d)}
+.stove .sub{margin:0;font-size:16px}
+.stove-grid{display:grid;gap:10px;margin-top:12px}
+@media(min-width:720px){.stove-grid{grid-template-columns:repeat(3,1fr)}}
+.stove-grid div{background:#fff;border-radius:10px;padding:12px 14px;border-top:5px solid var(--orange)}
+.stove h4{margin:0 0 6px;font:800 19px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;color:var(--fire-d)}
+.stove ul{margin:0;padding-left:18px;font-size:15.5px}
+.stove li{margin:3px 0}
+.note{margin-top:14px;background:#fff;color:var(--ink);border-left:8px solid var(--fire-d);border-radius:14px;padding:16px 18px;text-align:center}
+.note p{margin:0;font-weight:700}
+.note .big{font:800 clamp(22px,5.5vw,30px)/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;margin-top:6px;color:var(--fire-d)}
+
+/* ===== BOTONES ===== */
+.btns{display:grid;gap:12px}
+@media(min-width:640px){.btns{grid-template-columns:1fr 1fr}}
+.btn{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;border-radius:14px;padding:14px 16px;min-height:78px;box-shadow:0 5px 0 rgba(0,0,0,.22)}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.22)}
+.btn .t{flex:1}
+.btn b{display:block;font:800 23px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.btn small{font-size:14.5px;font-weight:600;opacity:.92}
+.btn .go{flex:none;background:#fff;color:#1C2422;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:9px 12px;border-radius:8px}
+.b-smn{background:#00695C}.b-pasos{background:#455A64}.b-tabsa{background:#8E1B2B}
+.b-tur{background:#2E7D32}.b-fuego{background:#BF360C}.b-parque{background:#1B5E20}
+
+/* ===== RADIO ===== */
+.tbl{background:#fff;color:var(--ink);border-radius:14px;overflow:hidden}
+.row{display:grid;grid-template-columns:42px 1fr auto;gap:10px;align-items:center;padding:12px 14px;border-top:1px solid #DDE4EE}
+.row:first-child{border-top:0}
+.row img{width:22px;margin:auto}
+.row b{display:block;color:var(--green-d);font:800 19px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.row small{color:var(--muted);font-size:14px;font-weight:600}
+.row .f{text-align:right;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;font-size:16px}
+.vhf{display:inline-block;margin-top:12px;background:#fff;color:#263238;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;padding:7px 12px;border-radius:999px;text-transform:uppercase}
+
+.app{background:#fff;padding:0 0 26px}
+.app-card{display:flex;gap:14px;align-items:center;background:#E8F5E9;border:2px solid #A5D6A7;border-radius:16px;padding:16px}
+.app-card img{width:64px;height:64px;border-radius:14px;flex:none}
+.app-card h2{font-size:clamp(24px,6vw,30px);text-transform:uppercase;color:var(--green-d);margin-bottom:4px}
+.app-card p{margin:0;font-size:15px;color:var(--muted);font-weight:600}
+.app-btn{margin-top:12px;width:100%;border:0;cursor:pointer;background:var(--green);color:#fff;font:800 20px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:15px;border-radius:12px;box-shadow:0 4px 0 #1B4D24}
+.app-btn:active{transform:translateY(2px);box-shadow:0 2px 0 #1B4D24}
+.app-help{display:none;margin-top:12px;background:#fff;border-radius:12px;padding:12px 14px;font-size:15.5px;font-weight:600;color:#263238}
+.app-help.show{display:block}
+.app-help ol{margin:6px 0 0;padding-left:20px}.app-help li{margin:4px 0}
+.app-ok{display:none;margin-top:10px;font-weight:700;color:var(--green-d)}
+.stores{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}.stores .store{margin-top:0!important}
+.prep{margin-top:14px;background:#E8F5E9;border:2px solid #A5D6A7;border-radius:12px;padding:12px 14px;font-size:15px;font-weight:600;color:#263238}
+.prep b{color:var(--green-d)}
+.prep ol{margin:6px 0 0;padding-left:20px}.prep li{margin:3px 0}
+.prep a.store{display:inline-block;margin-top:8px;background:var(--green);color:#fff;text-decoration:none;font:800 17px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:11px 14px;border-radius:10px}
+.gps{display:inline-flex;align-items:center;gap:6px;margin-top:8px;align-self:flex-start;background:#fff;color:#1B4D24;font:800 15px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:7px 10px;border-radius:999px;letter-spacing:.02em}
+.gps svg{width:18px!important;height:18px!important;margin:0!important}
+.gpsnote{margin:14px 0 0;display:flex;gap:10px;align-items:center;background:#fff;border:2px solid #A5D6A7;border-radius:12px;padding:12px 14px;font-size:15px;font-weight:600;color:#263238}
+.gpsnote svg{flex:none;width:34px;height:34px}
+/* ===== CIERRE ===== */
+.end{background:linear-gradient(160deg,#2E7D32,#1B4D24);color:#fff;padding:30px 0 34px;text-align:center}
+.end .k{font:800 clamp(34px,9vw,58px)/.95 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.end p{margin:12px auto 0;max-width:46ch;font-weight:700}
+.end img{width:240px;margin:20px auto 0}
+.end .src{font-size:13px;font-weight:600;opacity:.8;margin-top:10px}
+/* ===== EMERGENCIAS ===== */
+.sos{background:var(--red);color:#fff;padding:22px 0 26px;border-top:6px solid #fff}
+.sos h2{font-size:clamp(28px,7vw,40px);text-transform:uppercase;margin-bottom:4px}
+.sos .hint{margin:0 0 14px;font-weight:600;opacity:.95}
+.dial{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media(min-width:700px){.dial{grid-template-columns:repeat(4,1fr)}}
+.call{display:flex;align-items:center;gap:10px;text-decoration:none;background:#fff;color:var(--ink);border-radius:14px;padding:12px;min-height:76px;box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.call:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.call img{width:44px;height:44px;object-fit:contain;flex:none}
+.call strong{display:block;font:800 34px/1 "Barlow Condensed",Arial,sans-serif;color:var(--red)}
+.call span{font-size:14px;font-weight:700;color:var(--muted)}
+.call.gna{grid-column:1/-1;background:var(--green);color:#fff}
+.call.gna strong{color:#fff;font-size:clamp(28px,7vw,38px)}
+.call.gna span{color:#E2F5E8}
+.call.gna img{width:110px;height:auto}
+.sos .calm{margin:14px 0 0;background:rgba(0,0,0,.18);border-radius:10px;padding:10px 14px;font-weight:600}
+
+.geo{margin-top:14px;background:#fff;color:var(--ink);border-radius:14px;padding:16px}
+.geo-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;background:var(--green);color:#fff;font:800 clamp(22px,6vw,28px)/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:16px;border-radius:12px;box-shadow:0 5px 0 #1B4D24}
+.geo-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #1B4D24}
+.geo-btn svg{width:28px;height:28px;flex:none}
+.geo-help{margin:10px 0 0;font-size:14.5px;color:var(--muted);font-weight:600;text-align:center}
+.geo-out{display:none;margin-top:14px;text-align:center}
+.geo-out.show{display:block}
+.geo-coords{font:800 clamp(26px,7.5vw,36px)/1.1 "Barlow Condensed",Arial,sans-serif;font-variant-numeric:tabular-nums;color:var(--green-d);word-break:break-word}
+.geo-dms{margin-top:6px;font-weight:700;font-size:17px}
+.geo-acc{margin-top:4px;font-size:14px;color:var(--muted);font-weight:600}
+.geo-acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.geo-acts a,.geo-acts button{display:flex;align-items:center;justify-content:center;min-height:50px;border-radius:10px;border:2px solid var(--green);background:#fff;color:var(--green-d);font:800 17px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;text-decoration:none;cursor:pointer;padding:6px}
+.geo-acts .wa{background:#1FA855;border-color:#1FA855;color:#fff}
+.geo-err{display:none;margin-top:12px;background:#FDECEA;color:#8E1B2B;border-radius:10px;padding:10px 12px;font-weight:600;font-size:15px;text-align:left}
+.geo-err.show{display:block}
+
+/* ===== CIERRE ===== */
+.end{background:linear-gradient(160deg,#2E7D32,#1B4D24);color:#fff;padding:30px 0 34px;text-align:center}
+.end .k{font:800 clamp(34px,9vw,58px)/.95 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.end p{margin:12px auto 0;max-width:46ch;font-weight:700}
+.end img{width:240px;margin:20px auto 0}
+.end .src{font-size:13px;font-weight:600;opacity:.8;margin-top:10px}
+
+.pick{background:var(--page);padding:22px 0 30px}
+.hero .logo{width:min(80%,360px)}
+.hero-in{padding-bottom:28px!important}
+.pick h2{font-size:clamp(30px,8vw,44px);text-transform:uppercase;text-align:center;color:#263238;margin-bottom:16px}
+.seasons{display:grid;gap:16px}
+@media(min-width:700px){.seasons{grid-template-columns:1fr 1fr}}
+.season{position:relative;display:block;text-decoration:none;color:#fff;border-radius:18px;overflow:hidden;min-height:250px;box-shadow:0 8px 0 rgba(0,0,0,.18)}
+.season:active{transform:translateY(3px);box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.season img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.season::after{content:"";position:absolute;inset:0}
+.season.ver::after{background:linear-gradient(180deg,rgba(27,77,36,.15),rgba(27,77,36,.88))}
+.season.inv::after{background:linear-gradient(180deg,rgba(38,50,56,.1),rgba(38,50,56,.88))}
+.season .in{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:flex-end;min-height:250px;padding:18px 20px}
+.season svg{width:46px;height:46px;margin-bottom:6px}
+.season b{font:800 clamp(40px,11vw,58px)/.95 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.season span.d{font-weight:600;font-size:16px;opacity:.95}
+.season .go{position:absolute;z-index:2;right:14px;top:14px;background:#fff;color:#1C2422;font:800 17px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:10px 14px;border-radius:10px}
+.badge{position:absolute;top:14px;left:14px;z-index:2;display:none;background:#fff;color:var(--green-d);font:800 15px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:7px 10px;border-radius:999px;letter-spacing:.03em}
+.season.now .badge{display:inline-block}
+.season.now{outline:4px solid #81C784;outline-offset:3px}
+
+.langbar{position:absolute;top:12px;right:12px;z-index:3;display:flex;gap:4px;background:rgba(0,0,0,.35);border:1.5px solid rgba(255,255,255,.7);border-radius:999px;padding:3px}
+.langbar a{color:#fff;text-decoration:none;font:800 14px/1 "Barlow",Arial,sans-serif;padding:7px 9px;border-radius:999px;letter-spacing:.03em}
+.langbar a.on{background:#fff;color:#1B4D24}
+.hero-in{padding-top:62px!important}
+.season.gpsc{background:linear-gradient(150deg,#2E7D32,#1B4D24 60%,#123620)}
+.season.gpsc::after{background:none}
+.season.gpsc .bigpin{position:absolute;right:-10px;bottom:-14px;width:170px;height:170px;opacity:.16}
+.prepbox{background:#fff;border:3px solid #2E7D32;border-radius:16px;padding:16px;margin-top:16px}
+.prepbox h2{font-size:clamp(26px,7vw,34px);text-transform:uppercase;color:#1B4D24;margin-bottom:4px;text-align:left}
+.prepbox>p{margin:0 0 10px;font-weight:600;color:#4F5B58}
+.step{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid #E0E6E3}
+.step .num{flex:none;width:38px;height:38px;border-radius:50%;background:#2E7D32;color:#fff;display:grid;place-items:center;font:800 22px/1 "Barlow Condensed",Arial,sans-serif}
+.step b{display:block;font:800 21px/1.1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;color:#263238}
+.step p{margin:3px 0 0;font-size:15px;font-weight:600;color:#4F5B58}
+.step .stores{margin-top:8px}
+.step .store,.stores .store{display:inline-block;background:#2E7D32;color:#fff;text-decoration:none;font:800 16px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;padding:10px 13px;border-radius:10px}
+.step .app-btn{margin-top:8px;width:auto;padding:12px 18px;font-size:18px}
+.gpsbanner{display:flex;align-items:center;gap:12px;margin-top:14px;text-decoration:none;background:#fff;color:#1B4D24;border-radius:14px;padding:14px 16px;box-shadow:0 4px 0 rgba(0,0,0,.18)}
+.gpsbanner svg{flex:none;width:40px;height:40px}
+.gpsbanner small{display:block;font-weight:700;color:#4F5B58;font-size:14px}
+.gpsbanner b{display:block;font:800 22px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
+.gpsbanner .arr{margin-left:auto;font:800 28px/1 "Barlow Condensed",Arial,sans-serif}
+.gpspage .geo{margin-top:0}
+</style>
+</head>
+<body class="gpspage">
+<header class="hero" style="--hero:url('img-hero.webp');background-position:center 62%">
+  <a class="back" href="en-index.html">‹ Home</a><nav class="langbar" aria-label="Idioma / Language"><a href="gps.html" data-lang="es" lang="es">ES</a><a href="en-gps.html" data-lang="en" class="on" aria-current="true" lang="en">EN</a><a href="pt-gps.html" data-lang="pt" lang="pt-BR">PT</a></nav>
+  <div class="hero-in">
+    <img class="logo" src="img-logo.webp" alt="Gendarmería Nacional">
+    <span class="esc">Escuadrón 44 "Ushuaia"</span>
+    <h1 class="titulo"><span class="l1">My location</span><span class="l2">GPS</span><span class="l3">and safe return</span><span class="l4">in Tierra del Fuego</span></h1>
+    <p>Your coordinates, a map that works with no signal, and how to get back to town or to the main road.</p>
+  </div>
+</header>
+<section class="sos" style="padding-top:16px"><div class="wrap"><div class="geo" id="ubicacion">
+      <button class="geo-btn" id="geoBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.6"></circle></svg><span id="geoBtnTxt">See my coordinates</span></button>
+      <p class="geo-help">Uses your phone's GPS. It works even without mobile data: you can read your coordinates out by radio or phone.</p>
+      <div class="geo-out" id="geoOut" aria-live="polite">
+        <div class="geo-coords" id="geoDec"></div>
+        <div class="geo-dms" id="geoDms"></div>
+        <div class="geo-acc" id="geoAcc"></div>
+        <div class="geo-acts">
+          <button type="button" id="geoCopy">Copy</button>
+          <a id="geoMap" href="#" target="_blank" rel="noopener">See on map</a>
+          <a class="wa" id="geoWa" href="#" target="_blank" rel="noopener">Send via WhatsApp</a>
+          <a id="geoSms" href="#" target="_top">Send via SMS</a>
+        </div>
+        <div class="geo-back" id="geoBack">
+          <h3>Get back to a town</h3>
+          <div class="safe"><b>If you are lost:</b> if you do not know the terrain, the safest thing is to <b>stay where you are</b>, keep warm and give your coordinates by phone or radio. The direction to a road or town is only a reference: in a straight line there may be rivers, peat bogs, dense forest or cliffs.</div>
+          <div class="omap" id="omap">
+            <svg id="omapSvg" viewBox="0 0 235.1 260.0" role="img" aria-label="Map">
+              <path d="M26.9 230.4 L26.2 233.6 L25.5 233.6 L21.2 229.7 L10.1 222.8 L7.9 223.4 L7.9 224.1 L12.8 225.8 L15.4 230.1 L18.0 232.3 L20.9 233.6 L21.3 234.6 L18.3 237.0 L1.9 239.9 L0.0 239.5 L0.0 189.7 L1.8 190.3 L3.5 191.9 L5.3 192.1 L6.2 191.8 L6.1 190.1 L6.5 188.1 L3.5 185.7 L0.0 184.0 L0.0 13.1 L4.7 10.0 L7.9 10.1 L13.1 7.3 L16.9 4.1 L18.1 0.8 L18.7 0.0 L20.8 0.7 L25.0 6.5 L27.8 9.0 L26.9 223.3 L23.5 221.8 L22.8 222.1 L23.2 223.1 L26.9 224.9 L26.9 230.4Z M132.4 248.9 L134.8 256.3 L132.2 255.7 L127.7 251.3 L119.5 247.2 L119.3 245.9 L120.7 244.1 L122.0 244.2 L129.6 246.6 L131.1 247.4 L132.4 248.9Z M0.2 244.1 L2.9 245.4 L5.1 243.3 L15.6 243.2 L21.4 240.0 L24.4 239.2 L30.8 239.2 L34.5 237.9 L38.7 239.0 L40.8 240.4 L45.0 246.0 L45.4 249.6 L45.0 251.2 L44.2 252.3 L42.7 252.5 L40.4 250.3 L38.7 249.6 L38.6 250.3 L39.3 252.9 L34.6 256.2 L33.5 256.0 L30.9 252.7 L29.2 251.6 L28.0 252.9 L28.2 253.7 L30.4 255.0 L31.2 258.5 L28.8 260.0 L26.0 260.0 L16.1 256.5 L12.3 252.9 L7.9 250.4 L6.3 250.2 L4.2 247.5 L2.8 246.9 L2.2 249.5 L2.5 251.1 L4.7 250.8 L5.6 251.3 L6.7 253.6 L8.9 256.1 L15.8 260.0 L0.0 260.0 L0.2 244.1Z M55.0 259.6 L53.6 255.4 L54.0 252.7 L55.0 250.5 L53.7 242.8 L49.2 244.5 L45.3 244.1 L43.7 240.3 L43.5 238.1 L44.4 237.1 L51.4 237.1 L52.2 235.8 L68.1 235.5 L76.1 236.4 L80.9 238.5 L85.2 237.1 L105.7 237.9 L110.3 239.8 L112.7 241.8 L119.8 252.2 L120.3 254.4 L120.4 257.4 L119.7 260.0 L55.0 259.6Z" fill="#DADDDB" stroke="#9AA3A0" stroke-width=".5"></path>
+              <path d="M26.9 230.4 L26.9 224.9 L31.0 231.3 L31.3 232.8 L30.1 233.5 L26.2 233.6 L26.9 230.4Z M26.9 223.3 L27.8 9.0 L30.2 11.3 L31.9 15.4 L35.7 21.3 L39.5 28.5 L44.6 33.6 L46.4 36.2 L49.0 43.1 L51.4 55.2 L51.1 56.9 L49.8 53.7 L48.2 46.5 L46.7 45.7 L44.1 46.6 L34.0 57.1 L32.0 61.7 L31.5 65.2 L32.3 68.9 L38.1 74.8 L47.3 77.0 L53.5 76.4 L58.1 79.4 L60.2 84.5 L59.8 88.0 L60.8 90.7 L61.9 97.3 L65.6 105.1 L76.8 117.7 L82.1 122.5 L82.4 124.0 L81.8 125.5 L84.6 125.0 L90.6 128.6 L91.2 129.7 L89.5 130.2 L88.9 131.9 L89.1 134.3 L89.8 135.8 L105.9 150.4 L115.2 157.3 L121.8 160.6 L125.7 163.2 L126.8 165.0 L128.9 166.3 L137.2 170.0 L141.0 173.8 L143.8 179.7 L149.6 185.4 L151.2 188.0 L153.3 189.1 L153.9 191.6 L160.1 193.5 L165.3 196.9 L185.5 207.0 L188.7 207.7 L191.4 209.7 L195.9 210.0 L200.0 211.2 L214.1 209.1 L218.7 209.5 L222.8 207.7 L231.8 209.1 L232.7 209.7 L232.2 211.1 L229.6 214.0 L227.8 219.4 L228.7 221.5 L226.2 224.1 L226.7 227.1 L223.0 230.2 L221.5 236.4 L219.9 237.7 L217.9 237.5 L217.4 234.4 L215.8 233.4 L213.8 233.4 L212.5 234.5 L212.9 236.4 L211.6 238.3 L206.9 237.8 L204.8 238.4 L203.7 241.2 L201.7 242.2 L200.7 241.9 L199.2 239.8 L199.4 237.9 L198.7 235.9 L195.7 235.6 L193.3 236.6 L189.4 235.0 L188.0 236.1 L184.2 235.2 L182.9 236.1 L185.1 239.0 L182.6 242.2 L175.3 244.6 L163.6 244.5 L160.4 245.5 L160.4 248.8 L155.7 250.2 L150.4 250.1 L143.4 247.1 L140.2 243.0 L135.0 239.3 L126.6 237.9 L121.6 235.5 L103.9 234.2 L91.6 232.5 L84.2 233.1 L68.7 231.2 L60.1 229.6 L57.4 227.4 L51.8 226.9 L46.9 224.2 L46.1 225.1 L46.2 228.3 L45.4 229.2 L34.1 230.2 L32.5 229.8 L26.9 223.3Z" fill="#EEF3EA" stroke="#7D8A84" stroke-width=".6"></path>
+              <path d="M26.2 233.6 L26.9 230.4 L26.9 224.9 M26.9 223.3 L27.8 9.0" fill="none" stroke="#37474F" stroke-width="1.1" stroke-dasharray="3 2"></path>
+              <text transform="translate(24,112) rotate(-90)" font-size="5.5" font-weight="700" fill="#37474F" stroke="#DADDDB" stroke-width="2" paint-order="stroke" letter-spacing=".5">INTERNATIONAL BORDER</text>
+              <text x="150" y="150" font-size="8" font-weight="800" fill="#6B7F72" letter-spacing="1.5" text-anchor="middle">ARGENTINA</text>
+              <path d="M20.3 77.2 L35.8 76.8 M20.3 77.2 L17.9 72.7 L16.9 69.4 L16.9 66.5 L19.1 60.3 L19.3 57.4 L19.3 55.8 L18.3 49.2 L17.4 44.2 L13.5 36.4 L11.3 25.7 L9.4 19.9 L8.6 18.6 L7.2 17.8 L3.8 17.0 L0.0 17.2 M0.0 79.8 L3.3 79.3 L9.6 77.2 L14.9 77.6 L20.3 77.2 M35.8 76.8 L39.2 77.2 L41.4 78.4 L45.7 83.8 L53.5 89.2 L57.9 95.4 L60.8 101.5 L67.1 111.9 L68.0 113.1 L70.7 115.2 M70.7 115.2 L73.1 116.8 L77.5 121.3 L78.9 123.0 L79.7 125.1 L80.9 126.3 M82.6 127.5 L84.5 128.4 L85.7 130.0 L86.9 135.4 L88.4 138.7 L92.0 142.4 L93.7 145.3 L96.2 146.1 L97.4 147.3 M97.4 147.3 L100.0 149.8 L101.2 152.3 L102.2 156.4 L103.7 160.5 L107.3 167.5 L107.8 169.6 M107.8 169.6 L108.0 170.4 L107.3 172.5 L103.7 176.2 L101.2 179.5 M101.2 179.5 L90.3 178.7 L83.8 179.1 L74.6 178.7 L72.6 178.3 L71.9 177.0 L72.4 175.0 L80.2 163.0 L81.6 159.7 L81.9 156.4 L81.4 151.5 L81.6 145.3 L80.4 141.1 L80.2 137.8 L80.4 135.0 L82.6 127.5 M153.4 192.3 L148.0 189.8 L143.4 184.0 L138.6 176.6 L134.5 172.9 L130.1 170.4 L123.1 170.0 L117.5 175.0 L115.8 175.0 L114.8 174.5 L112.4 171.7 L110.5 170.4 L107.8 169.6 M101.2 179.5 L101.7 181.6 L107.8 189.4 L108.8 192.7 L108.8 195.2 L108.3 198.5 L107.3 200.9 L105.6 203.0 L103.7 204.2 L99.8 206.3 L96.6 207.1 L89.6 207.5 L81.9 205.9 L79.9 206.3 L77.5 208.8 L72.9 217.9 L71.7 219.5 L70.5 220.3 M70.5 220.3 L65.9 220.3 L58.1 218.3 L55.7 218.7 L53.7 219.5 L51.3 223.6 L49.1 225.3 L46.2 225.7 M70.5 220.3 L72.9 221.2 L77.0 224.0 L79.7 224.0 L81.4 224.9 L82.8 226.5 L89.9 231.9 L95.4 232.3 L97.4 233.5 M46.2 225.7 L44.8 227.3 L42.8 228.6 L33.4 230.6 L28.5 233.9 M117.7 256.2 L117.2 254.6 L115.1 250.4 L113.1 247.6 L107.8 243.8 L102.5 241.4 L88.2 241.4 L86.5 240.5 L80.6 242.2 L72.2 239.7 L66.6 241.4 L60.8 239.3 L55.2 241.4 L48.2 241.0 L46.2 240.1" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M20.3 77.2 L35.8 76.8 M20.3 77.2 L17.9 72.7 L16.9 69.4 L16.9 66.5 L19.1 60.3 L19.3 57.4 L19.3 55.8 L18.3 49.2 L17.4 44.2 L13.5 36.4 L11.3 25.7 L9.4 19.9 L8.6 18.6 L7.2 17.8 L3.8 17.0 L0.0 17.2 M0.0 79.8 L3.3 79.3 L9.6 77.2 L14.9 77.6 L20.3 77.2 M35.8 76.8 L39.2 77.2 L41.4 78.4 L45.7 83.8 L53.5 89.2 L57.9 95.4 L60.8 101.5 L67.1 111.9 L68.0 113.1 L70.7 115.2 M70.7 115.2 L73.1 116.8 L77.5 121.3 L78.9 123.0 L79.7 125.1 L80.9 126.3 M82.6 127.5 L84.5 128.4 L85.7 130.0 L86.9 135.4 L88.4 138.7 L92.0 142.4 L93.7 145.3 L96.2 146.1 L97.4 147.3 M97.4 147.3 L100.0 149.8 L101.2 152.3 L102.2 156.4 L103.7 160.5 L107.3 167.5 L107.8 169.6 M107.8 169.6 L108.0 170.4 L107.3 172.5 L103.7 176.2 L101.2 179.5 M101.2 179.5 L90.3 178.7 L83.8 179.1 L74.6 178.7 L72.6 178.3 L71.9 177.0 L72.4 175.0 L80.2 163.0 L81.6 159.7 L81.9 156.4 L81.4 151.5 L81.6 145.3 L80.4 141.1 L80.2 137.8 L80.4 135.0 L82.6 127.5 M153.4 192.3 L148.0 189.8 L143.4 184.0 L138.6 176.6 L134.5 172.9 L130.1 170.4 L123.1 170.0 L117.5 175.0 L115.8 175.0 L114.8 174.5 L112.4 171.7 L110.5 170.4 L107.8 169.6 M101.2 179.5 L101.7 181.6 L107.8 189.4 L108.8 192.7 L108.8 195.2 L108.3 198.5 L107.3 200.9 L105.6 203.0 L103.7 204.2 L99.8 206.3 L96.6 207.1 L89.6 207.5 L81.9 205.9 L79.9 206.3 L77.5 208.8 L72.9 217.9 L71.7 219.5 L70.5 220.3 M70.5 220.3 L65.9 220.3 L58.1 218.3 L55.7 218.7 L53.7 219.5 L51.3 223.6 L49.1 225.3 L46.2 225.7 M70.5 220.3 L72.9 221.2 L77.0 224.0 L79.7 224.0 L81.4 224.9 L82.8 226.5 L89.9 231.9 L95.4 232.3 L97.4 233.5 M46.2 225.7 L44.8 227.3 L42.8 228.6 L33.4 230.6 L28.5 233.9 M117.7 256.2 L117.2 254.6 L115.1 250.4 L113.1 247.6 L107.8 243.8 L102.5 241.4 L88.2 241.4 L86.5 240.5 L80.6 242.2 L72.2 239.7 L66.6 241.4 L60.8 239.3 L55.2 241.4 L48.2 241.0 L46.2 240.1" fill="none" stroke="#C0392B" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path>
+              <text x="200" y="40" font-size="8" fill="#5C7F92" font-style="italic" text-anchor="middle">Atlantic Ocean</text>
+              <text x="13" y="200" font-size="7" font-weight="800" fill="#7A817E" letter-spacing="1" text-anchor="middle">CHILE</text>
+              <text x="122" y="256" font-size="6.5" fill="#5C7F92" font-style="italic" text-anchor="middle">Beagle Channel</text>
+              <g id="omapLine"></g><g id="omapPlaces"></g><g id="omapMe"></g>
+              <g transform="translate(220,16)"><path d="M0 -10 L4 4 L0 1 L-4 4Z" fill="#263238"></path><text y="13" font-size="7" font-weight="700" text-anchor="middle" fill="#263238">N</text></g>
+            </svg>
+            <div class="omap-info" id="omapInfo"></div>
+            <p class="omap-note">Schematic map available offline: main roads are approximate. Use it to orient yourself; MAPS.ME (offline, with the map downloaded) or Google Maps (with data) give the exact route.</p>
+          </div>
+          <p class="sub">Sorted from nearest to farthest. Choose which app opens the route:</p>
+          <div class="navsel" id="navSel">
+            <label data-v="mm"><input type="radio" name="nav" value="mm"><b>MAPS.ME</b><span>Works offline</span></label>
+            <label data-v="gm"><input type="radio" name="nav" value="gm"><b>Google Maps</b><span>Needs data</span></label>
+          </div>
+          <div class="navtip" id="navTip"></div>
+          <div id="geoList"></div>
+          <div class="prep"><b>Get your phone ready before you go:</b>
+            <ol><li><b>Install MAPS.ME</b> – Free navigation app that works without internet.</li><li><b>Download the Tierra del Fuego map</b> – Open MAPS.ME, search for "Tierra del Fuego" and tap Download. With that map you can navigate by car or on foot with no signal.</li></ol><div class="stores"><a class="store" href="https://play.google.com/store/apps/details?id=com.mapswithme.maps.pro" target="_blank" rel="noopener">Android · Google Play</a> <a class="store" href="https://apps.apple.com/app/id510623322" target="_blank" rel="noopener">iPhone · App Store</a></div></div>
+          <div class="geo-warn">Google Maps needs mobile data unless you downloaded the area. MAPS.ME navigates with no signal if you downloaded the map beforehand. In remote areas, the walking option is only for short distances: in an emergency, call or use the radio and wait for help.</div>
+        </div>
+      </div>
+      <div class="geo-err" id="geoErr"></div>
+    </div></div></section>
+<section class="sos" id="emergencias">
+  <div class="wrap">
+    <h2>Emergencies</h2>
+    <p class="hint">Tap a number to call.</p>
+    <div class="dial"><a class="call" href="tel:911" target="_top"><img src="img-tel.png" alt=""><div><strong>911</strong><span>Emergencies</span></div></a><a class="call" href="tel:103" target="_top"><img src="img-dc.png" alt=""><div><strong>103</strong><span>Civil Defense</span></div></a><a class="call" href="tel:107" target="_top"><img src="img-med.png" alt=""><div><strong>107</strong><span>Medical emergencies</span></div></a><a class="call" href="tel:100" target="_top"><img src="img-bomberos.png" alt=""><div><strong>100</strong><span>Fire Department</span></div></a><a class="call gna" href="tel:+542901431800" target="_top"><img src="img-logo.webp" alt=""><div><strong>(02901) 431-800</strong><span>Gendarmería Nacional · Escuadrón 44 Ushuaia</span></div></a></div>
+    <p class="calm">Stay calm, give your exact location and the number of people.</p>
+    
+  </div>
+</section>
+<section class="band radio" id="radio">
+  <div class="wrap">
+    <div class="band-head"><div class="ico"><img src="img-radio.png" alt=""></div><h2>No signal: radio</h2></div>
+    <p class="lead">If phones do not work, use these frequencies.</p>
+    <div class="tbl"><div class="row"><img src="img-radio.png" alt=""><div><b>Río Grande</b><small>Civil Defense</small></div><div class="f">150.095 TX<br>156.095 RX</div></div><div class="row"><img src="img-radio.png" alt=""><div><b>Río Grande</b><small>Civil Defense – Cerro Michi</small></div><div class="f">142.430 TX<br>148.430 RX</div></div><div class="row"><img src="img-radio.png" alt=""><div><b>Río Grande</b><small>Cerro Castor (south) and Cerro Cabeza de León (north)</small></div><div class="f">152.775<br>RX-TX</div></div><div class="row"><img src="img-radio.png" alt=""><div><b>Ushuaia</b><small>Provincial Civil Defense</small></div><div class="f">152.775 TX<br>158.775 RX</div></div><div class="row"><img src="img-radio.png" alt=""><div><b>Ushuaia</b><small>Municipal Civil Defense</small></div><div class="f">148.615<br>RX-TX</div></div></div><span class="vhf">Analog VHF</span>
+  </div>
+</section>
+<footer class="end">
+  <div class="wrap">
+    <div class="k">Be informed,<br>travel safely.</div>
+    <p>Your responsibility makes the difference. Follow the instructions of security personnel and traffic rules.</p>
+    
+    <img src="img-logo.webp" alt="Gendarmería Nacional">
+    <p class="src">Gendarmería Nacional Argentina · Escuadrón 44 "Ushuaia".</p>
+  </div>
+</footer>
+<script>
+(function(){
+  var L={"btn": "See my coordinates", "searching": "Searching for GPS signal…", "update": "Update location", "retry": "Try again", "acc": "Approximate accuracy", "time": "Time", "mine": "My location", "precision": "Accuracy", "copied": "Copied!", "copy": "Copy", "e1": "This page could not access your phone's location. Turn on location (GPS) and allow it in your browser, or use Google Maps:", "e2": "Location could not be obtained. Make sure GPS / Location is on and, if possible, move to open sky.", "e3": "GPS took too long. Wait a few seconds under open sky and tap Try again.", "e0": "Location could not be obtained on this device.", "nosup": "This browser cannot provide your location.", "gmaps": "Open Google Maps", "gmaps_help": "In Google Maps tap the location button and then the blue dot: your coordinates will appear.", "you": "You", "you_out": "You (outside the map)", "road": "Road", "near": "Nearest", "ref": "Reference", "road_n": "Nearest road", "road_d": "Main road · approximate point", "km_line": "km in a straight line · towards", "veh": "Vehicle", "walk": "On foot", "map": "Map", "and_tip": "If your phone asks which app to use, choose <b>MAPS.ME</b> (you can tick \"Always\"). MAPS.ME opens the destination: tap <b>Route</b> and choose car or walking. If you do not have MAPS.ME:", "ios_tip": "If MAPS.ME did not open, make sure it is installed and up to date. If you do not have it:", "N": "N", "E": "E", "S": "S", "W": "W", "chile_city": "Chilean town", "pw": "Puerto Williams (Chile)", "places": ["City", "City", "Town", "Defensa Civil · National Route 3", "Settlement · Beagle Channel", "Gendarmería Nacional · Sección San Sebastián", "Río Bellavista Crossing · Provincial Route 8"]}, STORES="<div class=\"stores\"><a class=\"store\" href=\"https://play.google.com/store/apps/details?id=com.mapswithme.maps.pro\" target=\"_blank\" rel=\"noopener\">Android · Google Play</a> <a class=\"store\" href=\"https://apps.apple.com/app/id510623322\" target=\"_blank\" rel=\"noopener\">iPhone · App Store</a></div>", ROADS=[[[-53.318,-68.6242],[-53.318,-68.4911]],[[-53.318,-68.4911],[-53.3221,-68.4333],[-53.3345,-68.3962],[-53.3881,-68.322],[-53.4417,-68.19],[-53.5036,-68.1157],[-53.5655,-68.0662],[-53.6686,-67.959],[-53.6809,-67.9425],[-53.7016,-67.8971]],[[-53.7016,-67.8971],[-53.7181,-67.8559],[-53.7634,-67.7817],[-53.7799,-67.7569],[-53.8006,-67.7445],[-53.8129,-67.7239]],[[-53.8253,-67.695],[-53.8336,-67.662],[-53.8501,-67.6414],[-53.9037,-67.6208],[-53.9367,-67.5961],[-53.9738,-67.5342],[-54.0027,-67.5053],[-54.0109,-67.4641],[-54.0233,-67.4435]],[[-54.0233,-67.4435],[-54.048,-67.3981],[-54.0728,-67.3775],[-54.114,-67.361],[-54.1553,-67.3362],[-54.2254,-67.2744],[-54.246,-67.2661]],[[-54.246,-67.2661],[-54.2542,-67.262],[-54.2749,-67.2744],[-54.312,-67.3362],[-54.345,-67.3775]],[[-54.345,-67.3775],[-54.3367,-67.5631],[-54.3409,-67.6744],[-54.3367,-67.8312],[-54.3326,-67.8641],[-54.3202,-67.8765],[-54.2996,-67.8683],[-54.18,-67.7363],[-54.147,-67.7115],[-54.114,-67.7074],[-54.0645,-67.7157],[-54.0027,-67.7115],[-53.9614,-67.7322],[-53.9284,-67.7363],[-53.8995,-67.7322],[-53.8253,-67.695]],[[-54.4728,-66.4907],[-54.4481,-66.5815],[-54.3903,-66.6598],[-54.3161,-66.7423],[-54.279,-66.8124],[-54.2542,-66.8867],[-54.2501,-67.0063],[-54.2996,-67.1011],[-54.2996,-67.13],[-54.2955,-67.1465],[-54.2666,-67.1877],[-54.2542,-67.2207],[-54.246,-67.2661]],[[-54.345,-67.3775],[-54.3656,-67.3692],[-54.444,-67.2661],[-54.477,-67.2496],[-54.5017,-67.2496],[-54.5347,-67.2579],[-54.5595,-67.2744],[-54.5801,-67.3032],[-54.5924,-67.3362],[-54.6131,-67.4022],[-54.6213,-67.4558],[-54.6254,-67.5754],[-54.6089,-67.7074],[-54.6131,-67.7404],[-54.6378,-67.7817],[-54.7286,-67.86],[-54.745,-67.8806],[-54.7533,-67.9013]],[[-54.7533,-67.9013],[-54.7533,-67.9796],[-54.7327,-68.1116],[-54.7368,-68.1529],[-54.745,-68.1859],[-54.7863,-68.2271],[-54.7967,-68.2554]],[[-54.7533,-67.9013],[-54.7615,-67.86],[-54.7904,-67.7899],[-54.7904,-67.7445],[-54.7987,-67.7157],[-54.8152,-67.6909],[-54.8681,-67.5728]],[[-54.8121,-68.3215],[-54.8234,-68.3385],[-54.8358,-68.3715],[-54.8371,-68.3819]]];
+  var PLACES=[["Ushuaia", "City", -54.8019, -68.303, 1, 0], ["Río Grande", "City", -53.7877, -67.7097, 1, 0], ["Tolhuin", "Town", -54.5108, -67.1955, 1, 0], ["Lago Escondido", "Defensa Civil · National Route 3", -54.640775, -67.762458, 0, 0], ["Puerto Almanza", "Settlement · Beagle Channel", -54.8717, -67.5583, 0, 0], ["San Sebastián", "Gendarmería Nacional · Sección San Sebastián", -53.29977, -68.457453, 0, 0], ["Paso Radman", "Río Bellavista Crossing · Provincial Route 8", -54.1547, -68.6394, 0, 0]];
+  var btn=document.getElementById('geoBtn'),txt=document.getElementById('geoBtnTxt'),out=document.getElementById('geoOut'),err=document.getElementById('geoErr');
+  var msg='',ME=null,SEL=null;
+  var CAR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-5l-2-5H7l-2 5z"></path><path d="M3 12h18"></path><circle cx="7.5" cy="17.5" r="1.5"></circle><circle cx="16.5" cy="17.5" r="1.5"></circle></svg>';
+  var WALK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="2"></circle><path d="M10 21l2-6 3 3v3"></path><path d="M8 11l3-3 3 2 3 1"></path><path d="M11 8l1 7"></path></svg>';
+  var DIRS=[L.N,L.N+L.N+L.E,L.N+L.E,L.E+L.N+L.E,L.E,L.E+L.S+L.E,L.S+L.E,L.S+L.S+L.E,L.S,L.S+L.S+L.W,L.S+L.W,L.W+L.S+L.W,L.W,L.W+L.N+L.W,L.N+L.W,L.N+L.N+L.W];
+  function dms(v,pos,neg){var h=v<0?neg:pos;v=Math.abs(v);var d=Math.floor(v),mf=(v-d)*60,m=Math.floor(mf),s=((mf-m)*60).toFixed(1);if(s==='60.0'){s='0.0';m++;}if(m===60){m=0;d++;}return d+'° '+m+"' "+s+'" '+h;}
+  function hav(a,b,c,d){var R=6371,r=Math.PI/180,x=(c-a)*r,y=(d-b)*r,h=Math.sin(x/2)*Math.sin(x/2)+Math.cos(a*r)*Math.cos(c*r)*Math.sin(y/2)*Math.sin(y/2);return 2*R*Math.asin(Math.sqrt(h));}
+  function brg(a,b,c,d){var r=Math.PI/180,y=Math.sin((d-b)*r)*Math.cos(c*r),x=Math.cos(a*r)*Math.sin(c*r)-Math.sin(a*r)*Math.cos(c*r)*Math.cos((d-b)*r);return (Math.atan2(y,x)/r+360)%360;}
+  var MAPC=Math.cos(54*Math.PI/180),MW=235.1,MH=260.0;
+  function mp(la,lo){return [(lo+69.1)*MAPC*100,(-52.55-la)*100];}
+  var NS='http://www.w3.org/2000/svg';
+  function el(n,a,t){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(t)e.textContent=t;return e;}
+  function drawMap(){
+    if(!ME)return;
+    var g=document.getElementById('omapPlaces'),ln=document.getElementById('omapLine'),me=document.getElementById('omapMe');
+    g.innerHTML='';ln.innerHTML='';me.innerHTML='';
+    PLACES.concat([[L.pw,L.chile_city,-54.9333,-67.6167,0,1]]).forEach(function(p){var q=mp(p[2],p[3]),s=SEL&&SEL.n===p[0],city=p[4]===1||p[5]===1,cl=p[5]===1;
+      var col=s?'#1B5E20':(cl?'#6D6D6D':'#263238');
+      if(city){var r=s?4:3.2;g.appendChild(el('rect',{x:q[0]-r,y:q[1]-r,width:2*r,height:2*r,fill:col,stroke:'#fff','stroke-width':'.9'}));}
+      else g.appendChild(el('circle',{cx:q[0],cy:q[1],r:s?3.2:2.2,fill:col,stroke:'#fff','stroke-width':'.8'}));
+      g.appendChild(el('text',{x:q[0]+5,y:q[1]+(cl?8:2.4),'font-size':city?(s?'8.5':'7.8'):(s?'7':'6.2'),'font-weight':city?'800':'700',fill:col,stroke:'#fff','stroke-width':'2','paint-order':'stroke'},city&&!cl?p[0].toUpperCase():p[0]));});
+    if(SEL&&SEL.road){var rq=mp(SEL.la,SEL.lo);g.appendChild(el('path',{d:'M'+rq[0]+' '+(rq[1]-4.5)+' l4.5 4.5 l-4.5 4.5 l-4.5 -4.5z',fill:'#E65100',stroke:'#fff','stroke-width':'.9'}));
+      g.appendChild(el('text',{x:rq[0]+6,y:rq[1]+2.4,'font-size':'7','font-weight':'800',fill:'#E65100',stroke:'#fff','stroke-width':'2','paint-order':'stroke'},L.road));}
+    var m=mp(ME.la,ME.lo),outm=m[0]<0||m[1]<0||m[0]>MW||m[1]>MH;
+    m=[Math.max(4,Math.min(MW-4,m[0])),Math.max(4,Math.min(MH-4,m[1]))];
+    if(SEL){var q=mp(SEL.la,SEL.lo);ln.appendChild(el('line',{x1:m[0],y1:m[1],x2:q[0],y2:q[1],stroke:'#1B5E20','stroke-width':'1.6','stroke-dasharray':'4 3','stroke-linecap':'round'}));}
+    me.appendChild(el('circle',{cx:m[0],cy:m[1],r:'7',fill:'#1E88E5','fill-opacity':'.25'}));
+    me.appendChild(el('circle',{cx:m[0],cy:m[1],r:'3.4',fill:'#1E88E5',stroke:'#fff','stroke-width':'1.2'}));
+    me.appendChild(el('text',{x:m[0],y:m[1]-6,'font-size':'7','font-weight':'800','text-anchor':'middle',fill:'#0D47A1',stroke:'#fff','stroke-width':'2','paint-order':'stroke'},outm?L.you_out:L.you));
+    if(SEL){var b=brg(ME.la,ME.lo,SEL.la,SEL.lo),r=DIRS[Math.round(b/22.5)%16];
+      document.getElementById('omapInfo').innerHTML='<b>'+SEL.n+'</b><span>≈ '+Math.round(SEL.km)+' '+L.km_line+' '+r+' ('+Math.round(b)+'°)</span>';}
+  }
+  function selectPlace(p){SEL=p;drawMap();[].forEach.call(document.querySelectorAll('.dest'),function(d){d.classList.toggle('sel',d.getAttribute('data-n')===p.n);});}
+  var NAV='mm';try{NAV=localStorage.getItem('navApp3')||'mm';}catch(e){}if(NAV!=='gm')NAV='mm';
+  function setNav(v){NAV=v;try{localStorage.setItem('navApp3',v);}catch(e){}
+    [].forEach.call(document.querySelectorAll('#navSel label'),function(l){var on=l.getAttribute('data-v')===v;l.classList.toggle('on',on);l.querySelector('input').checked=on;});
+    document.getElementById('navTip').className='navtip';}
+  [].forEach.call(document.querySelectorAll('#navSel label'),function(l){l.addEventListener('click',function(e){e.preventDefault();setNav(l.getAttribute('data-v'));});});
+  setNav(NAV);
+  var ANDROID=/android/i.test(navigator.userAgent);
+  function openNav(e){e.preventDefault();var a=e.currentTarget,tp=document.getElementById('navTip');
+    if(NAV==='gm'){window.open(a.getAttribute('data-gm'),'_blank','noopener');return;}
+    if(ANDROID){window.location.href=a.getAttribute('data-geo');tp.innerHTML=L.and_tip+STORES;tp.className='navtip show';return;}
+    var left=false,h=function(){if(document.hidden)left=true;};document.addEventListener('visibilitychange',h);
+    window.location.href=a.getAttribute('data-mm');
+    setTimeout(function(){document.removeEventListener('visibilitychange',h);if(!left&&!document.hidden){tp.innerHTML=L.ios_tip+STORES;tp.className='navtip show';}},2500);}
+  function nearestRoad(la,lo){var c=Math.cos(la*Math.PI/180),best=null;
+    ROADS.forEach(function(R){for(var i=0;i<R.length-1;i++){var ax=R[i][1]*c,ay=R[i][0],bx=R[i+1][1]*c,by=R[i+1][0],px=lo*c,py=la;
+      var dx=bx-ax,dy=by-ay,t=((px-ax)*dx+(py-ay)*dy)/((dx*dx+dy*dy)||1e-12);t=Math.max(0,Math.min(1,t));
+      var qx=ax+t*dx,qy=ay+t*dy,d=(qx-px)*(qx-px)+(qy-py)*(qy-py);if(!best||d<best.d)best={d:d,la:qy,lo:qx/c};}});return best;}
+  function renderBack(la,lo){
+    var list=document.getElementById('geoList');list.innerHTML='';
+    var arr=PLACES.map(function(p){return {n:p[0],d:p[1],la:p[2],lo:p[3],km:hav(la,lo,p[2],p[3])};}).sort(function(a,b){return a.km-b.km;});
+    var nr=nearestRoad(la,lo);if(nr){arr.unshift({n:L.road_n,d:L.road_d,la:+nr.la.toFixed(5),lo:+nr.lo.toFixed(5),km:hav(la,lo,nr.la,nr.lo),road:true});}
+    arr.forEach(function(p,i){
+      var o=la.toFixed(6)+','+lo.toFixed(6),dst=p.la+','+p.lo;
+      var gm='https://www.google.com/maps/dir/?api=1&origin='+o+'&destination='+dst+'&travelmode=';
+      var geo='geo:'+dst+'?q='+dst+'('+encodeURIComponent(p.n)+')';
+      var mm='mapsme://route?sll='+o+'&saddr='+encodeURIComponent(L.mine)+'&dll='+dst+'&daddr='+encodeURIComponent(p.n)+'&type=';
+      var km=p.km<1?'< 1 km':(p.km<10?p.km.toFixed(1):Math.round(p.km))+' km';
+      var row=document.createElement('div');row.className='dest';row.setAttribute('data-n',p.n);
+      var badge=p.road?'<span class="near" style="background:#E65100">'+L.ref+'</span>':(((i===1&&arr[0].road)||(i===0&&!arr[0].road))?'<span class="near">'+L.near+'</span>':'');
+      row.innerHTML='<div class="n">'+p.n+badge+'<small>'+p.d+'</small></div><div class="km">≈ '+km+'</div>'+
+        '<div class="bt"><a class="car" href="#" data-gm="'+gm+'driving" data-mm="'+mm+'vehicle" data-geo="'+geo+'">'+CAR+L.veh+'</a><a class="walk" href="#" data-gm="'+gm+'walking" data-mm="'+mm+'pedestrian" data-geo="'+geo+'">'+WALK+L.walk+'</a><button type="button" class="mapb">'+L.map+'</button></div>';
+      [].forEach.call(row.querySelectorAll('a[data-gm]'),function(a){a.addEventListener('click',openNav);});
+      row.querySelector('.mapb').addEventListener('click',function(){selectPlace(p);document.getElementById('omap').scrollIntoView({behavior:'smooth',block:'start'});});
+      list.appendChild(row);});
+    ME={la:la,lo:lo};selectPlace(arr[0].road&&arr[1]?arr[1]:arr[0]);
+    document.getElementById('geoBack').className='geo-back show';
+  }
+  function showErr(t,maps){err.textContent=t;if(maps){var a=document.createElement('a');a.href='https://www.google.com/maps';a.target='_blank';a.rel='noopener';a.textContent=L.gmaps;a.style.cssText='display:block;margin-top:10px;text-align:center;background:#2E7D32;color:#fff;font:800 18px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;text-decoration:none;padding:14px;border-radius:10px';var h=document.createElement('div');h.style.cssText='margin-top:8px;font-size:14px';h.textContent=L.gmaps_help;err.appendChild(a);err.appendChild(h);}
+    err.className='geo-err show';txt.textContent=L.retry;btn.disabled=false;}
+  function ok(p){
+    var la=p.coords.latitude,lo=p.coords.longitude,acc=Math.round(p.coords.accuracy);
+    var dec=la.toFixed(6)+', '+lo.toFixed(6),d=dms(la,L.N,L.S)+'  '+dms(lo,L.E,L.W);
+    var hora=new Date(p.timestamp).toLocaleTimeString(document.documentElement.lang,{hour:'2-digit',minute:'2-digit',hour12:false});
+    document.getElementById('geoDec').textContent=dec;document.getElementById('geoDms').textContent=d;
+    document.getElementById('geoAcc').textContent=L.acc+': ± '+acc+' m · '+L.time+': '+hora;
+    var map='https://www.google.com/maps?q='+la.toFixed(6)+','+lo.toFixed(6);
+    msg=L.mine+': '+dec+' ('+d+'). '+L.precision+' ± '+acc+' m. '+map;
+    document.getElementById('geoMap').href=map;
+    document.getElementById('geoWa').href='https://wa.me/?text='+encodeURIComponent(msg);
+    document.getElementById('geoSms').href='sms:?&body='+encodeURIComponent(msg);
+    renderBack(la,lo);
+    out.className='geo-out show';err.className='geo-err';txt.textContent=L.update;btn.disabled=false;}
+  function fail(e){var c=e&&e.code;if(c===1)showErr(L.e1,true);else if(c===2)showErr(L.e2,true);else if(c===3)showErr(L.e3,false);else showErr(L.e0,true);}
+  btn.addEventListener('click',function(){
+    if(!('geolocation' in navigator)){showErr(L.nosup,true);return;}
+    btn.disabled=true;txt.textContent=L.searching;err.className='geo-err';
+    try{navigator.geolocation.getCurrentPosition(ok,fail,{enableHighAccuracy:true,timeout:25000,maximumAge:0});}catch(e){fail();}});
+  document.getElementById('geoCopy').addEventListener('click',function(){var b=this;function done(){b.textContent=L.copied;setTimeout(function(){b.textContent=L.copy},1800);}
+    function fb(){var t=document.createElement('textarea');t.value=msg;document.body.appendChild(t);t.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(t);}
+    try{navigator.clipboard.writeText(msg).then(done,fb);}catch(e){fb();}});
+})();
+</script>
+<script>
+(function(){
+  function fit(){var el=document.querySelector('.titulo .l1');if(!el)return;el.style.fontSize='';var box=el.parentNode.clientWidth;var fs=parseFloat(getComputedStyle(el).fontSize),w=el.scrollWidth;if(w>box){el.style.fontSize=Math.floor(fs*box/w*0.98)+'px';}}
+  try{(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(fit);}catch(e){fit();}
+  window.addEventListener('resize',fit);fit();
+  [].forEach.call(document.querySelectorAll('.langbar a'),function(a){a.addEventListener('click',function(){try{localStorage.setItem('lang',a.getAttribute('data-lang'));}catch(e){}});});
+  if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){});});}
+})();
+</script>
+</body>
+</html>
