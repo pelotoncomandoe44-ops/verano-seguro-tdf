@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>GPS: my location and way back · Tierra del Fuego</title>
 <link rel="alternate" hreflang="es" href="gps.html"><link rel="alternate" hreflang="en" href="en-gps.html"><link rel="alternate" hreflang="pt-BR" href="pt-gps.html">
-
+<link rel="stylesheet" href="leaflet.css"><script src="leaflet.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -427,6 +427,21 @@ a{color:inherit}
 .gpsbanner b{display:block;font:800 22px/1.05 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase}
 .gpsbanner .arr{margin-left:auto;font:800 28px/1 "Barlow Condensed",Arial,sans-serif}
 .gpspage .geo{margin-top:0}
+#lmap{height:62vh;min-height:360px;max-height:640px;background:#CFE6F2;position:relative}
+.lload{position:absolute;inset:0;display:grid;place-items:center;font-weight:700;color:#455A64}
+.leaflet-container{background:#CFE6F2;font-family:"Barlow",Arial,sans-serif}
+.legend{display:flex;flex-wrap:wrap;gap:6px 12px;padding:10px 12px;background:#fff;font-size:13px;font-weight:600;color:#37474F;border-top:1px solid #E0E6E3}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{display:inline-block;width:22px}
+.legend i.dot{width:10px;height:10px;border-radius:50%;border:1.5px solid #fff;box-shadow:0 0 0 1px #9E9E9E}
+.legend i.tri{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:10px solid #795548}
+.lbl{background:none;border:0}
+.lbl span{display:inline-block;white-space:nowrap;font:800 13px/1 "Barlow",Arial,sans-serif;color:#263238;text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff,0 0 3px #fff;transform:translate(8px,-7px)}
+.lbl.city span{font-size:15px;text-transform:uppercase}
+.lbl.small span{font-size:11px;font-weight:700;color:#455A64}
+.pk{width:0!important;height:0!important;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:10px solid #795548;background:none}
+.mapsec h3{font-size:24px;text-transform:uppercase;color:#1B4D24;margin:16px 0 8px}
+
 </style>
 </head>
 <body class="gpspage">
@@ -452,40 +467,32 @@ a{color:inherit}
           <a class="wa" id="geoWa" href="#" target="_blank" rel="noopener">Send via WhatsApp</a>
           <a id="geoSms" href="#" target="_top">Send via SMS</a>
         </div>
-        <div class="geo-back" id="geoBack">
-          <h3>Get back to a town</h3>
-          <div class="safe"><b>If you are lost:</b> if you do not know the terrain, the safest thing is to <b>stay where you are</b>, keep warm and give your coordinates by phone or radio. The direction to a road or town is only a reference: in a straight line there may be rivers, peat bogs, dense forest or cliffs.</div>
-          <div class="omap" id="omap">
-            <svg id="omapSvg" viewBox="0 0 235.1 260.0" role="img" aria-label="Map">
-              <path d="M26.9 230.4 L26.2 233.6 L25.5 233.6 L21.2 229.7 L10.1 222.8 L7.9 223.4 L7.9 224.1 L12.8 225.8 L15.4 230.1 L18.0 232.3 L20.9 233.6 L21.3 234.6 L18.3 237.0 L1.9 239.9 L0.0 239.5 L0.0 189.7 L1.8 190.3 L3.5 191.9 L5.3 192.1 L6.2 191.8 L6.1 190.1 L6.5 188.1 L3.5 185.7 L0.0 184.0 L0.0 13.1 L4.7 10.0 L7.9 10.1 L13.1 7.3 L16.9 4.1 L18.1 0.8 L18.7 0.0 L20.8 0.7 L25.0 6.5 L27.8 9.0 L26.9 223.3 L23.5 221.8 L22.8 222.1 L23.2 223.1 L26.9 224.9 L26.9 230.4Z M132.4 248.9 L134.8 256.3 L132.2 255.7 L127.7 251.3 L119.5 247.2 L119.3 245.9 L120.7 244.1 L122.0 244.2 L129.6 246.6 L131.1 247.4 L132.4 248.9Z M0.2 244.1 L2.9 245.4 L5.1 243.3 L15.6 243.2 L21.4 240.0 L24.4 239.2 L30.8 239.2 L34.5 237.9 L38.7 239.0 L40.8 240.4 L45.0 246.0 L45.4 249.6 L45.0 251.2 L44.2 252.3 L42.7 252.5 L40.4 250.3 L38.7 249.6 L38.6 250.3 L39.3 252.9 L34.6 256.2 L33.5 256.0 L30.9 252.7 L29.2 251.6 L28.0 252.9 L28.2 253.7 L30.4 255.0 L31.2 258.5 L28.8 260.0 L26.0 260.0 L16.1 256.5 L12.3 252.9 L7.9 250.4 L6.3 250.2 L4.2 247.5 L2.8 246.9 L2.2 249.5 L2.5 251.1 L4.7 250.8 L5.6 251.3 L6.7 253.6 L8.9 256.1 L15.8 260.0 L0.0 260.0 L0.2 244.1Z M55.0 259.6 L53.6 255.4 L54.0 252.7 L55.0 250.5 L53.7 242.8 L49.2 244.5 L45.3 244.1 L43.7 240.3 L43.5 238.1 L44.4 237.1 L51.4 237.1 L52.2 235.8 L68.1 235.5 L76.1 236.4 L80.9 238.5 L85.2 237.1 L105.7 237.9 L110.3 239.8 L112.7 241.8 L119.8 252.2 L120.3 254.4 L120.4 257.4 L119.7 260.0 L55.0 259.6Z" fill="#DADDDB" stroke="#9AA3A0" stroke-width=".5"></path>
-              <path d="M26.9 230.4 L26.9 224.9 L31.0 231.3 L31.3 232.8 L30.1 233.5 L26.2 233.6 L26.9 230.4Z M26.9 223.3 L27.8 9.0 L30.2 11.3 L31.9 15.4 L35.7 21.3 L39.5 28.5 L44.6 33.6 L46.4 36.2 L49.0 43.1 L51.4 55.2 L51.1 56.9 L49.8 53.7 L48.2 46.5 L46.7 45.7 L44.1 46.6 L34.0 57.1 L32.0 61.7 L31.5 65.2 L32.3 68.9 L38.1 74.8 L47.3 77.0 L53.5 76.4 L58.1 79.4 L60.2 84.5 L59.8 88.0 L60.8 90.7 L61.9 97.3 L65.6 105.1 L76.8 117.7 L82.1 122.5 L82.4 124.0 L81.8 125.5 L84.6 125.0 L90.6 128.6 L91.2 129.7 L89.5 130.2 L88.9 131.9 L89.1 134.3 L89.8 135.8 L105.9 150.4 L115.2 157.3 L121.8 160.6 L125.7 163.2 L126.8 165.0 L128.9 166.3 L137.2 170.0 L141.0 173.8 L143.8 179.7 L149.6 185.4 L151.2 188.0 L153.3 189.1 L153.9 191.6 L160.1 193.5 L165.3 196.9 L185.5 207.0 L188.7 207.7 L191.4 209.7 L195.9 210.0 L200.0 211.2 L214.1 209.1 L218.7 209.5 L222.8 207.7 L231.8 209.1 L232.7 209.7 L232.2 211.1 L229.6 214.0 L227.8 219.4 L228.7 221.5 L226.2 224.1 L226.7 227.1 L223.0 230.2 L221.5 236.4 L219.9 237.7 L217.9 237.5 L217.4 234.4 L215.8 233.4 L213.8 233.4 L212.5 234.5 L212.9 236.4 L211.6 238.3 L206.9 237.8 L204.8 238.4 L203.7 241.2 L201.7 242.2 L200.7 241.9 L199.2 239.8 L199.4 237.9 L198.7 235.9 L195.7 235.6 L193.3 236.6 L189.4 235.0 L188.0 236.1 L184.2 235.2 L182.9 236.1 L185.1 239.0 L182.6 242.2 L175.3 244.6 L163.6 244.5 L160.4 245.5 L160.4 248.8 L155.7 250.2 L150.4 250.1 L143.4 247.1 L140.2 243.0 L135.0 239.3 L126.6 237.9 L121.6 235.5 L103.9 234.2 L91.6 232.5 L84.2 233.1 L68.7 231.2 L60.1 229.6 L57.4 227.4 L51.8 226.9 L46.9 224.2 L46.1 225.1 L46.2 228.3 L45.4 229.2 L34.1 230.2 L32.5 229.8 L26.9 223.3Z" fill="#EEF3EA" stroke="#7D8A84" stroke-width=".6"></path>
-              <path d="M26.2 233.6 L26.9 230.4 L26.9 224.9 M26.9 223.3 L27.8 9.0" fill="none" stroke="#37474F" stroke-width="1.1" stroke-dasharray="3 2"></path>
-              <text transform="translate(24,112) rotate(-90)" font-size="5.5" font-weight="700" fill="#37474F" stroke="#DADDDB" stroke-width="2" paint-order="stroke" letter-spacing=".5">INTERNATIONAL BORDER</text>
-              <text x="150" y="150" font-size="8" font-weight="800" fill="#6B7F72" letter-spacing="1.5" text-anchor="middle">ARGENTINA</text>
-              <path d="M20.3 77.2 L35.8 76.8 M20.3 77.2 L17.9 72.7 L16.9 69.4 L16.9 66.5 L19.1 60.3 L19.3 57.4 L19.3 55.8 L18.3 49.2 L17.4 44.2 L13.5 36.4 L11.3 25.7 L9.4 19.9 L8.6 18.6 L7.2 17.8 L3.8 17.0 L0.0 17.2 M0.0 79.8 L3.3 79.3 L9.6 77.2 L14.9 77.6 L20.3 77.2 M35.8 76.8 L39.2 77.2 L41.4 78.4 L45.7 83.8 L53.5 89.2 L57.9 95.4 L60.8 101.5 L67.1 111.9 L68.0 113.1 L70.7 115.2 M70.7 115.2 L73.1 116.8 L77.5 121.3 L78.9 123.0 L79.7 125.1 L80.9 126.3 M82.6 127.5 L84.5 128.4 L85.7 130.0 L86.9 135.4 L88.4 138.7 L92.0 142.4 L93.7 145.3 L96.2 146.1 L97.4 147.3 M97.4 147.3 L100.0 149.8 L101.2 152.3 L102.2 156.4 L103.7 160.5 L107.3 167.5 L107.8 169.6 M107.8 169.6 L108.0 170.4 L107.3 172.5 L103.7 176.2 L101.2 179.5 M101.2 179.5 L90.3 178.7 L83.8 179.1 L74.6 178.7 L72.6 178.3 L71.9 177.0 L72.4 175.0 L80.2 163.0 L81.6 159.7 L81.9 156.4 L81.4 151.5 L81.6 145.3 L80.4 141.1 L80.2 137.8 L80.4 135.0 L82.6 127.5 M153.4 192.3 L148.0 189.8 L143.4 184.0 L138.6 176.6 L134.5 172.9 L130.1 170.4 L123.1 170.0 L117.5 175.0 L115.8 175.0 L114.8 174.5 L112.4 171.7 L110.5 170.4 L107.8 169.6 M101.2 179.5 L101.7 181.6 L107.8 189.4 L108.8 192.7 L108.8 195.2 L108.3 198.5 L107.3 200.9 L105.6 203.0 L103.7 204.2 L99.8 206.3 L96.6 207.1 L89.6 207.5 L81.9 205.9 L79.9 206.3 L77.5 208.8 L72.9 217.9 L71.7 219.5 L70.5 220.3 M70.5 220.3 L65.9 220.3 L58.1 218.3 L55.7 218.7 L53.7 219.5 L51.3 223.6 L49.1 225.3 L46.2 225.7 M70.5 220.3 L72.9 221.2 L77.0 224.0 L79.7 224.0 L81.4 224.9 L82.8 226.5 L89.9 231.9 L95.4 232.3 L97.4 233.5 M46.2 225.7 L44.8 227.3 L42.8 228.6 L33.4 230.6 L28.5 233.9 M117.7 256.2 L117.2 254.6 L115.1 250.4 L113.1 247.6 L107.8 243.8 L102.5 241.4 L88.2 241.4 L86.5 240.5 L80.6 242.2 L72.2 239.7 L66.6 241.4 L60.8 239.3 L55.2 241.4 L48.2 241.0 L46.2 240.1" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
-              <path d="M20.3 77.2 L35.8 76.8 M20.3 77.2 L17.9 72.7 L16.9 69.4 L16.9 66.5 L19.1 60.3 L19.3 57.4 L19.3 55.8 L18.3 49.2 L17.4 44.2 L13.5 36.4 L11.3 25.7 L9.4 19.9 L8.6 18.6 L7.2 17.8 L3.8 17.0 L0.0 17.2 M0.0 79.8 L3.3 79.3 L9.6 77.2 L14.9 77.6 L20.3 77.2 M35.8 76.8 L39.2 77.2 L41.4 78.4 L45.7 83.8 L53.5 89.2 L57.9 95.4 L60.8 101.5 L67.1 111.9 L68.0 113.1 L70.7 115.2 M70.7 115.2 L73.1 116.8 L77.5 121.3 L78.9 123.0 L79.7 125.1 L80.9 126.3 M82.6 127.5 L84.5 128.4 L85.7 130.0 L86.9 135.4 L88.4 138.7 L92.0 142.4 L93.7 145.3 L96.2 146.1 L97.4 147.3 M97.4 147.3 L100.0 149.8 L101.2 152.3 L102.2 156.4 L103.7 160.5 L107.3 167.5 L107.8 169.6 M107.8 169.6 L108.0 170.4 L107.3 172.5 L103.7 176.2 L101.2 179.5 M101.2 179.5 L90.3 178.7 L83.8 179.1 L74.6 178.7 L72.6 178.3 L71.9 177.0 L72.4 175.0 L80.2 163.0 L81.6 159.7 L81.9 156.4 L81.4 151.5 L81.6 145.3 L80.4 141.1 L80.2 137.8 L80.4 135.0 L82.6 127.5 M153.4 192.3 L148.0 189.8 L143.4 184.0 L138.6 176.6 L134.5 172.9 L130.1 170.4 L123.1 170.0 L117.5 175.0 L115.8 175.0 L114.8 174.5 L112.4 171.7 L110.5 170.4 L107.8 169.6 M101.2 179.5 L101.7 181.6 L107.8 189.4 L108.8 192.7 L108.8 195.2 L108.3 198.5 L107.3 200.9 L105.6 203.0 L103.7 204.2 L99.8 206.3 L96.6 207.1 L89.6 207.5 L81.9 205.9 L79.9 206.3 L77.5 208.8 L72.9 217.9 L71.7 219.5 L70.5 220.3 M70.5 220.3 L65.9 220.3 L58.1 218.3 L55.7 218.7 L53.7 219.5 L51.3 223.6 L49.1 225.3 L46.2 225.7 M70.5 220.3 L72.9 221.2 L77.0 224.0 L79.7 224.0 L81.4 224.9 L82.8 226.5 L89.9 231.9 L95.4 232.3 L97.4 233.5 M46.2 225.7 L44.8 227.3 L42.8 228.6 L33.4 230.6 L28.5 233.9 M117.7 256.2 L117.2 254.6 L115.1 250.4 L113.1 247.6 L107.8 243.8 L102.5 241.4 L88.2 241.4 L86.5 240.5 L80.6 242.2 L72.2 239.7 L66.6 241.4 L60.8 239.3 L55.2 241.4 L48.2 241.0 L46.2 240.1" fill="none" stroke="#C0392B" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path>
-              <text x="200" y="40" font-size="8" fill="#5C7F92" font-style="italic" text-anchor="middle">Atlantic Ocean</text>
-              <text x="13" y="200" font-size="7" font-weight="800" fill="#7A817E" letter-spacing="1" text-anchor="middle">CHILE</text>
-              <text x="122" y="256" font-size="6.5" fill="#5C7F92" font-style="italic" text-anchor="middle">Beagle Channel</text>
-              <g id="omapLine"></g><g id="omapPlaces"></g><g id="omapMe"></g>
-              <g transform="translate(220,16)"><path d="M0 -10 L4 4 L0 1 L-4 4Z" fill="#263238"></path><text y="13" font-size="7" font-weight="700" text-anchor="middle" fill="#263238">N</text></g>
-            </svg>
-            <div class="omap-info" id="omapInfo"></div>
-            <p class="omap-note">Schematic map available offline: main roads are approximate. Use it to orient yourself; MAPS.ME (offline, with the map downloaded) or Google Maps (with data) give the exact route.</p>
-          </div>
-          <p class="sub">Sorted from nearest to farthest. Choose which app opens the route:</p>
-          <div class="navsel" id="navSel">
-            <label data-v="mm"><input type="radio" name="nav" value="mm"><b>MAPS.ME</b><span>Works offline</span></label>
-            <label data-v="gm"><input type="radio" name="nav" value="gm"><b>Google Maps</b><span>Needs data</span></label>
-          </div>
-          <div class="navtip" id="navTip"></div>
-          <div id="geoList"></div>
-          <div class="prep"><b>Get your phone ready before you go:</b>
-            <ol><li><b>Install MAPS.ME</b> – Free navigation app that works without internet.</li><li><b>Download the Tierra del Fuego map</b> – Open MAPS.ME, search for "Tierra del Fuego" and tap Download. With that map you can navigate by car or on foot with no signal.</li></ol><div class="stores"><a class="store" href="https://play.google.com/store/apps/details?id=com.mapswithme.maps.pro" target="_blank" rel="noopener">Android · Google Play</a> <a class="store" href="https://apps.apple.com/app/id510623322" target="_blank" rel="noopener">iPhone · App Store</a></div></div>
-          <div class="geo-warn">Google Maps needs mobile data unless you downloaded the area. MAPS.ME navigates with no signal if you downloaded the map beforehand. In remote areas, the walking option is only for short distances: in an emergency, call or use the radio and wait for help.</div>
-        </div>
       </div>
       <div class="geo-err" id="geoErr"></div>
+      <div class="mapsec">
+        <div class="safe"><b>If you are lost:</b> if you do not know the terrain, the safest thing is to <b>stay where you are</b>, keep warm and give your coordinates by phone or radio. The direction to a road or town is only a reference: in a straight line there may be rivers, peat bogs, dense forest or cliffs.</div>
+        <h3>Offline map</h3>
+        <div class="omap" id="omap">
+            <div id="lmap"><div class="lload">Loading map…</div></div>
+            <div class="omap-info" id="omapInfo" style="display:none"></div>
+            <div class="legend"><span><i style="background:#C62828;height:4px"></i>National / main road</span><span><i style="background:#EF6C00;height:3px"></i>Provincial / secondary road</span><span><i style="border-top:2px dashed #8D6E63;height:0"></i>Rural road / track</span><span><i style="border-top:2px dotted #2E7D32;height:0"></i>Trail</span><span><i style="background:#9CC9E0;height:8px;border:1px solid #6FA8C8"></i>River / lake</span><span><i class="dot" style="background:#6A1B9A"></i>Shelter / hut</span><span><i class="dot" style="background:#00838F"></i>Campsite</span><span><i class="dot" style="background:#5D4037"></i>Viewpoint</span><span><i class="tri"></i>Peak</span></div>
+            <p class="omap-note">Map stored on your phone: works with no signal. Pinch and drag to zoom and move. Data: OpenStreetMap. Some roads and trails may be missing or may have changed.</p>
+          </div>
+      </div>
+      <div class="geo-back" id="geoBack">
+        <h3>Get back to a town</h3>
+        <p class="sub">Sorted from nearest to farthest. Choose which app opens the route:</p>
+        <div class="navsel" id="navSel">
+          <label data-v="mm"><input type="radio" name="nav" value="mm"><b>MAPS.ME</b><span>Works offline</span></label>
+          <label data-v="gm"><input type="radio" name="nav" value="gm"><b>Google Maps</b><span>Needs data</span></label>
+          <label data-v="am" id="navApple" style="display:none"><input type="radio" name="nav" value="am"><b>Apple Maps</b><span>Offline if you downloaded the map</span></label>
+        </div>
+        <div class="navtip" id="navTip"></div>
+        <div id="geoList"></div>
+        <div class="prep"><b>Get your phone ready before you go:</b>
+          <ol><li><b>Install MAPS.ME</b> – Free navigation app that works without internet.</li><li><b>Download the Tierra del Fuego map</b> – Open MAPS.ME, search for "Tierra del Fuego" and tap Download. With that map you can navigate by car or on foot with no signal.</li></ol><div class="stores"><a class="store" href="https://play.google.com/store/apps/details?id=com.mapswithme.maps.pro" target="_blank" rel="noopener">Android · Google Play</a> <a class="store" href="https://apps.apple.com/app/id510623322" target="_blank" rel="noopener">iPhone · App Store</a></div></div>
+        <div class="geo-warn">Google Maps needs mobile data unless you downloaded the area. MAPS.ME navigates with no signal if you downloaded the map beforehand. In remote areas, the walking option is only for short distances: in an emergency, call or use the radio and wait for help.</div>
+      </div>
     </div></div></section>
 <section class="sos" id="emergencias">
   <div class="wrap">
@@ -514,42 +521,86 @@ a{color:inherit}
 </footer>
 <script>
 (function(){
-  var L={"btn": "See my coordinates", "searching": "Searching for GPS signal…", "update": "Update location", "retry": "Try again", "acc": "Approximate accuracy", "time": "Time", "mine": "My location", "precision": "Accuracy", "copied": "Copied!", "copy": "Copy", "e1": "This page could not access your phone's location. Turn on location (GPS) and allow it in your browser, or use Google Maps:", "e2": "Location could not be obtained. Make sure GPS / Location is on and, if possible, move to open sky.", "e3": "GPS took too long. Wait a few seconds under open sky and tap Try again.", "e0": "Location could not be obtained on this device.", "nosup": "This browser cannot provide your location.", "gmaps": "Open Google Maps", "gmaps_help": "In Google Maps tap the location button and then the blue dot: your coordinates will appear.", "you": "You", "you_out": "You (outside the map)", "road": "Road", "near": "Nearest", "ref": "Reference", "road_n": "Nearest road", "road_d": "Main road · approximate point", "km_line": "km in a straight line · towards", "veh": "Vehicle", "walk": "On foot", "map": "Map", "and_tip": "If your phone asks which app to use, choose <b>MAPS.ME</b> (you can tick \"Always\"). MAPS.ME opens the destination: tap <b>Route</b> and choose car or walking. If you do not have MAPS.ME:", "ios_tip": "If MAPS.ME did not open, make sure it is installed and up to date. If you do not have it:", "N": "N", "E": "E", "S": "S", "W": "W", "chile_city": "Chilean town", "pw": "Puerto Williams (Chile)", "places": ["City", "City", "Town", "Defensa Civil · National Route 3", "Settlement · Beagle Channel", "Gendarmería Nacional · Sección San Sebastián", "Río Bellavista Crossing · Provincial Route 8"]}, STORES="<div class=\"stores\"><a class=\"store\" href=\"https://play.google.com/store/apps/details?id=com.mapswithme.maps.pro\" target=\"_blank\" rel=\"noopener\">Android · Google Play</a> <a class=\"store\" href=\"https://apps.apple.com/app/id510623322\" target=\"_blank\" rel=\"noopener\">iPhone · App Store</a></div>", ROADS=[[[-53.318,-68.6242],[-53.318,-68.4911]],[[-53.318,-68.4911],[-53.3221,-68.4333],[-53.3345,-68.3962],[-53.3881,-68.322],[-53.4417,-68.19],[-53.5036,-68.1157],[-53.5655,-68.0662],[-53.6686,-67.959],[-53.6809,-67.9425],[-53.7016,-67.8971]],[[-53.7016,-67.8971],[-53.7181,-67.8559],[-53.7634,-67.7817],[-53.7799,-67.7569],[-53.8006,-67.7445],[-53.8129,-67.7239]],[[-53.8253,-67.695],[-53.8336,-67.662],[-53.8501,-67.6414],[-53.9037,-67.6208],[-53.9367,-67.5961],[-53.9738,-67.5342],[-54.0027,-67.5053],[-54.0109,-67.4641],[-54.0233,-67.4435]],[[-54.0233,-67.4435],[-54.048,-67.3981],[-54.0728,-67.3775],[-54.114,-67.361],[-54.1553,-67.3362],[-54.2254,-67.2744],[-54.246,-67.2661]],[[-54.246,-67.2661],[-54.2542,-67.262],[-54.2749,-67.2744],[-54.312,-67.3362],[-54.345,-67.3775]],[[-54.345,-67.3775],[-54.3367,-67.5631],[-54.3409,-67.6744],[-54.3367,-67.8312],[-54.3326,-67.8641],[-54.3202,-67.8765],[-54.2996,-67.8683],[-54.18,-67.7363],[-54.147,-67.7115],[-54.114,-67.7074],[-54.0645,-67.7157],[-54.0027,-67.7115],[-53.9614,-67.7322],[-53.9284,-67.7363],[-53.8995,-67.7322],[-53.8253,-67.695]],[[-54.4728,-66.4907],[-54.4481,-66.5815],[-54.3903,-66.6598],[-54.3161,-66.7423],[-54.279,-66.8124],[-54.2542,-66.8867],[-54.2501,-67.0063],[-54.2996,-67.1011],[-54.2996,-67.13],[-54.2955,-67.1465],[-54.2666,-67.1877],[-54.2542,-67.2207],[-54.246,-67.2661]],[[-54.345,-67.3775],[-54.3656,-67.3692],[-54.444,-67.2661],[-54.477,-67.2496],[-54.5017,-67.2496],[-54.5347,-67.2579],[-54.5595,-67.2744],[-54.5801,-67.3032],[-54.5924,-67.3362],[-54.6131,-67.4022],[-54.6213,-67.4558],[-54.6254,-67.5754],[-54.6089,-67.7074],[-54.6131,-67.7404],[-54.6378,-67.7817],[-54.7286,-67.86],[-54.745,-67.8806],[-54.7533,-67.9013]],[[-54.7533,-67.9013],[-54.7533,-67.9796],[-54.7327,-68.1116],[-54.7368,-68.1529],[-54.745,-68.1859],[-54.7863,-68.2271],[-54.7967,-68.2554]],[[-54.7533,-67.9013],[-54.7615,-67.86],[-54.7904,-67.7899],[-54.7904,-67.7445],[-54.7987,-67.7157],[-54.8152,-67.6909],[-54.8681,-67.5728]],[[-54.8121,-68.3215],[-54.8234,-68.3385],[-54.8358,-68.3715],[-54.8371,-68.3819]]];
-  var PLACES=[["Ushuaia", "City", -54.8019, -68.303, 1, 0], ["Río Grande", "City", -53.7877, -67.7097, 1, 0], ["Tolhuin", "Town", -54.5108, -67.1955, 1, 0], ["Lago Escondido", "Defensa Civil · National Route 3", -54.640775, -67.762458, 0, 0], ["Puerto Almanza", "Settlement · Beagle Channel", -54.8717, -67.5583, 0, 0], ["San Sebastián", "Gendarmería Nacional · Sección San Sebastián", -53.29977, -68.457453, 0, 0], ["Paso Radman", "Río Bellavista Crossing · Provincial Route 8", -54.1547, -68.6394, 0, 0]];
+  var L0={"btn": "See my coordinates", "searching": "Searching for GPS signal…", "update": "Update location", "retry": "Try again", "acc": "Approximate accuracy", "time": "Time", "mine": "My location", "precision": "Accuracy", "copied": "Copied!", "copy": "Copy", "e1": "This page could not access your phone's location. Turn on location (GPS) and allow it in your browser, or use Google Maps:", "e2": "Location could not be obtained. Make sure GPS / Location is on and, if possible, move to open sky.", "e3": "GPS took too long. Wait a few seconds under open sky and tap Try again.", "e0": "Location could not be obtained on this device.", "nosup": "This browser cannot provide your location.", "gmaps": "Open Google Maps", "gmaps_help": "In Google Maps tap the location button and then the blue dot: your coordinates will appear.", "you": "You", "you_out": "You (outside the map)", "road": "Road", "near": "Nearest", "ref": "Reference", "road_n": "Nearest road", "road_d": "Main road · approximate point", "km_line": "km in a straight line · towards", "veh": "Vehicle", "walk": "On foot", "map": "Map", "and_tip": "If your phone asks which app to use, choose <b>MAPS.ME</b> (you can tick \"Always\"). MAPS.ME opens the destination: tap <b>Route</b> and choose car or walking. If you do not have MAPS.ME:", "ios_tip": "If MAPS.ME did not open, make sure it is installed and up to date. If you do not have it:", "lg": ["National / main road", "Provincial / secondary road", "Rural road / track", "Trail", "River / lake", "Shelter / hut", "Campsite", "Viewpoint", "Peak"], "trail_n": "Nearest track or trail", "trail_d": "Track, rural road or trail", "map_h": "Offline map", "loading": "Loading map…", "ele": "Elevation", "mm_tip": "MAPS.ME opens with the destination marked: tap <b>Route</b> and choose car or walking.", "am_d": "Offline if you downloaded the map", "N": "N", "E": "E", "S": "S", "W": "W", "chile_city": "Chilean town", "pw": "Puerto Williams (Chile)", "places": ["City", "City", "Town", "Defensa Civil · National Route 3", "Settlement · Beagle Channel", "Gendarmería Nacional · Sección San Sebastián", "Río Bellavista Crossing · Provincial Route 8"]}, STORES="<div class=\"stores\"><a class=\"store\" href=\"https://play.google.com/store/apps/details?id=com.mapswithme.maps.pro\" target=\"_blank\" rel=\"noopener\">Android · Google Play</a> <a class=\"store\" href=\"https://apps.apple.com/app/id510623322\" target=\"_blank\" rel=\"noopener\">iPhone · App Store</a></div>", PLACES=[["Ushuaia", "City", -54.8019, -68.303, 1, 0], ["Río Grande", "City", -53.7877, -67.7097, 1, 0], ["Tolhuin", "Town", -54.5108, -67.1955, 1, 0], ["Lago Escondido", "Defensa Civil · National Route 3", -54.640775, -67.762458, 0, 0], ["Puerto Almanza", "Settlement · Beagle Channel", -54.86947, -67.56244, 0, 0], ["San Sebastián", "Gendarmería Nacional · Sección San Sebastián", -53.29977, -68.457453, 0, 0], ["Paso Radman", "Río Bellavista Crossing · Provincial Route 8", -54.1547, -68.6394, 0, 0]], LANG=document.documentElement.lang;
   var btn=document.getElementById('geoBtn'),txt=document.getElementById('geoBtnTxt'),out=document.getElementById('geoOut'),err=document.getElementById('geoErr');
-  var msg='',ME=null,SEL=null;
+  var msg='',ME=null,SEL=null,D=null,map=null,meM=null,accC=null,line=null,dstM=null,watch=null,ARR=[];
   var CAR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-5l-2-5H7l-2 5z"></path><path d="M3 12h18"></path><circle cx="7.5" cy="17.5" r="1.5"></circle><circle cx="16.5" cy="17.5" r="1.5"></circle></svg>';
   var WALK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="2"></circle><path d="M10 21l2-6 3 3v3"></path><path d="M8 11l3-3 3 2 3 1"></path><path d="M11 8l1 7"></path></svg>';
-  var DIRS=[L.N,L.N+L.N+L.E,L.N+L.E,L.E+L.N+L.E,L.E,L.E+L.S+L.E,L.S+L.E,L.S+L.S+L.E,L.S,L.S+L.S+L.W,L.S+L.W,L.W+L.S+L.W,L.W,L.W+L.N+L.W,L.N+L.W,L.N+L.N+L.W];
+  var L=L0, DIRS=[L.N,L.N+L.N+L.E,L.N+L.E,L.E+L.N+L.E,L.E,L.E+L.S+L.E,L.S+L.E,L.S+L.S+L.E,L.S,L.S+L.S+L.W,L.S+L.W,L.W+L.S+L.W,L.W,L.W+L.N+L.W,L.N+L.W,L.N+L.N+L.W];
   function dms(v,pos,neg){var h=v<0?neg:pos;v=Math.abs(v);var d=Math.floor(v),mf=(v-d)*60,m=Math.floor(mf),s=((mf-m)*60).toFixed(1);if(s==='60.0'){s='0.0';m++;}if(m===60){m=0;d++;}return d+'° '+m+"' "+s+'" '+h;}
   function hav(a,b,c,d){var R=6371,r=Math.PI/180,x=(c-a)*r,y=(d-b)*r,h=Math.sin(x/2)*Math.sin(x/2)+Math.cos(a*r)*Math.cos(c*r)*Math.sin(y/2)*Math.sin(y/2);return 2*R*Math.asin(Math.sqrt(h));}
   function brg(a,b,c,d){var r=Math.PI/180,y=Math.sin((d-b)*r)*Math.cos(c*r),x=Math.cos(a*r)*Math.sin(c*r)-Math.sin(a*r)*Math.cos(c*r)*Math.cos((d-b)*r);return (Math.atan2(y,x)/r+360)%360;}
-  var MAPC=Math.cos(54*Math.PI/180),MW=235.1,MH=260.0;
-  function mp(la,lo){return [(lo+69.1)*MAPC*100,(-52.55-la)*100];}
-  var NS='http://www.w3.org/2000/svg';
-  function el(n,a,t){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(t)e.textContent=t;return e;}
-  function drawMap(){
-    if(!ME)return;
-    var g=document.getElementById('omapPlaces'),ln=document.getElementById('omapLine'),me=document.getElementById('omapMe');
-    g.innerHTML='';ln.innerHTML='';me.innerHTML='';
-    PLACES.concat([[L.pw,L.chile_city,-54.9333,-67.6167,0,1]]).forEach(function(p){var q=mp(p[2],p[3]),s=SEL&&SEL.n===p[0],city=p[4]===1||p[5]===1,cl=p[5]===1;
-      var col=s?'#1B5E20':(cl?'#6D6D6D':'#263238');
-      if(city){var r=s?4:3.2;g.appendChild(el('rect',{x:q[0]-r,y:q[1]-r,width:2*r,height:2*r,fill:col,stroke:'#fff','stroke-width':'.9'}));}
-      else g.appendChild(el('circle',{cx:q[0],cy:q[1],r:s?3.2:2.2,fill:col,stroke:'#fff','stroke-width':'.8'}));
-      g.appendChild(el('text',{x:q[0]+5,y:q[1]+(cl?8:2.4),'font-size':city?(s?'8.5':'7.8'):(s?'7':'6.2'),'font-weight':city?'800':'700',fill:col,stroke:'#fff','stroke-width':'2','paint-order':'stroke'},city&&!cl?p[0].toUpperCase():p[0]));});
-    if(SEL&&SEL.road){var rq=mp(SEL.la,SEL.lo);g.appendChild(el('path',{d:'M'+rq[0]+' '+(rq[1]-4.5)+' l4.5 4.5 l-4.5 4.5 l-4.5 -4.5z',fill:'#E65100',stroke:'#fff','stroke-width':'.9'}));
-      g.appendChild(el('text',{x:rq[0]+6,y:rq[1]+2.4,'font-size':'7','font-weight':'800',fill:'#E65100',stroke:'#fff','stroke-width':'2','paint-order':'stroke'},L.road));}
-    var m=mp(ME.la,ME.lo),outm=m[0]<0||m[1]<0||m[0]>MW||m[1]>MH;
-    m=[Math.max(4,Math.min(MW-4,m[0])),Math.max(4,Math.min(MH-4,m[1]))];
-    if(SEL){var q=mp(SEL.la,SEL.lo);ln.appendChild(el('line',{x1:m[0],y1:m[1],x2:q[0],y2:q[1],stroke:'#1B5E20','stroke-width':'1.6','stroke-dasharray':'4 3','stroke-linecap':'round'}));}
-    me.appendChild(el('circle',{cx:m[0],cy:m[1],r:'7',fill:'#1E88E5','fill-opacity':'.25'}));
-    me.appendChild(el('circle',{cx:m[0],cy:m[1],r:'3.4',fill:'#1E88E5',stroke:'#fff','stroke-width':'1.2'}));
-    me.appendChild(el('text',{x:m[0],y:m[1]-6,'font-size':'7','font-weight':'800','text-anchor':'middle',fill:'#0D47A1',stroke:'#fff','stroke-width':'2','paint-order':'stroke'},outm?L.you_out:L.you));
-    if(SEL){var b=brg(ME.la,ME.lo,SEL.la,SEL.lo),r=DIRS[Math.round(b/22.5)%16];
-      document.getElementById('omapInfo').innerHTML='<b>'+SEL.n+'</b><span>≈ '+Math.round(SEL.km)+' '+L.km_line+' '+r+' ('+Math.round(b)+'°)</span>';}
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+
+  // ---------- mapa sin señal (Leaflet + OpenStreetMap guardado)
+  function ll(a){return a.map(function(p){return [p[1],p[0]];});}
+  var READY=new Promise(function(res){
+    if(!window.L||!L.map){res();return;}
+    var Lf=window.L;
+    map=Lf.map('lmap',{preferCanvas:true,minZoom:7,maxZoom:17,zoomSnap:0.5,maxBounds:[[-56,-70.5],[-51.8,-63.8]],maxBoundsViscosity:0.8});
+    map.fitBounds([[-55.1,-68.7],[-52.6,-65.3]]);
+    map.attributionControl.setPrefix(false);map.attributionControl.addAttribution('© OpenStreetMap (ODbL) · Natural Earth');
+    fetch('tdf.json').then(function(r){return r.json();}).then(function(d){D=d;draw(Lf);res();}).catch(function(){res();});
+  });
+  function draw(Lf){
+    var ld=document.querySelector('.lload');if(ld)ld.remove();
+    var R=Lf.canvas({padding:0.4}),ni={renderer:R,interactive:false};
+    function poly(arr,o){arr.forEach(function(pg){Lf.polygon(pg.map(ll),Object.assign({},ni,o)).addTo(map);});}
+    poly(D.land.cl,{color:'#9AA3A0',weight:0.6,fillColor:'#DADDDB',fillOpacity:1});
+    poly(D.land.ar,{color:'#7D8A84',weight:0.7,fillColor:'#EEF3EA',fillOpacity:1});
+    D.lk.forEach(function(l){Lf.polygon(l.r.map(ll),Object.assign({},ni,{color:'#6FA8C8',weight:0.6,fillColor:'#9CC9E0',fillOpacity:1})).addTo(map);});
+    var gRv=Lf.layerGroup(D.rv.map(function(l){return Lf.polyline(ll(l),Object.assign({},ni,{color:'#6FA8C8',weight:1}));})).addTo(map);
+    D.bd.forEach(function(l){Lf.polyline(ll(l),Object.assign({},ni,{color:'#37474F',weight:1.6,dashArray:'6 4'})).addTo(map);});
+    var g3=Lf.layerGroup(D.r3.map(function(l){return Lf.polyline(ll(l),Object.assign({},ni,{color:'#8D6E63',weight:1.4,dashArray:'5 3'}));}));
+    var gp=Lf.layerGroup(D.p.map(function(l){return Lf.polyline(ll(l),Object.assign({},ni,{color:'#2E7D32',weight:1.6,dashArray:'2 3'}));}));
+    D.r2.forEach(function(l){Lf.polyline(ll(l),Object.assign({},ni,{color:'#fff',weight:4})).addTo(map);});
+    D.r2.forEach(function(l){Lf.polyline(ll(l),Object.assign({},ni,{color:'#EF6C00',weight:2.2})).addTo(map);});
+    D.r1.forEach(function(l){Lf.polyline(ll(l),Object.assign({},ni,{color:'#fff',weight:5.5})).addTo(map);});
+    D.r1.forEach(function(l){Lf.polyline(ll(l),Object.assign({},ni,{color:'#C62828',weight:3.2})).addTo(map);});
+    var ours=PLACES.map(function(p){return p[0];});
+    var gBig=Lf.layerGroup(),gSmall=Lf.layerGroup(),gPoi=Lf.layerGroup();
+    PLACES.forEach(function(p){var city=p[4]===1;
+      Lf.circleMarker([p[2],p[3]],{renderer:R,radius:city?6:4.5,color:'#fff',weight:1.5,fillColor:'#263238',fillOpacity:1,interactive:false}).addTo(gBig);
+      Lf.marker([p[2],p[3]],{interactive:false,icon:Lf.divIcon({className:'lbl'+(city?' city':''),html:'<span>'+esc(p[0])+'</span>',iconSize:[0,0]})}).addTo(gBig);});
+    var COL={hu:'#6A1B9A',cp:'#00838F',vp:'#5D4037'};
+    D.pt.forEach(function(q){var t=q[0],la=q[1],lo=q[2],n=q[3]||'',e=q[4];
+      if(t==='pl'){if(!n||ours.indexOf(n)>=0||/Bellavista/.test(n))return;
+        var big=(q[5]==='town'||q[5]==='city'||q[5]==='village');
+        Lf.circleMarker([la,lo],{renderer:R,radius:big?5:3,color:'#fff',weight:1,fillColor:'#455A64',fillOpacity:1,interactive:false}).addTo(big?gBig:gSmall);
+        Lf.marker([la,lo],{interactive:false,icon:Lf.divIcon({className:'lbl'+(big?'':' small'),html:'<span>'+esc(n)+'</span>',iconSize:[0,0]})}).addTo(big?gBig:gSmall);return;}
+      var pop=(n?'<b>'+esc(n)+'</b><br>':'')+L.lg[{hu:5,cp:6,vp:7,pk:8}[t]]+(e?' · '+L.ele+': '+esc(e)+' m':'');
+      if(t==='pk'){Lf.marker([la,lo],{icon:Lf.divIcon({className:'pk',iconSize:[12,10]})}).bindPopup(pop).addTo(gPoi);}
+      else{Lf.circleMarker([la,lo],{renderer:R,radius:5,color:'#fff',weight:1.5,fillColor:COL[t],fillOpacity:1}).bindPopup(pop).addTo(gPoi);}});
+    gBig.addTo(map);
+    function zoomCheck(){var z=map.getZoom();
+      [[g3,9.5],[gp,9.5],[gSmall,10],[gPoi,9.5]].forEach(function(x){if(z>=x[1]){if(!map.hasLayer(x[0]))x[0].addTo(map);}else if(map.hasLayer(x[0]))map.removeLayer(x[0]);});}
+    map.on('zoomend',zoomCheck);zoomCheck();
+    if(ME)paintMe();
   }
-  function selectPlace(p){SEL=p;drawMap();[].forEach.call(document.querySelectorAll('.dest'),function(d){d.classList.toggle('sel',d.getAttribute('data-n')===p.n);});}
-  var NAV='mm';try{NAV=localStorage.getItem('navApp3')||'mm';}catch(e){}if(NAV!=='gm')NAV='mm';
+  function paintMe(){
+    if(!map||!ME)return;var Lf=window.L;
+    if(!meM){accC=Lf.circle([ME.la,ME.lo],{radius:ME.acc||30,color:'#1E88E5',weight:1,fillColor:'#1E88E5',fillOpacity:0.12,interactive:false}).addTo(map);
+      meM=Lf.circleMarker([ME.la,ME.lo],{radius:8,color:'#fff',weight:3,fillColor:'#1E88E5',fillOpacity:1}).bindTooltip(L.you,{permanent:true,direction:'top',offset:[0,-8]}).addTo(map);}
+    else{meM.setLatLng([ME.la,ME.lo]);accC.setLatLng([ME.la,ME.lo]).setRadius(ME.acc||30);}
+    paintSel(false);
+  }
+  function paintSel(fit){
+    var info=document.getElementById('omapInfo');
+    if(!SEL||!ME){return;}
+    var km=hav(ME.la,ME.lo,SEL.la,SEL.lo),b=brg(ME.la,ME.lo,SEL.la,SEL.lo),r=DIRS[Math.round(b/22.5)%16];
+    info.style.display='';info.innerHTML='<b>'+esc(SEL.n)+'</b><span>≈ '+(km<1?(Math.max(10,Math.round(km*100)*10))+' m':(km<10?km.toFixed(1):Math.round(km))+' km')+' '+L.km_line.replace(/^km /,'')+' '+r+' ('+Math.round(b)+'°)</span>';
+    if(!map)return;var Lf=window.L;
+    if(line)map.removeLayer(line);if(dstM)map.removeLayer(dstM);
+    line=Lf.polyline([[ME.la,ME.lo],[SEL.la,SEL.lo]],{color:'#1B5E20',weight:3,dashArray:'8 6',interactive:false}).addTo(map);
+    dstM=Lf.circleMarker([SEL.la,SEL.lo],{radius:9,color:'#fff',weight:3,fillColor:SEL.ref?'#E65100':'#1B5E20',fillOpacity:1}).bindTooltip(esc(SEL.n),{permanent:true,direction:'right',offset:[10,0]}).addTo(map);
+    if(fit)map.fitBounds(Lf.latLngBounds([[ME.la,ME.lo],[SEL.la,SEL.lo]]).pad(0.25),{maxZoom:14});
+  }
+  function selectPlace(p,fit){SEL=p;paintSel(fit!==false);[].forEach.call(document.querySelectorAll('.dest'),function(d){d.classList.toggle('sel',d.getAttribute('data-n')===p.n);});}
+
+  // ---------- elección de app de navegación
+  var IOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  if(IOS){document.getElementById('navApple').style.display='';document.getElementById('navSel').style.gridTemplateColumns='repeat(3,minmax(0,1fr))';}
+  var NAV='mm';try{NAV=localStorage.getItem('navApp3')||'mm';}catch(e){}if(NAV==='am'&&!IOS)NAV='mm';if(NAV!=='gm'&&NAV!=='am')NAV='mm';
   function setNav(v){NAV=v;try{localStorage.setItem('navApp3',v);}catch(e){}
     [].forEach.call(document.querySelectorAll('#navSel label'),function(l){var on=l.getAttribute('data-v')===v;l.classList.toggle('on',on);l.querySelector('input').checked=on;});
     document.getElementById('navTip').className='navtip';}
@@ -558,54 +609,72 @@ a{color:inherit}
   var ANDROID=/android/i.test(navigator.userAgent);
   function openNav(e){e.preventDefault();var a=e.currentTarget,tp=document.getElementById('navTip');
     if(NAV==='gm'){window.open(a.getAttribute('data-gm'),'_blank','noopener');return;}
+    if(NAV==='am'){window.location.href=a.getAttribute('data-am');return;}
     if(ANDROID){window.location.href=a.getAttribute('data-geo');tp.innerHTML=L.and_tip+STORES;tp.className='navtip show';return;}
+    tp.innerHTML=L.mm_tip;tp.className='navtip show';
     var left=false,h=function(){if(document.hidden)left=true;};document.addEventListener('visibilitychange',h);
     window.location.href=a.getAttribute('data-mm');
     setTimeout(function(){document.removeEventListener('visibilitychange',h);if(!left&&!document.hidden){tp.innerHTML=L.ios_tip+STORES;tp.className='navtip show';}},2500);}
-  function nearestRoad(la,lo){var c=Math.cos(la*Math.PI/180),best=null;
-    ROADS.forEach(function(R){for(var i=0;i<R.length-1;i++){var ax=R[i][1]*c,ay=R[i][0],bx=R[i+1][1]*c,by=R[i+1][0],px=lo*c,py=la;
+
+  // ---------- puntos de referencia más cercanos (datos OpenStreetMap)
+  function nearestIn(groups,la,lo){var c=Math.cos(la*Math.PI/180),best=null,px=lo*c,py=la;
+    groups.forEach(function(G){G.forEach(function(R){for(var i=0;i<R.length-1;i++){var ax=R[i][0]*c,ay=R[i][1],bx=R[i+1][0]*c,by=R[i+1][1];
       var dx=bx-ax,dy=by-ay,t=((px-ax)*dx+(py-ay)*dy)/((dx*dx+dy*dy)||1e-12);t=Math.max(0,Math.min(1,t));
-      var qx=ax+t*dx,qy=ay+t*dy,d=(qx-px)*(qx-px)+(qy-py)*(qy-py);if(!best||d<best.d)best={d:d,la:qy,lo:qx/c};}});return best;}
+      var qx=ax+t*dx,qy=ay+t*dy,d=(qx-px)*(qx-px)+(qy-py)*(qy-py);if(!best||d<best.d)best={d:d,la:qy,lo:qx/c};}});});return best;}
   function renderBack(la,lo){
     var list=document.getElementById('geoList');list.innerHTML='';
     var arr=PLACES.map(function(p){return {n:p[0],d:p[1],la:p[2],lo:p[3],km:hav(la,lo,p[2],p[3])};}).sort(function(a,b){return a.km-b.km;});
-    var nr=nearestRoad(la,lo);if(nr){arr.unshift({n:L.road_n,d:L.road_d,la:+nr.la.toFixed(5),lo:+nr.lo.toFixed(5),km:hav(la,lo,nr.la,nr.lo),road:true});}
+    var refs=[];
+    if(D){var r=nearestIn([D.r1,D.r2],la,lo);if(r)refs.push({n:L.road_n,d:L.road_d,la:+r.la.toFixed(5),lo:+r.lo.toFixed(5),km:hav(la,lo,r.la,r.lo),ref:1});
+      var t=nearestIn([D.r3,D.p],la,lo);if(t){var kt=hav(la,lo,t.la,t.lo);if(!refs.length||kt<refs[0].km-0.05)refs.push({n:L.trail_n,d:L.trail_d,la:+t.la.toFixed(5),lo:+t.lo.toFixed(5),km:kt,ref:1});}}
+    refs.sort(function(a,b){return a.km-b.km;});
+    arr=refs.concat(arr);ARR=arr;var firstPlace=refs.length;
     arr.forEach(function(p,i){
       var o=la.toFixed(6)+','+lo.toFixed(6),dst=p.la+','+p.lo;
       var gm='https://www.google.com/maps/dir/?api=1&origin='+o+'&destination='+dst+'&travelmode=';
       var geo='geo:'+dst+'?q='+dst+'('+encodeURIComponent(p.n)+')';
-      var mm='mapsme://route?sll='+o+'&saddr='+encodeURIComponent(L.mine)+'&dll='+dst+'&daddr='+encodeURIComponent(p.n)+'&type=';
-      var km=p.km<1?'< 1 km':(p.km<10?p.km.toFixed(1):Math.round(p.km))+' km';
+      var mm='mapsme://map?v=1&ll='+dst+'&n='+encodeURIComponent(p.n);
+      var am='https://maps.apple.com/?saddr='+o+'&daddr='+dst+'&dirflg=';
+      var km=p.km<1?(Math.max(10,Math.round(p.km*100)*10))+' m':(p.km<10?p.km.toFixed(1):Math.round(p.km))+' km';
       var row=document.createElement('div');row.className='dest';row.setAttribute('data-n',p.n);
-      var badge=p.road?'<span class="near" style="background:#E65100">'+L.ref+'</span>':(((i===1&&arr[0].road)||(i===0&&!arr[0].road))?'<span class="near">'+L.near+'</span>':'');
-      row.innerHTML='<div class="n">'+p.n+badge+'<small>'+p.d+'</small></div><div class="km">≈ '+km+'</div>'+
-        '<div class="bt"><a class="car" href="#" data-gm="'+gm+'driving" data-mm="'+mm+'vehicle" data-geo="'+geo+'">'+CAR+L.veh+'</a><a class="walk" href="#" data-gm="'+gm+'walking" data-mm="'+mm+'pedestrian" data-geo="'+geo+'">'+WALK+L.walk+'</a><button type="button" class="mapb">'+L.map+'</button></div>';
+      var badge=p.ref?'<span class="near" style="background:#E65100">'+L.ref+'</span>':(i===firstPlace?'<span class="near">'+L.near+'</span>':'');
+      row.innerHTML='<div class="n">'+esc(p.n)+badge+'<small>'+esc(p.d)+'</small></div><div class="km">≈ '+km+'</div>'+
+        '<div class="bt"><a class="car" href="#" data-gm="'+gm+'driving" data-mm="'+mm+'" data-am="'+am+'d" data-geo="'+geo+'">'+CAR+L.veh+'</a><a class="walk" href="#" data-gm="'+gm+'walking" data-mm="'+mm+'" data-am="'+am+'w" data-geo="'+geo+'">'+WALK+L.walk+'</a><button type="button" class="mapb">'+L.map+'</button></div>';
       [].forEach.call(row.querySelectorAll('a[data-gm]'),function(a){a.addEventListener('click',openNav);});
-      row.querySelector('.mapb').addEventListener('click',function(){selectPlace(p);document.getElementById('omap').scrollIntoView({behavior:'smooth',block:'start'});});
+      row.querySelector('.mapb').addEventListener('click',function(){selectPlace(p,true);document.getElementById('omap').scrollIntoView({behavior:'smooth',block:'start'});});
       list.appendChild(row);});
-    ME={la:la,lo:lo};selectPlace(arr[0].road&&arr[1]?arr[1]:arr[0]);
+    selectPlace(arr[firstPlace]||arr[0],true);
     document.getElementById('geoBack').className='geo-back show';
   }
+
+  // ---------- GPS
   function showErr(t,maps){err.textContent=t;if(maps){var a=document.createElement('a');a.href='https://www.google.com/maps';a.target='_blank';a.rel='noopener';a.textContent=L.gmaps;a.style.cssText='display:block;margin-top:10px;text-align:center;background:#2E7D32;color:#fff;font:800 18px/1 "Barlow Condensed",Arial,sans-serif;text-transform:uppercase;text-decoration:none;padding:14px;border-radius:10px';var h=document.createElement('div');h.style.cssText='margin-top:8px;font-size:14px';h.textContent=L.gmaps_help;err.appendChild(a);err.appendChild(h);}
     err.className='geo-err show';txt.textContent=L.retry;btn.disabled=false;}
-  function ok(p){
+  function showCoords(p){
     var la=p.coords.latitude,lo=p.coords.longitude,acc=Math.round(p.coords.accuracy);
     var dec=la.toFixed(6)+', '+lo.toFixed(6),d=dms(la,L.N,L.S)+'  '+dms(lo,L.E,L.W);
-    var hora=new Date(p.timestamp).toLocaleTimeString(document.documentElement.lang,{hour:'2-digit',minute:'2-digit',hour12:false});
+    var hora=new Date(p.timestamp).toLocaleTimeString(LANG,{hour:'2-digit',minute:'2-digit',hour12:false});
     document.getElementById('geoDec').textContent=dec;document.getElementById('geoDms').textContent=d;
     document.getElementById('geoAcc').textContent=L.acc+': ± '+acc+' m · '+L.time+': '+hora;
-    var map='https://www.google.com/maps?q='+la.toFixed(6)+','+lo.toFixed(6);
-    msg=L.mine+': '+dec+' ('+d+'). '+L.precision+' ± '+acc+' m. '+map;
-    document.getElementById('geoMap').href=map;
+    var mapu='https://www.google.com/maps?q='+la.toFixed(6)+','+lo.toFixed(6);
+    msg=L.mine+': '+dec+' ('+d+'). '+L.precision+' ± '+acc+' m. '+mapu;
+    document.getElementById('geoMap').href=mapu;
     document.getElementById('geoWa').href='https://wa.me/?text='+encodeURIComponent(msg);
     document.getElementById('geoSms').href='sms:?&body='+encodeURIComponent(msg);
-    renderBack(la,lo);
-    out.className='geo-out show';err.className='geo-err';txt.textContent=L.update;btn.disabled=false;}
+    ME={la:la,lo:lo,acc:acc};return [la,lo];}
+  function ok(p){
+    var c=showCoords(p);
+    out.className='geo-out show';err.className='geo-err';txt.textContent=L.update;btn.disabled=false;
+    READY.then(function(){renderBack(c[0],c[1]);paintMe();});
+    if(watch===null&&navigator.geolocation.watchPosition){
+      watch=navigator.geolocation.watchPosition(function(q){showCoords(q);paintMe();},function(){},{enableHighAccuracy:true,maximumAge:5000,timeout:30000});}
+  }
   function fail(e){var c=e&&e.code;if(c===1)showErr(L.e1,true);else if(c===2)showErr(L.e2,true);else if(c===3)showErr(L.e3,false);else showErr(L.e0,true);}
   btn.addEventListener('click',function(){
     if(!('geolocation' in navigator)){showErr(L.nosup,true);return;}
     btn.disabled=true;txt.textContent=L.searching;err.className='geo-err';
     try{navigator.geolocation.getCurrentPosition(ok,fail,{enableHighAccuracy:true,timeout:25000,maximumAge:0});}catch(e){fail();}});
+  document.addEventListener('visibilitychange',function(){if(document.hidden&&watch!==null){navigator.geolocation.clearWatch(watch);watch=null;}});
   document.getElementById('geoCopy').addEventListener('click',function(){var b=this;function done(){b.textContent=L.copied;setTimeout(function(){b.textContent=L.copy},1800);}
     function fb(){var t=document.createElement('textarea');t.value=msg;document.body.appendChild(t);t.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(t);}
     try{navigator.clipboard.writeText(msg).then(done,fb);}catch(e){fb();}});
