@@ -1,6 +1,5 @@
 LICENCIAS Y FUENTES DE DATOS – App "Viajá Seguro TDF"
 Gendarmería Nacional – Escuadrón 44 "Ushuaia"
-Desarrollado por Lic. F.E.A 473
 ==========================================================
 
 1) Datos del mapa (línea de costa, caminos, senderos, ríos, lagos, refugios, campings, miradores, cerros y localidades)
